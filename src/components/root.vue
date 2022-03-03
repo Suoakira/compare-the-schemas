@@ -1,22 +1,57 @@
 <template>
   <div>
-    <h1>Compare the schemas</h1>
-    <p>Making rich text comparison simples!</p>
+    <Meganav />
+		<Form @form-submit="fetchSiteData" />
+	<div class="sch-cntnr">
+		<SchemaContainer :rootSiteSchema="rootSiteSchema"/>
+		<SchemaContainer :rootSiteSchema="comparisonSiteSchema"/>
+	</div>
   </div>
 </template>
 
 <script>
+import Meganav from './Meganav' 
+import Form from './Form' 
+import SchemaContainer from './SchemaContainer'
+import ctmData  from "../assets/data-ctm"
+import msmData  from "../assets/data-msm"
+import goData  from "../assets/data-go"
+
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+	name: 'rppt',
+    data() {
+        return {
+            rootSiteSchema: null,
+            comparisonSiteSchema: null,
+        };
+    },
+	components: {
+		Meganav,
+		Form,
+		SchemaContainer
+	},
+	methods: {
+		// mock scrape
+		fetchSiteData (evt){
+			if ( evt.rootSiteInput === "https://www.comparethemarket.com/car-insurance/") {
+				this.rootSiteSchema = ctmData
+			}
+
+			if ( evt.comparisonSiteOne === "https://www.moneysupermarket.com/car-insurance/") {
+				this.comparisonSiteSchema = msmData
+			}
+
+			if ( evt.comparisonSiteOne === "https://www.gocompare.com/car-insurance/") {
+				this.comparisonSiteSchema = goData
+			}
+		},
+	}
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .header {
-
-  }
+<style lang="scss" scoped>
+	.sch-cntnr {
+		display: flex;
+		justify-content: center;
+	}	
 </style>
