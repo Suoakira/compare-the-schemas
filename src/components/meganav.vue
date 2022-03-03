@@ -38,7 +38,11 @@ export default {
     background-color: #004183;
     color: white;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+
+    &__nav ul {
+        padding-right: 20px;
+    }
 
     &__heading {
         display: flex;

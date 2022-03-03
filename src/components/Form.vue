@@ -1,11 +1,16 @@
 <template>
+    <div>
     <div class="mb-3 cts__form">
-        <label for="exampleFormControlInput1" class="form-label">Page url of which you wish to compare</label>
-        <input type="text" class="form-control" v-model="rootSiteInput" >
-
-        <label class="form-label cts__form-2">Page's you wish to compare to</label>
-        <input type="text" class="form-control cts__form-input" v-model="comparisonSiteOne">
-        <button @click="formSubmit"> Submit </button>
+        <div class="cts__form-i">
+            <label for="exampleFormControlInput1" class="form-label">Page url of which you wish to compare</label>
+            <input type="text" class="form-control" v-model="rootSiteInput" >
+        </div>
+        <div class="cts__form-i"> 
+            <label class="form-label cts__form-2">Page's you wish to compare to</label>
+            <input type="text" class="form-control cts__form-input" v-model="comparisonSiteOne">
+        </div>
+    </div>
+        <button class="btn btn--dsc" @click="formSubmit"> Compare </button>
     </div>
 </template>
 
@@ -39,6 +44,8 @@ export default {
     .cts {
         &__form {
             padding: 20px 0px;
+            margin: 0 auto;
+            text-align: center;
 
             &-2 {
                 padding-top: 20px;
@@ -47,7 +54,19 @@ export default {
             &-input {
                 margin: 5px 0px;
             }
+
+            &-i {
+                display: inline-block;
+                width: 35vw;
+            }
         }
+    }
+
+    button {
+        margin-bottom: 40px;
+        left: 50%;
+        position: relative;
+        transform: translateX(-50%);
     }
 
 </style>

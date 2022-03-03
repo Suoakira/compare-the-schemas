@@ -1,21 +1,21 @@
 <template>
     <div class="accordion" id="accordionExample" v-if="rootSiteSchema != null">
         <div v-for="schema in rootSiteSchema" :key="schema.type">
-            <FaQ  :schema="schema"  />
+            <Schema  :schema="schema"  />
         </div>
     </div>
 </template>
 
 <script>
-import FaQ from './FaQ' 
+import Schema from './Schema' 
 
 export default {
-	name: 'FAQ',
+	name: 'SchemaContainer',
     props: {
         rootSiteSchema: Array,
     },
     components: {
-        FaQ
+        Schema
     }
 }
 </script>

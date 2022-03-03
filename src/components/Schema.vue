@@ -7,7 +7,8 @@
         </h2>
         <div :id="schema.type" class="accordion-collapse collapse" aria-labelledby="headingOne">
             <div class="accordion-body">
-                {{ prettyPrintObj(schema) }}
+                <pre><code>{{ prettyPrintObj(schema) }}</code>
+                </pre>
             </div>
         </div>
     </div>
@@ -29,5 +30,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    .accordion-button,
+    .accordion-body {
+        width: 35vw;
+    }
 
 </style>

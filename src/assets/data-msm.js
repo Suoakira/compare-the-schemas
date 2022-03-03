@@ -15,12 +15,6 @@ export default [
         }
     },
     {
-        "context": "http://schema.org/",
-        "type": "Person",
-        "name": "Sara Newell",
-        "jobTitle": "Motor and Van Insurance Lead"
-    },
-    {
         "context": "https://schema.org",
         "type": "FAQPage",
         "mainEntity": [
@@ -231,5 +225,11 @@ export default [
         "type": "Organization",
         "url": "https://www.moneysupermarket.com",
         "logo": "https://static.moneysupermarket.com/ds/brand-logos/msm-1-radial.svg"
-    }
+    },
+    {
+        "context": "http://schema.org/",
+        "type": "Person",
+        "name": "Sara Newell",
+        "jobTitle": "Motor and Van Insurance Lead"
+    },
 ]

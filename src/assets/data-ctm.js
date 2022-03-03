@@ -1,14 +1,56 @@
 
 export default [
     {
-        "context": "https://schema.org",
-        "type": "AggregateRating",
-        "id": "https://www.comparethemarket.com/car-insurance/#aggregaterating",
-        "itemReviewed": {
-            "id": "https://www.comparethemarket.com/car-insurance/"
-        },
-        "ratingValue": "4.6",
-        "reviewCount": "102543"
+        "id": "https://www.comparethemarket.com/car-insurance/",
+        "type": "Product",
+        "name": "Car insurance",
+        "url": "https://www.comparethemarket.com/car-insurance/",
+        "description": "Compare and buy your car insurance with us. Get a quote in minutes for great-value car insurance.",
+        "image": [
+
+
+            {
+                "type": "ImageObject",
+                "url": "https://cdn2.comparethemarket.com/market/cms/logos/Sharing_Logo_1200x630.png",
+                "caption": "Product image",
+                "width": {
+                    "type": "QuantitativeValue",
+                    "value": 1200,
+                    "unitText": "pixel",
+                    "unitCode": "E37"
+                },
+                "height": {
+                    "type": "QuantitativeValue",
+                    "value": 630,
+                    "unitText": "pixel",
+                    "unitCode": "E37"
+                }
+            },
+
+
+            {
+                "type": "ImageObject",
+                "url": "https://cdn2.comparethemarket.com/market/cms/cms-images/Renewal-100_HxW0129x0297_522a56bb-0a25-4b94-9b89-00f8535a33dc.jpeg",
+                "caption": "Product image",
+                "width": {
+                    "type": "QuantitativeValue",
+                    "value": 297,
+                    "unitText": "pixel",
+                    "unitCode": "E37"
+                },
+                "height": {
+                    "type": "QuantitativeValue",
+                    "value": 129,
+                    "unitText": "pixel",
+                    "unitCode": "E37"
+                }
+            }
+
+        ],
+        "aggregateRating": {
+            "id": "https://www.comparethemarket.com/car-insurance/#aggregaterating"
+        }
+
     },
     {
         "context": "https://schema.org",
@@ -179,58 +221,6 @@ export default [
         ]
     },
     {
-        "id": "https://www.comparethemarket.com/car-insurance/",
-        "type": "Product",
-        "name": "Car insurance",
-        "url": "https://www.comparethemarket.com/car-insurance/",
-        "description": "Compare and buy your car insurance with us. Get a quote in minutes for great-value car insurance.",
-        "image": [
-
-
-            {
-                "type": "ImageObject",
-                "url": "https://cdn2.comparethemarket.com/market/cms/logos/Sharing_Logo_1200x630.png",
-                "caption": "Product image",
-                "width": {
-                    "type": "QuantitativeValue",
-                    "value": 1200,
-                    "unitText": "pixel",
-                    "unitCode": "E37"
-                },
-                "height": {
-                    "type": "QuantitativeValue",
-                    "value": 630,
-                    "unitText": "pixel",
-                    "unitCode": "E37"
-                }
-            },
-
-
-            {
-                "type": "ImageObject",
-                "url": "https://cdn2.comparethemarket.com/market/cms/cms-images/Renewal-100_HxW0129x0297_522a56bb-0a25-4b94-9b89-00f8535a33dc.jpeg",
-                "caption": "Product image",
-                "width": {
-                    "type": "QuantitativeValue",
-                    "value": 297,
-                    "unitText": "pixel",
-                    "unitCode": "E37"
-                },
-                "height": {
-                    "type": "QuantitativeValue",
-                    "value": 129,
-                    "unitText": "pixel",
-                    "unitCode": "E37"
-                }
-            }
-
-        ],
-        "aggregateRating": {
-            "id": "https://www.comparethemarket.com/car-insurance/#aggregaterating"
-        }
-
-    },
-    {
         "context": "https://schema.org",
         "type": "BreadcrumbList",
         "itemListElement": [
@@ -266,5 +256,15 @@ export default [
             "url": "https://www.comparethemarket.com/",
             "id": "https://www.comparethemarket.com/"
         }
-    }
+    },
+    {
+        "context": "https://schema.org",
+        "type": "AggregateRating",
+        "id": "https://www.comparethemarket.com/car-insurance/#aggregaterating",
+        "itemReviewed": {
+            "id": "https://www.comparethemarket.com/car-insurance/"
+        },
+        "ratingValue": "4.6",
+        "reviewCount": "102543"
+    },
 ]
