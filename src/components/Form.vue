@@ -5,8 +5,6 @@
 
         <label class="form-label cts__form-2">Page's you wish to compare to</label>
         <input type="text" class="form-control cts__form-input" v-model="comparisonSiteOne">
-        <input type="text" class="form-control cts__form-input" v-model="comparisonSiteTwo">
-        <input type="text" class="form-control cts__form-input" v-model="comparisonSiteThree">
         <button @click="formSubmit"> Submit </button>
     </div>
 </template>
@@ -19,8 +17,6 @@ export default {
         return {
             rootSiteInput: "url of site you wish to compare",
             comparisonSiteOne: "url of site you want to compare to",
-            comparisonSiteTwo: "url of site you want to compare to",
-            comparisonSiteThree: "url of site you want to compare to"
         };
     },
     methods: {
@@ -28,9 +24,7 @@ export default {
 
             const formObj = {
                 rootSiteInput: this.rootSiteInput,
-                comparisonSiteOne: this.comparisonSiteOne,
-                comparisonSiteTwo: this.comparisonSiteTwo,
-                comparisonSiteThree: this. comparisonSiteThree
+                comparisonSiteOne: this.comparisonSiteOne
             }
 
             this.$emit('form-submit', formObj)
