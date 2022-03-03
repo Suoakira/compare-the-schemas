@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Root from './components/root.vue'
+import Root from './components/Root'
 import './sass/_core.scss'
 
 export default {

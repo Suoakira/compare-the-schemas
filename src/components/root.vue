@@ -1,21 +1,22 @@
 <template>
-  <div>
-    <h1>Compare the schemas</h1>
-    <p>Making rich text comparison simples!</p>
-  </div>
+  <Meganav />
 </template>
 
 <script>
+import Meganav from './Meganav' 
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  components: {
+    Meganav
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
   .header {
 
   }
