@@ -1,0 +1,103 @@
+.cont-info {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mq($from: tablet) {
+    flex-wrap: nowrap;
+  }
+
+  &__clk {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 51px;
+
+    @include mq($from: tablet) {
+      border-right: 1px solid $ctm-blue-light;
+      justify-content: flex-start;
+      width: 115px;
+      padding-right: 10px;
+    }
+  }
+
+  &__time {
+    position: relative;
+    width: 51px;
+
+    @include mq($from: tablet) {
+      margin-right: 10px;
+    }
+  }
+
+  &__min {
+    left: 50%;
+    position: absolute;
+    top: 28px;
+    transform: translateX(-50%);
+  }
+
+  &__lbl {
+    display: none;
+
+    @include mq($from: tablet) {
+      display: block;
+    }
+  }
+
+  &__ico {
+    display: block;
+    height: 70px;
+    width: 51px;
+  }
+
+  &__scl {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include mq($from: tablet) {
+      flex-direction: row;
+      width: auto;
+      padding-left: 15px;
+    }
+  }
+
+  &__scl-prmpt {
+    font-size: px2rem(16px);
+    margin-top: 10px;
+    max-width: 300px;
+    text-align: center;
+    order: 2;
+
+    @include mq($from: tablet) {
+      font-size: px2rem(14px);
+      margin: 0 10px 0 0;
+      order: 1;
+      text-align: left;
+    }
+  }
+
+  .scl {
+    margin: 20px 0 0;
+
+    @include mq($from: tablet) {
+      margin: 0;
+      order: 2;
+      white-space: nowrap;
+    }
+  }
+}
+
+.ci__last-updated {
+  span {
+    display: block;
+  }
+      
+  @include mq($from: tablet) {
+    span {
+      display: inline-block;
+    }
+  }
+}

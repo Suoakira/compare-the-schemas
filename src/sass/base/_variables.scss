@@ -1,0 +1,26 @@
+﻿/* =============
+   Colours
+   ============= */
+
+@import "variables-colours";
+
+/* =============
+   Fonts
+   ============= */
+
+$font-family: "Sun", Verdana, sans-serif;
+
+/* ========================
+   SASS MQ Breakpoints
+   https://github.com/sass-mq/sass-mq
+   ======================== */
+
+$mq-breakpoints: ( large-mobile: 375px, tablet: 768px, small-desktop: 900px, desktop: 992px, wide: 1200px );
+
+/* ================================
+   Global Widths, Margins, Paddings 
+   ================================ */
+
+$max-page-width: 1500px;
+$max-content-width: 960px;
+$container-horizontal-padding: 20px;

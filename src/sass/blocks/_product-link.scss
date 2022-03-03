@@ -1,0 +1,47 @@
+﻿.prdct-lnk {
+  &__lnk:hover {
+    color: currentColor;
+    
+    .prdct-lnk__icn-wrpr {
+      background: $ctm-green;
+    }
+
+    svg {
+      fill: $ctm-white;
+    }
+  }
+
+  &__icn-wrpr {
+    background: $ctm-white;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+
+    @include mq($from: tablet) {
+      width: 135px;
+      height: 135px;
+    }
+
+    .col-lg-2 & {
+      @include mq($from: desktop) {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
+
+  &__icn {
+    width: 30px;
+    height: 30px;
+    fill: $ctm-green;
+
+    @include mq($from: tablet) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

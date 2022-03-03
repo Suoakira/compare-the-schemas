@@ -1,0 +1,18 @@
+.img {
+  // Margin bottom for images within columns
+  [class^=col-] > & {
+    margin-bottom: 1rem;
+  }
+
+  a:not(.btn) {
+    color: inherit;
+  }
+
+  noscript img {
+    max-width: 100%;
+  }
+
+  &--rc img {
+    border-radius: 20px;
+  }
+}

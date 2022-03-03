@@ -1,0 +1,17 @@
+.stk-ftr {
+  border-top: 1px solid $ctm-blue-dark;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+
+  @supports (position: sticky) {
+    position: sticky;
+  }
+
+  &__txt {
+    display: inline-block;
+    padding: 0 20px 10px;
+  }
+}

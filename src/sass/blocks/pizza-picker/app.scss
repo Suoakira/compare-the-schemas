@@ -1,0 +1,142 @@
+@import './utils/mixin';
+@import './libs/bootstrap-breakpoints';
+@import './theme/base';
+
+.no-scroll {
+  .pizza-app {
+    @include fixed(top 0 left 0 right 0);
+
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &:not(.is-touch-device) .pizza-app {
+    @include media-breakpoint-up(md) {
+      max-height: 821px;
+    }
+  }
+}
+
+.pizza-app {
+  @include relative;
+  @include primary-font(16px);
+
+  background: $white url('#{$assets-url}wood-overhead.jpg') center center/cover
+    repeat;
+  color: $white;
+  min-height: 563px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+  min-width: 320px;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+
+  &__preloaded-image {
+    @include absolute(top 0 left 0, -1);
+
+    height: 1px;
+    width: 1px;
+  }
+
+  &::before {
+    @include absolute(top 0 right 0 bottom 0 left 0, 0);
+    @include square(100%);
+
+    background: radial-gradient(
+      circle at 50% 57%,
+      rgba(255, 197, 134, 0.47),
+      rgba($black, 0.42) 64%
+    );
+    content: '';
+    height: 200%;
+    margin: auto;
+    transition: background-color 0.2s ease;
+    width: 100%;
+  }
+
+  &__orientation {
+    @include absolute(top 0 left 0, 999999);
+    @include square(100%);
+
+    display: none;
+  }
+
+  &:not([data-active='0']) {
+    @include media-breakpoint-down(md) {
+      @media (orientation: landscape) {
+        .pizza-app__orientation,
+        .pizza-app__orientation .pizza-app__alert {
+          background-color: rgba($black, 0.4);
+          display: block;
+        }
+      }
+    }
+  }
+
+  &.has-alert {
+    &::before {
+      background: rgba($black, 0.6);
+      z-index: 99999;
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  span,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a {
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+    &::selection {
+      background-color: transparent;
+      outline: none;
+    }
+  }
+
+  ::selection {
+    background-color: transparent;
+    outline: none;
+  }
+
+  @import './component/button';
+  @import './component/carousel';
+  @import './component/link';
+  @import './component/scene';
+
+  @import './component/elements/base';
+  @import './component/elements/bowl';
+  @import './component/elements/box';
+  @import './component/elements/flour';
+  @import './component/elements/icons';
+  @import './component/elements/ingredients';
+  @import './component/elements/menu';
+  @import './component/elements/oven';
+  @import './component/elements/paddle';
+  @import './component/elements/paw';
+  @import './component/elements/rating';
+  @import './component/elements/rolling-pin';
+  @import './component/elements/steps';
+}

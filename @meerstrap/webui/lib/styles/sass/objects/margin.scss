@@ -1,0 +1,66 @@
+@import '../support.scss';
+
+
+@each $screen, $type in $ctm-screens {
+    @each $scale, $size in $ctm-spacing {
+        @include media($screen) {
+            .m#{$type}-#{$scale} {
+                margin: $size !important;
+            }
+            .mt#{$type}-#{$scale} {
+                margin-top: $size !important;
+            }
+            .mr#{$type}-#{$scale} {
+                margin-right: $size !important;
+            }
+            .mb#{$type}-#{$scale} {
+                margin-bottom: $size !important;
+            }
+            .ml#{$type}-#{$scale} {
+                margin-left: $size !important;
+            }
+            .mx#{$type}-#{$scale} {
+                margin-left: $size !important;
+                margin-right: $size !important;
+            }
+            .my#{$type}-#{$scale} {
+                margin-top: $size !important;
+                margin-bottom: $size !important;
+            }
+
+            // Negative Margin
+            .mt#{$type}-n#{$scale} {
+                margin-top: -$size !important;
+            }
+            .mr#{$type}-n#{$scale} {
+                margin-right: -$size !important;
+            }
+            .mb#{$type}-n#{$scale} {
+                margin-bottom: -$size !important;
+            }
+            .ml#{$type}-n#{$scale} {
+                margin-left: -$size !important;
+            }
+            .mx#{$type}-n#{$scale} {
+                margin-left: -$size !important;
+                margin-right: -$size !important;
+            }
+            .my#{$type}-n#{$scale} {
+                margin-top: -$size !important;
+                margin-bottom: -$size !important;
+            }
+        }
+    }
+}
+
+.m-auto {
+    margin: auto !important;
+}
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.my-auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}

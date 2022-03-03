@@ -1,0 +1,109 @@
+.pizza-app__paddle {
+  @include absolute(top 100% left 0 right 0, 9999);
+
+  background: url('#{$assets-url}paddle.png') 0 0 / cover no-repeat;
+  height: 785px;
+  margin: auto;
+  pointer-events: none;
+  width: 358px;
+
+  @include media-breakpoint-down(base) {
+    @media (min-height: 600px) {
+      height: 686px;
+      width: 313px;
+    }
+  }
+
+  @include media-breakpoint-down-max-height(sm) {
+    height: 584px;
+    width: 266px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 785px;
+    width: 358px;
+
+    @media (min-height: 700px) {
+      height: 1093px;
+      width: 498px;
+    }
+  }
+
+  &::before {
+    @include absolute(top 0 right 0 bottom -200px left -470px);
+
+    background: url('#{$assets-url}meerkat_hand-closed.png') 0 0 / cover
+      no-repeat;
+    height: 658px;
+    margin: auto;
+    transform: rotate(90deg);
+    width: 200px;
+
+    @include media-breakpoint-down(md) {
+      content: '';
+    }
+  }
+
+  span {
+    @include absolute(top 22px right 15px);
+    @include secondary-font(18px, 600);
+
+    color: $secondary-text-color;
+    line-height: 45px;
+    letter-spacing: normal;
+    text-align: center;
+    text-transform: uppercase;
+    transition: opacity 0.4s ease;
+    width: 320px;
+
+    @include media-breakpoint-down(base) {
+      @media (min-height: 600px) {
+        width: 280px;
+      }
+    }
+
+    @include media-breakpoint-down-max-height(sm) {
+      line-height: 35px;
+      width: 235px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: 320px;
+
+      @media (min-height: 700px) {
+        font-size: 24px;
+        line-height: 67px;
+        right: 58px;
+        width: 380px;
+      }
+    }
+  }
+
+  &.is-loading span::after {
+    @include absolute(top 0 bottom 0 right 50px);
+    @include square(25px);
+
+    animation: rotation 2s infinite linear;
+    background-color: transparent;
+    background-image: url('#{$assets-url}css_sprites.png');
+    background-position: -442px -68px;
+    background-size: 480px 279px;
+    background-repeat: no-repeat;
+    content: '';
+    margin: auto;
+
+    @include media-breakpoint-down-max-height(sm) {
+      right: 30px;
+    }
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}

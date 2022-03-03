@@ -1,0 +1,111 @@
+﻿@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+@import "../base/variables";
+
+.ti {
+  &__cntnr {
+    position: relative;
+    padding-top: 24px;
+
+    @include mq($from: tablet) {
+      padding-top: 64px;
+    }
+  }
+
+  &__copy {
+    padding: 24px 0 8px;
+
+    @include mq($from: tablet) {
+      width: 84%;
+      padding-bottom: 24px;
+    }
+
+    @include mq($from: desktop) {
+      width: 67%;
+    }
+  }
+
+  &__prov {
+    position: relative;
+    padding-bottom: 32px;
+
+    @include mq($from: tablet) {
+      display: flex;
+    }
+  }
+
+  &__prov-one,
+  &__prov-two,
+  &__prov-three {
+    border-radius: 24px;
+    background: rgba($ctm-white, 0.9);
+  }
+
+  &__prov-one,
+  &__prov-two {
+    margin-bottom: 14px;
+
+    @include mq($from: tablet) {
+      margin-right: 20px;
+      margin-bottom: unset;
+    }
+  }
+
+  &__prov-cntnr {
+    display: flex;
+    padding: 16px;
+
+    @include mq($from: tablet) {
+      flex-direction: column;
+      padding: 20px 32px;
+    }
+  }
+
+  &__prov-logo {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mq($from: tablet) {
+      width: unset;
+      align-items: unset;
+      padding-bottom: 20px;
+    }
+
+    & .img {
+      width: 120px;
+      height: 30px;
+
+      @include mq($until: large-mobile) {
+        width: 100px;
+      }
+    }
+  }
+
+  &__cta-cntnr {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+
+    @include mq($from: tablet) {
+      width: unset;
+    }
+  }
+
+  &__cta {
+    & .btn.btn--dsc {
+      min-width: unset;
+      min-height: unset;
+      width: 100%;
+      line-height: inherit;
+    }
+  }
+
+  &__find {
+    text-decoration: underline;
+    padding-top: 8px;
+    font-size: 16px;
+  }
+}

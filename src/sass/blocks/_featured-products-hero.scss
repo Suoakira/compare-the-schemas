@@ -1,0 +1,158 @@
+@import "../components/hero-redesign";
+
+.fph {
+  &__main {
+    min-height: 420px;
+    position: relative;
+    padding-top: 15px;
+
+    @include mq($from: tablet) {
+      min-height: 315px;
+      padding-top: 70px;
+    }
+  }
+
+  .lph__bg-img {
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__main--cntr-txt {
+    @include mq($from: tablet) {
+      display: flex;
+      align-items: center;
+      padding-top: 0;
+
+      p {
+        margin: 0;
+      }
+
+      .fph__txt-wrp {
+        text-align: center;
+        margin: 20px 0;
+      }
+    }
+  }
+
+  &__main--has-img {
+    @include mq($until: tablet) {
+      min-height: 0;
+    }
+  }
+
+  &__txt-wrp {
+    margin: 0 auto;
+    max-width: 560px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+
+    &.opq-bx {
+      @include hero-card;
+      text-align: left;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      @include mq($from: tablet) {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 350px;
+      }
+
+      @include mq($from: desktop) {
+        max-width: 468px;
+      }
+    }
+
+    &.opq-bx--no-img {
+      @include mq($until: tablet) {
+        position: absolute;
+        bottom: 19px;
+        left: 20px;
+        right: 20px;
+      }
+    }
+
+    @include mq($from: tablet) {
+      font-size: px2rem(27px);
+      margin: 0;
+      text-align: left;
+
+      &.opq-bx {
+        font-size: inherit;
+      }
+    }
+  }
+
+  &__ttl {
+    font-size: px2rem(32px);
+    line-height: 1.188;
+
+    @include mq($from: tablet) {
+      font-size: px2rem(64px);
+      line-height: 1.094;
+    }
+
+    &--opq-bx {
+      font-size: px2rem(24px);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__float-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+  }
+
+  &__float-img--reverse {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 19px;
+  }
+
+  &__prd-lnks-ttl {
+    padding-top: 10px;
+  }
+
+  &__prd-lnks-lst {
+    justify-content: center;
+
+    @include mq($from: tablet) {
+      flex-wrap: nowrap;
+
+      &--wrap {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  &__sprite {
+    height: 0;
+    width: 0;
+    position: absolute;
+  }
+
+  // style overrides
+  .prd-lnks {
+    background: $ctm-blue-090;
+    overflow: hidden;
+    padding-top: 20px;
+  }
+
+  .prd-lnks__prd-lnk-txt {
+    max-width: 125px;
+  }
+
+  .col-sm-4 {
+    @include mq($until: tablet) {
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
+}

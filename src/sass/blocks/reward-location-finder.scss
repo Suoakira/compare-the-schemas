@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Reward Location Fider - For Meerkat Meals and Movies
+   ========================================================================== */
+
+/**
+ * --------------------
+ * Class abbreviations
+ * --------------------
+ *
+ * .rlf = reward location finder
+ *
+**/
+
+@import "../../../../node_modules/sass-mq/mq";
+@import "../base/variables";
+@import "../components/loader";
+
+.rlf {
+  &__map {
+    height: 460px;
+    
+    @include mq($from: tablet) {
+      order: 1;
+    }
+  }
+
+  &__form {
+    @include mq($from: tablet) {
+      order: 2;
+    }
+  }
+
+  &__cont {
+    max-width: 540px;
+  }
+
+  &__srch {
+    display: flex;
+  }
+
+  &__inpt,
+  &__btn {
+    border-radius: 20px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  &__inpt {
+    border: 1px solid $ctm-grey-light;
+    padding: 10px;
+    width: calc(100% - 105px);
+  }
+
+  &__btn {
+    border: 0;
+    font-weight: bold;
+    line-height: 40px;
+    margin-left: 15px;
+    padding: 0 40px 0 10px;
+    position: relative;
+    width: 90px;
+
+    &:hover {
+      background-color: darken($ctm-green, 2%);
+    }
+  }
+
+  &__ico {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    right: 0.75em;
+    margin-top: -9px;
+  }
+
+  &__info {
+    font-family: $font-family;
+    min-width: 200px;
+
+    &-btn {
+      border-radius: 6px;
+      display: inline-block;
+      padding: 5px 20px;
+
+      &:hover {
+        background-color: darken($ctm-green, 2%);
+        text-decoration: none;
+      }
+    }
+
+    &-srvc {
+      border-radius: 6px;
+      padding: 5px 7px;
+      margin-bottom: 5px;
+
+      @include mq($from: tablet) {
+        padding: 5px 20px;
+      }
+    }
+
+    &-csns {
+      border-radius: 6px;
+      padding: 5px 7px;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+
+    &-offr {
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    &-shrtnm {
+      margin-top: 7px;
+    }
+
+    &-summry {
+      margin-top: 5px;
+    }
+  }
+
+  &__err {
+    background-color: $ctm-red-lightest;
+    border-radius: 5px;
+    color: $ctm-red;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 15px 20px;
+  }
+}

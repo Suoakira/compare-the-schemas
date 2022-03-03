@@ -1,0 +1,26 @@
+@import "../support.scss";
+
+@import "./text";
+@import "./colours";
+
+.visually-hidden, .visually_hidden {
+    border: 0 !important;
+    clip: rect(0, 0, 0, 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+    width: 1px !important;
+    position: absolute !important;
+}
+
+.vertical-space {
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
+
+    @include media(tablet) {
+        padding-top: $spacing-lg;
+        padding-bottom: $spacing-lg;
+    }
+}

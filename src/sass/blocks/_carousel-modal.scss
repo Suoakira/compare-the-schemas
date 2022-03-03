@@ -1,0 +1,71 @@
+﻿.crsl-mdl {
+  &__cntnr {
+    padding: 20px;
+  }
+
+  &__item {
+    width: 205px;
+    margin-left: 22px;
+    cursor: pointer;
+
+    &--flx-wdth {
+      width: auto;
+      height: 48px;
+    }
+  }
+
+  &__wrpr {
+    @include mq($from: tablet) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &.img-brdr {
+    .crsl-mdl__item {
+      box-shadow: 0 0 0 2px $ctm-black;
+    }
+  }
+
+  &.hvr {
+    .crsl-mdl__item {
+      &:hover {
+        box-shadow: 0 0 0 4px $ctm-black;
+      }
+    }
+  }
+
+  &.no-pop {
+    .crsl-mdl__item {
+      pointer-events: none;
+    }
+  }
+
+  &__slctr {
+    width: 100%;
+    
+    @include mq($from: tablet) {
+      width: 667px;
+    }
+  }
+
+  .amp-carousel-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='50' fill='%23fff'%3E%3Cpath d='M33 0L9.663 25 33 50h-9.163L.5 25 23.837 0z'/%3E%3C/svg%3E");
+    left: 0;
+  }
+
+  .amp-carousel-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='50' fill='%23fff'%3E%3Cpath d='M.5 0l23.337 25L.5 50h9.163L33 25 9.663 0z'/%3E%3C/svg%3E");
+    right: 0;
+  }
+
+  .amp-carousel-button {
+    cursor: pointer;
+    background-size: auto 20px;
+  }
+
+  [class$="-scrollable-carousel-container"] {
+    padding: 4px;
+  }
+}

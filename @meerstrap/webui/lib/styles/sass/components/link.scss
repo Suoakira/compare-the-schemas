@@ -1,0 +1,82 @@
+@import '../support.scss';
+
+.Link {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: underline;
+    color: $green-150;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.Link__withArrow {
+    padding-left: 0.7em;
+}
+
+.Link__withIconBefore {
+    margin-left: 0.2em;
+}
+
+.Link__text {
+    display: inline;
+}
+
+%Link__icon {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+.Link__icon__before {
+    @extend %Link__icon;
+    right: 100%;
+    margin-right: 0.35em;
+    
+    svg {
+        display: block;
+    }
+}
+
+.Link__icon__after {
+    @extend %Link__icon;
+    left: 100%;
+    margin-left: 0.35em;
+}
+
+.Link__arrow {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -0.35em;
+    border: 0.35em solid transparent;
+    border-left-color: inherit;
+}
+
+.Link__arrow__isExpanded,
+.Link__arrow__isCollapsed {
+    right: 100%;
+    left: auto;
+    margin-right: 0.35em;
+    border-color: transparent;
+}
+
+.Link__arrow__isExpanded {
+    border-top-width: 0.175em;
+    border-bottom-color: inherit;
+}
+
+.Link__arrow__isCollapsed {
+    margin-top: -0.175em;
+    border-top-color: inherit;
+}
+
+.Link__lighter {
+    color: $green-480;
+}

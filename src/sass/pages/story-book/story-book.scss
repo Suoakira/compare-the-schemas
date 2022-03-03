@@ -1,0 +1,232 @@
+﻿@import "../../core";
+
+@font-face {
+  font-family: Sun;
+  src: url("../../../fonts/SunCTM-Light.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Sun;
+  src: url("../../../fonts/SunCTM-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html {
+  color: $ctm-grey-dark;
+}
+
+body:not(.mce-content-body) {
+  background-color: $ctm-white;
+  display: flex;
+}
+
+.svg-icon-paths {
+  display: none;
+}
+
+.svg-icon {
+  max-width: 60px;
+  max-height: 60px;
+  margin: 20px;
+}
+
+.icon-name {
+  max-width: 60px;
+  max-height: 60px;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.icon-container {
+  display: inline-block;
+  max-width: 100px;
+}
+
+section {
+  margin: 5px;
+  border-radius: 1px;
+  background-color: #f6f6f6;
+  padding: 10px;
+}
+
+.container {
+  margin: 10px;
+  border-radius: 1px;
+  padding: 20px;
+}
+
+.container--flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container--v-center {
+  align-items: center;
+}
+
+pre {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #4a4a4a;
+  color: #1dd489;
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav {
+  width: 200px;
+  padding: 20px;
+  position: fixed;
+}
+
+.nav-btn {
+  margin: 0 0 20px;
+  width: 160px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+main {
+  position: relative;
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.color-container li {
+  display: inline-block;
+}
+
+.color-swatch {
+  height: 70px;
+  width: 340px;
+}
+
+.ctm-blue-lighter-60 {
+  background-color: $ctm-blue-lighter-60;
+}
+
+.ctm-blue-lighter-30 {
+  background-color: $ctm-blue-lighter-30;
+}
+
+.ctm-blue-lightest-50 {
+  background-color: $ctm-blue-lightest-50;
+}
+
+.ctm-green-65 {
+  background-color: $ctm-green-65;
+}
+
+.ctm-red {
+  background-color: $ctm-red;
+}
+
+.ctm-red-lightest {
+  background-color: $ctm-red-lightest;
+}
+
+.ctm-grey {
+  background-color: $ctm-grey;
+}
+
+.ctm-grey-light {
+  background-color: $ctm-grey-light;
+}
+
+.ctm-grey-lighter {
+  background-color: $ctm-grey-lighter;
+}
+
+.ctm-grey-lightest-50 {
+  background-color: $ctm-grey-lightest-50;
+}
+
+.ctm-magenta {
+  background-color: $ctm-magenta;
+}
+
+.ctm-magenta-lightest {
+  background-color: $ctm-magenta-lightest;
+}
+
+.ctm-turquoise {
+  background-color: $ctm-turquoise;
+}
+
+.ctm-turquoise-lightest {
+  background-color: $ctm-turquoise-lightest;
+}
+
+.ctm-error {
+  background-color: $ctm-error;
+}
+
+.ctm-error-txt {
+  color: $ctm-error;
+}
+
+.iframe-holder {
+  max-width: 940px;
+}
+
+.wcag-check {
+  padding: 10px;
+}
+
+label {
+  font-weight: 700;
+}
+
+select {
+  background-color: $ctm-white;
+  height: 36px;
+  margin: 5px 0 20px;
+  padding: 5px;
+}
+
+.centering-parent {
+  border: 1px solid $ctm-black;
+  height: 200px;
+  padding: 20px;
+  position: relative;
+
+  .centering-child {
+    @include centerer;
+    border: 1px solid $ctm-black;
+    padding: 20px;
+  }
+}
+
+.without-clearfix {
+  border: 1px solid $ctm-black;
+  margin-bottom: 100px;
+  padding: 5px;
+}
+
+.with-clearfix {
+  @include clearfix;
+  border: 1px solid $ctm-black;
+  padding: 5px;
+}
+
+.clearfix-image {
+  float: right;
+}
+
+.background-cover {
+  @include cover-background("http://animals.sandiegozoo.org/sites/default/files/inline-images/meerkat_lounging_0.jpg");
+  height: 667px;
+}
+
+.ldr-cntnr {
+  height: 80px;
+  position: relative;
+}

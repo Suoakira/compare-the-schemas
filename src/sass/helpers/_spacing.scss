@@ -1,0 +1,69 @@
+/**
+ * --------------------
+ * Spacing Utility Classes
+ * --------------------
+ *
+ * m = margin 
+ * p = padding
+ * 
+ * -t - for classes that set margin-top or padding-top
+ * -b - for classes that set margin-bottom or padding-bottom
+ * -l - for classes that set margin-left or padding-left
+ * -r - for classes that set margin-right or padding-right
+ * -x - for classes that set both *-left and *-right
+ * -y - for classes that set both *-top and *-bottom
+ */
+
+.p-t-sm {
+  padding-top: $container-horizontal-padding;
+}
+
+.p-t-md {
+  padding-top: $container-horizontal-padding * 2;
+}
+
+.p-t-lg {
+  padding-top: $container-horizontal-padding * 3;
+}
+
+.p-y-sm {
+  padding-bottom: $container-horizontal-padding;
+  padding-top: $container-horizontal-padding;
+}
+
+.p-y-md {
+  padding-bottom: $container-horizontal-padding * 2;
+  padding-top: $container-horizontal-padding * 2;
+}
+
+.p-b-sm {
+  padding-bottom: $container-horizontal-padding;
+}
+
+.p-b-md {
+  padding-bottom: $container-horizontal-padding * 2;
+}
+
+.p-b-lg {
+  padding-bottom: $container-horizontal-padding * 3;
+}
+
+.p-sm {
+  padding: $container-horizontal-padding;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.m-l-auto {
+  margin-left: auto;
+}
+
+.m-r-auto {
+  margin-right: auto;
+}
+
+.m-b-smlr {
+  margin-bottom: $container-horizontal-padding / 1.66666666; // 12px
+}

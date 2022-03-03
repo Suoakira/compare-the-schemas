@@ -1,0 +1,148 @@
+.sme-hero {
+  min-height: 480px;
+  position: relative;
+
+  @include mq($from: tablet) {
+    display: flex;
+    align-items: center;
+  }
+
+  &__cntnr {
+    padding-top: 40px;
+    position: relative;
+
+    @include mq($from: tablet) {
+      padding-bottom: 40px;
+      width: 100%;
+    }
+  }
+
+  &__hdg {
+    font-size: 24px;
+
+    @include mq($from: tablet) {
+      font-size: 30px;
+    }
+  }
+
+  &__cpy {
+    max-width: 235px;
+
+    @include mq($from: tablet) {
+      max-width: 680px;
+    }
+  }
+
+  &__sb-hdg {
+    font-size: px2rem(18.7px);
+    margin: 17px;
+
+    @include mq($from: tablet) {
+      display: none;
+    }
+  }
+
+  &__prds {
+    @include mq($from: tablet) {
+      display: flex;
+      margin: 0 -15px;
+      max-width: 700px;
+    }
+  }
+
+  &__icn {
+    fill: $ctm-blue-dark;
+    height: 32px;
+    margin-right: 20px;
+    width: 32px;
+
+    @include mq($from: tablet) {
+      align-self: center;
+      fill: currentColor;
+      height: 80px;
+      margin: 0 0 20px;
+      width: 80px;
+    }
+  }
+
+  &__actns {
+    @include mq($until: tablet) {
+      background: $ctm-white;
+      border-radius: 5px;
+      color: $ctm-blue-dark;
+      overflow: hidden;
+    }
+
+    @include mq($from: tablet) {
+      margin-top: 40px;
+    }
+  }
+
+  &__prd-itm {
+    @include mq($until: tablet) {
+      border-top: 1px solid $ctm-blue-620;
+    }
+
+    @include mq($from: tablet) {
+      flex: 1;
+      max-width: 175px;
+    }
+  }
+
+  &__prd-lnk {
+    display: flex;
+
+    @include mq($until: tablet) {
+      align-items: center;
+      padding: 13px 20px;
+    }
+
+    @include mq($from: tablet) {
+      color: currentColor;
+      flex-direction: column;
+      padding: 0 15px;
+      text-align: center;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:hover .sme-hero__prd-lnk-txt {
+      @include mq($from: tablet) {
+        background-color: darken($ctm-green, 2%);
+      }
+    }
+  }
+
+  &__prd-lnk-txt {
+    flex-grow: 1;
+
+    @include mq($from: tablet) {
+      background-color: $ctm-green;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      text-shadow: 0 1px 1px rgba($ctm-black, 0.1);
+    }
+  }
+
+  &__arr {
+    fill: currentColor;
+    height: 17px;
+    width: 11px;
+
+    @include mq($from: tablet) {
+      display: none;
+    }
+  }
+
+  &__prd-info-lnk {
+    color: currentColor;
+    display: inline-block;
+    margin-top: 50px;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
+  }
+}

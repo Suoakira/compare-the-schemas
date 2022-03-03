@@ -1,0 +1,263 @@
+&__undo,
+&__mute,
+&__back,
+&__exit {
+  background-color: transparent;
+  background-image: url('#{$assets-url}css_sprites.png');
+  background-repeat: no-repeat;
+}
+
+&__undo {
+  @include absolute(top 450px right 15px bottom 0, 9999);
+  @include square(40px);
+
+  background-position: -93px -169px;
+  background-size: 370px 215px;
+  cursor: none;
+  margin: auto;
+
+  @include media-breakpoint-down(md) {
+    transform: translateX(60px);
+    transition: transform 0.4s ease;
+  }
+
+  @include media-breakpoint-up(lg) {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    left: -20px;
+    right: -300px;
+    top: 380px;
+
+    @media (min-height: 700px) {
+      @include square(45px);
+
+      background-position: -106px -193px;
+      background-size: 421px 245px;
+      left: -20px;
+      right: -400px;
+      top: 500px;
+    }
+  }
+
+  @include media-breakpoint-down-max-height(sm) {
+    top: 300px;
+  }
+
+  &.is-active {
+    cursor: pointer;
+    transform: translateX(0);
+
+    @include media-breakpoint-up(lg) {
+      opacity: 1;
+    }
+  }
+}
+
+&__mute {
+  @include absolute(top 43px left 15px, 9999);
+  @include square(19px);
+
+  background-size: 350px 204px;
+  background-position: -142px -93px;
+  cursor: pointer;
+  text-indent: 1000em;
+  transition: top 0.4s ease, left 0.4s ease;
+
+  &.is-active {
+    background-position: -122px -93px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    left: -840px;
+    right: 0;
+    margin: auto;
+    top: 21px;
+  }
+
+  [data-active='0'] &,
+  [data-active='1']:not(.is-transitioning-out) & {
+    top: 17px;
+
+    @include media-breakpoint-up(lg) {
+      left: -924px;
+      top: 21px;
+    }
+  }
+
+  &::after {
+    @include absolute(top 0 bottom 0 left 0);
+    @include primary-font();
+
+    color: $light-grey;
+    content: '';
+    line-height: 1.29;
+    letter-spacing: normal;
+    opacity: 0;
+    pointer-events: none;
+    text-align: left;
+    text-indent: 0;
+    transition: opacity 0.4s ease, left 0.4s ease;
+    width: 190px;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 16px;
+    }
+
+    [data-active='1']:not(.is-transitioning-out) & {
+      content: 'Sound on to hear Sergei!';
+      left: 27px;
+      opacity: 1;
+    }
+  }
+}
+
+&__back {
+  @include absolute(top -15px left 15px, 9999);
+
+  background-position: -166px -83px;
+  background-size: 309px 180px;
+  height: 13px;
+  text-indent: 1000em;
+  overflow: hidden;
+  transition: top 0.4s ease, transform 0.4s ease;
+  width: 17px;
+
+  @include media-breakpoint-up(lg) {
+    background-position: -188px -94px;
+    background-size: 350px 204px;
+    height: 15px;
+    left: -924px;
+    margin: auto;
+    right: 0;
+    top: -23px;
+    width: 20px;
+  }
+
+  &.is-active {
+    top: 15px;
+
+    @include media-breakpoint-up(lg) {
+      top: 23px;
+  
+      &:hover {
+        transform: translateX(-5px);
+      }
+    }
+  }
+}
+
+&__exit {
+  @include absolute(top 15px right 15px, 9999);
+  @include square(12px);
+
+  background-size: 270px 157px;
+  background-position: -129px -72px;
+  cursor: pointer;
+  text-indent: 1000em;
+  overflow: hidden;
+
+  @include media-breakpoint-up(lg) {
+    @include square(18px);
+
+    background-size: 350px 204px;
+    background-position: -166px -93px;
+    left: 0;
+    margin: auto;
+    right: -924px;
+    top: 22px;
+    transition: transform 0.4s ease;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+&__alert {
+  @include absolute(top 0 bottom 0 left 0 right 0, 100000);
+  @include secondary-font(28px, 500);
+
+  background: transparent url('#{$assets-url}menu.jpg') 0 0/350px 350px repeat;
+  color: $dark-red;
+  display: none;
+  height: 158px;
+  letter-spacing: normal;
+  line-height: 1.11;
+  margin: auto;
+  max-width: 400px;
+  overflow: hidden;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 280px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 34px;
+    height: 188px;
+    line-height: 1.06;
+    width: 317px;
+  }
+
+  &__wrap {
+    align-items: center;
+    border: 1px solid $light-red;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 21px 30px 60px;
+  }
+
+  p {
+    @include absolute(right 0 bottom 10px left 0);
+    @include secondary-font(18px, 600);
+
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAABCAYAAAAW/mTzAAAAFElEQVQYV2P0Lfb9v7l3MyMDEgAAQloEAuKAmwIAAAAASUVORK5CYII=)
+      0 top repeat-x;
+    color: $dark-green;
+    line-height: normal;
+    letter-spacing: normal;
+    margin: 0 auto;
+    padding: 8px 0 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: calc(100% - 28px);
+
+    @include media-breakpoint-up(lg) {
+      font-size: 24px;
+    }
+  }
+
+  &.is-active {
+    display: block;
+  }
+
+  .pizza-app__orientation & {
+    height: 158px;
+    width: 365px;
+
+    .pizza-app__alert {
+      &__wrap {
+        @include relative(null, 2);
+
+        padding: 21px 40px 21px 70px;
+        justify-content: center;
+      }
+
+      &--text {
+        width: 100%;
+      }
+
+      &--img {
+        @include absolute(top 0 bottom 0 left 28px);
+        @include square(32px);
+
+        background-color: transparent;
+        background-image: url('#{$assets-url}css_sprites.png');
+        background-position: -150px -184px;
+        background-size: 400px 233px;
+        background-repeat: no-repeat;
+        margin: auto;
+      }
+    }
+  }
+}

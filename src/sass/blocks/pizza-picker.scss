@@ -1,0 +1,14 @@
+﻿.pizza-app {
+  &[data-active="0"] {
+    .scene-0 {
+      background-image: linear-gradient(to bottom, #162661 0%, #0b3878 20%, #004a8e 100%);
+      display: block;
+    }
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+  }
+  
+}

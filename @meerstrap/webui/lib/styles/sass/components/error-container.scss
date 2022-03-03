@@ -1,0 +1,47 @@
+@import '../support.scss';
+
+.ErrorContainer {
+    width: 100%;
+    padding: 0 1em;
+    position: relative;
+    font-size: 0.8125em;
+    text-align: left;
+    line-height: 1.5em;
+    color: $blue-primary;
+    background-color: $ctm-white;
+    border: 2px solid $red-primary;
+    border-radius: $border-radius-s;
+    box-shadow: 0 1px 4px 1px rgba($ctm-black, 0.3);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin: 0.625em 0;
+    }
+
+    &__withArrow {
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 100%;
+            left: 1em;
+            border: solid transparent;
+            border-width: 0 1em 1em;
+        }
+
+        &:before {
+            border-bottom-color: $red-primary;
+        }
+
+        &:after {
+            margin-bottom: -3px;
+            border-bottom-color: $ctm-white;
+        }
+    }
+}

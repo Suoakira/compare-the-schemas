@@ -1,0 +1,1368 @@
+$pizza-paddle-sm: calc(100% - 55px);
+$pizza-paddle-md: calc(100% - 65px);
+$pizza-paddle-lg: calc(100% - 80px);
+
+&[data-active='0'] {
+  .scene-0 {
+    background-color: blue;
+    display: block;
+  }
+
+  [data-exit] {
+    display: none;
+  }
+}
+
+&[data-active='1'] {
+  .scene-1 {
+    display: block;
+  }
+
+  .pizza-app__paddle {
+    top: $pizza-paddle-md;
+
+    @include media-breakpoint-up(lg) {
+      @media (min-height: 700px) {
+        top: $pizza-paddle-lg;
+      }
+    }
+
+    @include media-breakpoint-down-max-height(sm) {
+      top: $pizza-paddle-sm;
+    }
+  }
+
+  .pizza-app__rolling-pin {
+    :not(.is-ie) & {
+      animation: rollingPinIn1 0.7s ease-out forwards;
+    }
+  }
+
+  &.is-transitioning-in,
+  &.is-transitioning-out {
+    .pizza-app__paddle span {
+      opacity: 0;
+      line-height: 1000em;
+    }
+  }
+
+  &.is-transitioning-in {
+    .pizza-app__paddle {
+      animation: slidePizzaPaddleInScene1 0.4s ease forwards;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaPaddleInScene1Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaPaddleInScene1Sm;
+      }
+    }
+  }
+
+  &.is-transitioning-out {
+    .scene-1 .pizza-app__scene__inner {
+      animation: slideOutScene1 0.7s 0.1s ease forwards;
+    }
+
+    .pizza-app__rolling-pin {
+      :not(.is-ie) & {
+        animation: rollingPinOut1 0.9s ease forwards;
+      }
+    }
+
+    .pizza-app__paddle {
+      animation: slidePizzaPaddleOutScene1 0.4s ease forwards;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaPaddleOutScene1Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaPaddleOutScene1Sm;
+      }
+    }
+  }
+}
+
+@keyframes rollingPinIn1 {
+  0% {
+    transform: translate(-15px, -15px) rotate(-4deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes rollingPinOut1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50px, -50px) rotate(-5deg);
+  }
+}
+
+@keyframes slideOutScene1 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%) rotate(4deg);
+  }
+}
+
+@keyframes slidePizzaPaddleInScene1 {
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: $pizza-paddle-md;
+  }
+}
+
+@keyframes slidePizzaPaddleInScene1Sm {
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: $pizza-paddle-sm;
+  }
+}
+
+@keyframes slidePizzaPaddleInScene1Md {
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: $pizza-paddle-lg;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene1 {
+  0% {
+    top: $pizza-paddle-md;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene1Sm {
+  0% {
+    top: $pizza-paddle-sm;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene1Md {
+  0% {
+    top: $pizza-paddle-lg;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+&[data-active='2'] {
+  .scene-2 {
+    display: block;
+
+    .pizza-app__pizza-base {
+      top: 0;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          top: 90px;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        top: -50px;
+      }
+    }
+  }
+
+  .pizza-app__paddle {
+    top: $pizza-paddle-md;
+
+    @include media-breakpoint-up(lg) {
+      @media (min-height: 700px) {
+        top: $pizza-paddle-lg;
+      }
+    }
+
+    @include media-breakpoint-down-max-height(sm) {
+      top: $pizza-paddle-sm;
+    }
+  }
+
+  &.is-transitioning-in,
+  &.is-transitioning-out {
+    .scene-2 {
+      z-index: 10000;
+
+      .js_slide .pizza-app__pizza-base p,
+      .js_next,
+      .js_prev {
+        opacity: 0;
+      }
+    }
+
+    .pizza-app__paddle span {
+      opacity: 0;
+      line-height: 1000em;
+    }
+  }
+
+  &.is-transitioning-out {
+    .pizza-app__pizza-base {
+      animation: slidePizzaOutScene2 2s ease forwards;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaOutScene2Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaOutScene2Sm;
+      }
+    }
+
+    .pizza-app__paddle {
+      animation: slidePizzaPaddleOutScene2 2s ease forwards;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaPaddleOutScene2Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaPaddleOutScene2Sm;
+      }
+    }
+  }
+
+  &.is-transitioning-in {
+    .pizza-app__paddle {
+      animation: slidePizzaPaddleInScene2 2s ease forwards;
+      top: calc(100% + 727px);
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaPaddleInScene2Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaPaddleInScene2Sm;
+      }
+    }
+
+    .pizza-app__pizza-base {
+      animation: slidePizzaInScene2 2s ease forwards;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaInScene2Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaInScene2Sm;
+      }
+    }
+  }
+}
+
+@keyframes slidePizzaPaddleInScene2 {
+  0% {
+    top: 100%;
+    transform: rotate(2deg);
+  }
+
+  50% {
+    top: calc(50% - 142px); // Pizza Base Height / 2 + 20px spacing
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    top: $pizza-paddle-md;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes slidePizzaPaddleInScene2Sm {
+  0% {
+    top: 100%;
+    transform: rotate(2deg);
+  }
+
+  50% {
+    top: calc(50% - 142px); // Pizza Base Height / 2 + 20px spacing
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    top: $pizza-paddle-sm;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes slidePizzaPaddleInScene2Md {
+  0% {
+    top: 100%;
+    transform: rotate(2deg);
+  }
+
+  50% {
+    top: calc(50% - 142px); // Pizza Base Height / 2 + 20px spacing
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    top: $pizza-paddle-lg;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes slidePizzaInScene2 {
+  0% {
+    top: calc(100% + 244px);
+  }
+
+  50% {
+    top: 0;
+  }
+}
+
+@keyframes slidePizzaInScene2Sm {
+  0% {
+    top: calc(100% + 244px);
+  }
+
+  50% {
+    top: -50px;
+  }
+}
+
+@keyframes slidePizzaInScene2Md {
+  0% {
+    top: calc(100% + 404px);
+  }
+
+  50% {
+    top: 90px;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene2 {
+  0% {
+    top: $pizza-paddle-md;
+  }
+
+  50% {
+    top: calc(50% - 142px); // Pizza Base Height / 2 + 20px spacing
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene2Sm {
+  0% {
+    top: $pizza-paddle-sm;
+  }
+
+  50% {
+    top: calc(50% - 142px); // Pizza Base Height / 2 + 20px spacing
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene2Md {
+  0% {
+    top: $pizza-paddle-lg;
+  }
+
+  50% {
+    top: calc(50% - 142px); // Pizza Base Height / 2 + 20px spacing
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaOutScene2 {
+  0%,
+  50% {
+    top: 0;
+  }
+
+  100% {
+    top: calc(100% + 286px); // Pizza Base Height
+  }
+}
+
+@keyframes slidePizzaOutScene2Sm {
+  0%,
+  50% {
+    top: -50px;
+  }
+
+  100% {
+    top: calc(100% + 286px); // Pizza Base Height
+  }
+}
+
+@keyframes slidePizzaOutScene2Md {
+  0%,
+  50% {
+    top: 90px;
+  }
+
+  100% {
+    top: calc(100% + 404px); // Pizza Base Height
+  }
+}
+
+&[data-active='3'] {
+  .scene-3 {
+    display: block;
+  }
+
+  .pizza-app__paddle {
+    top: $pizza-paddle-md;
+
+    @include media-breakpoint-up(lg) {
+      @media (min-height: 700px) {
+        top: $pizza-paddle-lg;
+      }
+    }
+
+    @include media-breakpoint-down-max-height(sm) {
+      top: $pizza-paddle-sm;
+    }
+  }
+
+  .pizza-app__ingredients {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &.is-transitioning-in,
+  &.is-transitioning-out {
+    .scene-3 {
+      z-index: 10000;
+
+      .pizza-app__ingredient span,
+      .js_next,
+      .js_prev {
+        opacity: 0;
+      }
+    }
+
+    .pizza-app__paddle span {
+      opacity: 0;
+      line-height: 1000em;
+    }
+  }
+
+  &.is-transitioning-in {
+    .pizza-app__ingredients {
+      animation: slideIngredientsInScene3 0.7s ease forwards;
+      opacity: 0;
+      transform: translateX(100%);
+    }
+
+    .pizza-app__paddle {
+      animation: slidePizzaPaddleInScene3 2s 1s ease forwards;
+      top: 100%;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaPaddleInScene3Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaPaddleInScene3Sm;
+      }
+    }
+
+    .pizza-app__pizza-base {
+      animation: slidePizzaInScene3 2s 1s ease forwards;
+      top: calc(100% + 286px);
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaInScene3Md;
+          top: calc(100% + 404px);
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaInScene3Sm;
+        top: calc(100% + 286px);
+      }
+    }
+  }
+
+  &.is-transitioning-out {
+    .pizza-app__ingredients {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .pizza-app__paddle {
+      animation: slidePizzaPaddleOutScene3 2s ease forwards;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaPaddleOutScene3Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaPaddleOutScene3Sm;
+      }
+    }
+
+    .pizza-app__pizza-base {
+      animation: slidePizzaOutScene3 2s ease forwards;
+      z-index: 5;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          animation-name: slidePizzaOutScene3Md;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaOutScene3Sm;
+      }
+    }
+
+    .pizza-app__paw--sergei {
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes slideIngredientsInScene3 {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slidePizzaPaddleInScene3 {
+  0% {
+    top: 100%;
+  }
+
+  50% {
+    top: calc(50% - 82px);
+  }
+
+  100% {
+    top: $pizza-paddle-md;
+  }
+}
+
+@keyframes slidePizzaPaddleInScene3Sm {
+  0% {
+    top: 100%;
+  }
+
+  50% {
+    top: calc(50% - 82px);
+  }
+
+  100% {
+    top: $pizza-paddle-sm;
+  }
+}
+
+@keyframes slidePizzaPaddleInScene3Md {
+  0% {
+    top: 100%;
+  }
+
+  50% {
+    top: calc(50% - 82px);
+  }
+
+  100% {
+    top: $pizza-paddle-lg;
+  }
+}
+
+@keyframes slidePizzaInScene3 {
+  0% {
+    top: calc(100% + 286px);
+  }
+
+  50%,
+  100% {
+    top: 200px;
+  }
+}
+
+@keyframes slidePizzaInScene3Sm {
+  0% {
+    top: calc(100% + 286px);
+  }
+
+  50%,
+  100% {
+    top: 125px;
+  }
+}
+
+@keyframes slidePizzaInScene3Md {
+  0% {
+    top: calc(100% + 404px);
+  }
+
+  50%,
+  100% {
+    top: 200px;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene3 {
+  0% {
+    top: $pizza-paddle-md;
+  }
+
+  50% {
+    top: calc(50% - 82px);
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene3Sm {
+  0% {
+    top: $pizza-paddle-sm;
+  }
+
+  50% {
+    top: calc(50% - 82px);
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaPaddleOutScene3Md {
+  0% {
+    top: $pizza-paddle-lg;
+  }
+
+  50% {
+    top: calc(50% - 82px);
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaOutScene3 {
+  0%,
+  50% {
+    top: 200px;
+  }
+
+  100% {
+    top: calc(100% + 324px);
+  }
+}
+
+@keyframes slidePizzaOutScene3Sm {
+  0%,
+  50% {
+    top: 125px;
+  }
+
+  100% {
+    top: calc(100% + 324px);
+  }
+}
+
+@keyframes slidePizzaOutScene3Md {
+  0%,
+  50% {
+    top: 200px;
+  }
+
+  100% {
+    top: calc(100% + 404px);
+  }
+}
+
+&[data-active='4'] {
+  .scene-4 {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+
+  .scene-5 {
+    animation: fadeInSlide4 0.4s 2s forwards;
+    display: block;
+    opacity: 0;
+    z-index: 5000;
+  }
+
+  &.is-transitioning-in {
+    .scene-4 {
+      opacity: 1;
+
+      .pizza-app__oven {
+        animation: fadeInSlide4 0.7s forwards;
+      }
+    }
+  }
+
+  &.is-transitioning-out {
+    .scene-4 {
+      animation: fadeOutSlide4 1s forwards;
+    }
+
+    @include media-breakpoint-down(sm) {
+      .pizza-app__steps__list {
+        opacity: 0;
+      }
+    }
+  }
+
+  .pizza-app__paddle {
+    display: none;
+  }
+}
+
+@keyframes fadeInSlide4 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutSlide4 {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+&[data-active='4'],
+&[data-active='5'] {
+  .scene-5 {
+    display: block;
+  }
+}
+
+&[data-active='5'] {
+  .scene-5 {
+    .pizza-app__pizza-base {
+      top: 15px;
+
+      @include media-breakpoint-up(lg) {
+        top: 0;
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        top: 40px;
+      }
+    }
+
+    .pizza-app__pizza-rating__name span {
+      animation: moveText 0.75s forwards;
+
+      @keyframes moveText {
+        0% {
+          bottom: -0.2em;
+          opacity: 1;
+        }
+
+        50% {
+          bottom: 0.2em;
+        }
+
+        100% {
+          bottom: 0;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .pizza-app__paddle {
+    top: 100%;
+  }
+
+  &.is-transitioning-in,
+  &.is-transitioning-out {
+    .scene-4 {
+      z-index: 10001;
+    }
+
+    .scene-5 {
+      z-index: 10000;
+    }
+
+    .pizza-app__paddle span {
+      opacity: 0;
+      line-height: 1000em;
+    }
+  }
+
+  &.is-transitioning-in {
+    .pizza-app__paddle {
+      animation: slidePizzaPaddleInScene5 2s ease forwards;
+      top: calc(100% + 727px);
+
+      @include media-breakpoint-up(lg) {
+        animation-name: slidePizzaPaddleInScene5Md;
+
+        @media (min-height: 700px) {
+          animation-name: slidePizzaPaddleInScene5Lg;
+        }
+      }
+    }
+
+    .pizza-app__pizza-base {
+      animation: slidePizzaInScene5 2s ease forwards;
+
+      @include media-breakpoint-up(lg) {
+        animation-name: slidePizzaInScene5Md;
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        animation-name: slidePizzaInScene5Sm;
+      }
+    }
+  }
+}
+
+@keyframes slidePizzaPaddleInScene5 {
+  0% {
+    top: 100%;
+  }
+
+  50% {
+    top: calc(50% - 140px);
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes slidePizzaPaddleInScene5Md {
+  0% {
+    top: 100%;
+    transform: translateX(0) rotate(0);
+  }
+
+  50% {
+    top: calc(50% - 242px);
+    transform: translateX(160px) rotate(20deg);
+  }
+
+  100% {
+    top: 100%;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes slidePizzaPaddleInScene5Lg {
+  0% {
+    top: 100%;
+    transform: translateX(0) rotate(0);
+  }
+
+  50% {
+    top: calc(50% - 242px);
+    transform: translateX(160px) rotate(20deg);
+  }
+
+  100% {
+    top: 100%;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes slidePizzaInScene5 {
+  0% {
+    top: calc(100% + 284px);
+  }
+
+  50% {
+    top: 15px;
+  }
+}
+
+@keyframes slidePizzaInScene5Sm {
+  0% {
+    top: calc(100% + 284px);
+  }
+
+  50% {
+    top: 40px;
+  }
+}
+
+@keyframes slidePizzaInScene5Md {
+  0% {
+    top: calc(100% + 284px);
+  }
+
+  50% {
+    top: 0;
+  }
+}
+
+&__scene {
+  @include absolute(top 0 left 0);
+  @include square(100%);
+
+  color: $white;
+  display: none;
+  overflow: hidden;
+  text-align: center;
+
+  &__inner {
+    @include square(100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.4s ease;
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &.scene-0 {
+    min-height: 563px;
+    position: relative;
+    z-index: 5000;
+
+    .pizza-app__btn:first-of-type {
+      @include media-breakpoint-down(md) {
+        margin: 0 auto 20px;
+        display: block;
+      }
+    }
+
+    .is-transitioning-out & {
+      .pizza-app__scene__inner {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.scene-1 {
+    .pizza-app__scene__inner {
+      padding: 15px;
+    }
+  }
+
+  &.scene-2 {
+    .js_slide {
+      .pizza-app__pizza-base {
+        p {
+          @include absolute(bottom -60px right 0 left -5px);
+          @include primary-font(18px);
+
+          color: $white;
+          height: 45px;
+          letter-spacing: normal;
+          line-height: 1.33;
+          margin: 0 auto;
+          text-align: center;
+          text-shadow: 0 2px 10px rgba($black, 0.57);
+
+          @include media-breakpoint-up(lg) {
+            @media (min-height: 700px) {
+              bottom: -46px;
+              left: -15px;
+            }
+          }
+        }
+      }
+
+      a {
+        @include absolute(bottom 0);
+      }
+    }
+  }
+
+  &.scene-3 {
+    @include media-breakpoint-down(md) {
+      .js_slide {
+        .pizza-app__bowl {
+          transform: scale(0.7) translateY(120px);
+          transition: transform 0.4s ease;
+        }
+
+        &.post-1 .pizza-app__bowl {
+          transform: scale(0.9) translateY(35px) translateX(25px);
+        }
+
+        &.pre-1 .pizza-app__bowl {
+          transform: scale(0.9) translateY(35px) translateX(-25px);
+        }
+
+        &.post-2 .pizza-app__bowl {
+          transform: scale(0.85) translateY(80px) translateX(25px);
+        }
+
+        &.pre-2 .pizza-app__bowl {
+          transform: scale(0.85) translateY(80px) translateX(-25px);
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      @media (max-height: 699px) {
+        .js_slide {
+          .pizza-app__bowl {
+            transform: scale(0.7) translateY(120px);
+            transition: transform 0.4s ease;
+          }
+
+          &.post-1 .pizza-app__bowl {
+            transform: scale(0.9) translateY(35px) translateX(25px);
+          }
+
+          &.pre-1 .pizza-app__bowl {
+            transform: scale(0.9) translateY(35px) translateX(-25px);
+          }
+
+          &.post-2 .pizza-app__bowl {
+            transform: scale(0.85) translateY(80px) translateX(25px);
+          }
+
+          &.pre-2 .pizza-app__bowl {
+            transform: scale(0.85) translateY(80px) translateX(-25px);
+          }
+        }
+      }
+    }
+
+    $slideWidth: 50%;
+    $slideGutter: 0;
+
+    .pizza-app__slider {
+      @include absolute(top 165px left 0 right 0);
+
+      align-items: flex-start;
+      height: 75px;
+      margin: auto;
+      min-width: 100px;
+      width: 20%;
+
+      @include media-breakpoint-up(md) {
+        top: 220px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        top: 75px;
+
+        @media (min-height: 700px) {
+          @include absolute(top 0 left 0);
+          @include square(100%);
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        top: 45px;
+      }
+
+      .frame {
+        height: 75px;
+        overflow: visible;
+
+        @include media-breakpoint-up(lg) {
+          @media (min-height: 700px) {
+            height: 100%;
+          }
+        }
+      }
+
+      @include media-breakpoint-down(md) {
+        .js_slide {
+          &.active .pizza-app__bowl {
+            transform: scale(1.1) translateY(0);
+          }
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        @media (max-height: 699px) {
+          .js_slide {
+            &.active .pizza-app__bowl {
+              transform: scale(1.1) translateY(0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.scene-4 {
+    background: #100b0a;
+
+    &.is-holding {
+      .pizza-app__hold-interation::before {
+        transform: rotate(-275deg);
+        transition: transform 5s linear;
+      }
+    }
+
+    .pizza-app__scene__inner {
+      @include relative(null, 2);
+    }
+
+    .pizza-app__hold-interation {
+      @include absolute(right 0 bottom 24px left 0, 2);
+      @include secondary-font(18px, 600);
+      @include square(155px);
+
+      color: $light-grey;
+      cursor: pointer;
+      line-height: 1.33;
+      letter-spacing: normal;
+      margin: 0 auto;
+      text-align: center;
+      text-shadow: 0 2px 11px rgba(31, 28, 28, 0.65);
+      text-transform: uppercase;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          @include square(186px);
+
+          bottom: 42px;
+          font-size: 24px;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        @include square(132px);
+      }
+
+      span {
+        @include absolute(top 0 left 0, 3);
+        @include square(100%);
+
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      &::after,
+      &::before {
+        @include absolute;
+
+        background-color: transparent;
+        background-image: url('#{$assets-url}css_sprites.png');
+        background-size: 481px 280px;
+        background-repeat: no-repeat;
+        content: '';
+        margin: auto;
+
+        @include media-breakpoint-up(lg) {
+          @media (min-height: 700px) {
+            background-size: 581px 338px;
+          }
+        }
+
+        @include media-breakpoint-down-max-height(sm) {
+          background-size: 407px 237px;
+        }
+      }
+
+      &::before {
+        @include square(100%);
+
+        background-position: -4px -4px;
+        left: 0;
+        top: 0;
+        transition: transform 1s ease;
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+          @media (min-height: 700px) {
+            background-position: -5px -5px;
+          }
+        }
+
+        @include media-breakpoint-down-max-height(sm) {
+          background-position: -3px -3px;
+        }
+      }
+
+      &::after {
+        @include square(109px);
+
+        background-position: -5px -167px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 2;
+
+        @include media-breakpoint-up(lg) {
+          @media (min-height: 700px) {
+            @include square(132px);
+
+            background-position: -5px -200px;
+          }
+        }
+
+        @include media-breakpoint-down-max-height(sm) {
+          @include square(93px);
+
+          background-position: -3px -140px;
+        }
+      }
+    }
+  }
+
+  &.scene-5 {
+    .pizza-app__pizza-box {
+      @include square(100%);
+
+      &--wrap {
+        @include absolute(top -490px right 0 bottom 0 left 0);
+
+        height: 100px;
+        margin: auto;
+        padding: 35px 20px 0;
+        width: 265px;
+
+        @include media-breakpoint-down(md) {
+          @media (min-height: 760px) {
+            top: -575px;
+          }
+        }
+
+        @include media-breakpoint-up(lg) {
+          @include square(400px);
+
+          left: -470px;
+          padding-top: 75px;
+          top: 0px;
+        }
+
+        @include media-breakpoint-down-max-height(sm) {
+          height: 140px;
+          padding-top: 25px;
+          top: -320px;
+          width: 225px;
+        }
+      }
+    }
+
+    .pizza-app__btn {
+      @include absolute(left 0);
+      @include square(33px, 0);
+
+      background-color: transparent;
+      background-image: url('#{$assets-url}css_sprites.png');
+      background-position: -172px -128px;
+      background-size: 370px 215px;
+      background-repeat: no-repeat;
+      margin: auto;
+      bottom: -195px;
+      line-height: 1000em;
+      right: -190px;
+      top: 0;
+      padding: 0;
+      overflow: hidden;
+
+      @include media-breakpoint-up(lg) {
+        @include square(50px, 0);
+
+        background-position: -255px -190px;
+        background-size: 550px 320px;
+        bottom: -325px;
+        right: -785px;
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        @include square(28px, 0);
+
+        background-position: -124px -93px;
+        background-size: 270px 157px;
+        right: -170px;
+        bottom: -205px;
+      }
+    }
+  }
+
+  &.scene-1,
+  &.scene-3 {
+    .pizza-app__btn-group {
+      @include absolute(bottom 0 left 0 right 0, 3);
+
+      margin: auto;
+
+      a {
+        color: transparent;
+      }
+    }
+  }
+
+  &.is-active {
+    z-index: 5001;
+  }
+}

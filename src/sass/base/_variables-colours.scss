@@ -1,0 +1,89 @@
+﻿@import "../../../node_modules/@meerstrap/webui/lib/styles/sass/support.scss";
+
+/* ==================================
+   Brand Colour Variables
+   ================================== */
+
+/* Blues */
+$ctm-blue: $blue-primary;
+$ctm-blue-dark: #072760;
+$ctm-blue-light: #416CB2;
+$ctm-blue-lighter: #89A7D8;
+$ctm-blue-lighter-60: #B8CAE8;
+$ctm-blue-lighter-30: #D4E0F3;
+$ctm-blue-lightest: #E4F1FD;
+$ctm-blue-lightest-50: #F1F8FE;
+$ctm-blue-090: $blue-090;
+$ctm-blue-150: $blue-150;
+$ctm-blue-230: $blue-230;
+$ctm-blue-350: $blue-350;
+$ctm-blue-430: $blue-430;
+$ctm-blue-520: $blue-520;
+$ctm-blue-620: $blue-620;
+$ctm-blue-680: $blue-680;
+$ctm-blue-720: $blue-720;
+$ctm-blue-750: $blue-750;
+
+// /* Greens */
+$ctm-green: $green-primary;
+$ctm-green-dark: #198942;
+$ctm-green-darker: #198641; // added for accessibility - white text needs to be on a background of green darker
+$ctm-green-light: #92C34B;
+$ctm-green-lighter: #B4D879;
+$ctm-green-lightest: #F1FDE1;
+$ctm-green-65: #7DCC7A;
+$ctm-green-100: $green-100;
+$ctm-green-150: $green-150;
+$ctm-green-170: $green-170;
+$ctm-green-270: $green-270;
+$ctm-green-480: $green-480;
+
+/* Reds */
+$ctm-red: #EC5741;
+$ctm-red-lightest: #FFE9E6;
+$ctm-red-170: $red-170;
+$ctm-red-280: $red-280;
+$ctm-red-380: $red-380;
+$ctm-red-570: $red-570;
+$ctm-red-720: $red-720;
+
+/* Yellows */
+$ctm-yellow-120: $yellow-120;
+$ctm-yellow-390: $yellow-390;
+$ctm-yellow-540: $yellow-540;
+$ctm-yellow-650: $yellow-650;
+$ctm-yellow-720: $yellow-720;
+
+/* Tones and Highlights */
+// $ctm-black: #000;
+$ctm-grey: #636371;
+$ctm-grey-dark: #30302F;
+$ctm-grey-light: #959595;
+$ctm-grey-lighter: #D3D3D3;
+$ctm-grey-lightest: #F2F2F2;
+$ctm-grey-lightest-50: #FAFAFA;
+// $ctm-white: #FFF;
+$ctm-grey-620: $grey-620;
+$ctm-grey-670: $grey-670;
+$ctm-grey-720: $grey-720;
+$ctm-grey-750: $grey-750; 
+
+/* Hybrids */
+$ctm-orange: $accent-orange;
+$ctm-magenta: $accent-pink;
+$ctm-magenta-lightest: #F9EBF2;
+$ctm-turquoise: #00A4AE;
+$ctm-turquoise-lightest: #E5F5F6;
+
+/* Named */
+$ctm-error: $ctm-red;
+$rating-yellow: #fb0;
+$ctm-green-a11y-links: #35A02D; // added for accessibility - green links now ok lightest grey background
+
+/* Temporary oleg colours */
+$oleg-hot-air-balloon: #B9766E;
+$oleg-big-night-sky: #745277;
+$oleg-wise-old-elephant: #C5954F;
+
+/* Gradients */
+$ctm-rewards-gradient-gold-1: radial-gradient(circle, #FEF17C 0%, #FFDB69 18.24%, #E7B945 37.56%, #E7B742 63.3%, #E7B742 81.85%, #CD9E2D 100%);

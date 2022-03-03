@@ -1,0 +1,50 @@
+// Mixins
+@import "../../helpers/mixins";
+@import "../../../../../node_modules/sass-mq/mq";
+
+// Base
+@import "../../base/variables";
+
+.mcl {
+  &__item {
+    border-bottom: 1px solid $ctm-white;
+    padding-bottom: 20px;
+
+    @include mq($from: tablet) {
+      display: flex;
+    }
+  }
+
+  &__img {
+    margin: 0 0 20px;
+
+    @include mq($from: tablet) {
+      margin: 0;
+      width: 25%;
+    }
+  }
+
+  &__dtl {
+    @include mq($from: tablet) {
+      padding-left: 20px;
+      width: 75%;
+    }
+  }
+
+  &__icon {
+    height: 70px;
+    width: 70px;
+  }
+
+  li {
+    margin-bottom: 20px;
+  }
+
+  &__pr {
+    border-radius: 20px;
+
+    a {
+      word-break: break-word;
+    }
+  }
+}

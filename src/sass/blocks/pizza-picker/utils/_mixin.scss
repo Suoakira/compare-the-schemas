@@ -1,0 +1,79 @@
+@mixin bp($point) {
+  @if $point == desktop {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  } @else if $point == tab {
+    @media (min-width: 768px) and (max-width: 1279px) {
+      @content;
+    }
+  } @else if $point == tab-up {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == mob {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == mob-portrait {
+    @media (max-width: 420px) {
+      @content;
+    }
+  }
+}
+
+@mixin position($position, $args: (), $zindex: null) {
+  $offsets: top right bottom left;
+  position: $position;
+  z-index: $zindex;
+
+  @each $offset in $offsets {
+    $index: index($args, $offset);
+
+    @if $index {
+      @if $index == length($args) {
+        #{$offset}: 0;
+      } @else {
+        $next: nth($args, $index + 1);
+        @if is-valid-length($next) {
+          #{$offset}: $next;
+        } @else if index($offsets, $next) {
+          #{$offset}: 0;
+        } @else {
+          @warn "Invalid value `#{$next}` for offset `#{$offset}`.";
+        }
+      }
+    }
+  }
+}
+
+@function is-valid-length($value) {
+  @return (type-of($value) == 'number' and not unitless($value)) or
+    (index(auto initial inherit 0, $value) != false);
+}
+
+@mixin absolute($args: (), $zindex: null) {
+  @include position(absolute, $args, $zindex);
+}
+
+@mixin fixed($args: (), $zindex: null) {
+  @include position(fixed, $args, $zindex);
+}
+
+@mixin relative($args: (), $zindex: null) {
+  @include position(relative, $args, $zindex);
+}
+
+@mixin reset-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin square($size: 100%, $radius: null, $minmax: null) {
+  height: $size;
+  width: $size;
+  border-radius: $radius;
+  min-width: $minmax;
+  min-height: $minmax;
+}

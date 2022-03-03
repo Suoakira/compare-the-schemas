@@ -1,0 +1,61 @@
+﻿@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+@import "../base/variables";
+
+.mlh {
+  position: relative;
+  min-height: 480px;
+}
+
+.mlh__ctas {
+  max-width: 545px;
+
+  .btn {
+    display: block;
+    margin: 0 auto 24px;
+    width: 255px;
+  }
+}
+
+@media (min-width: 48em) {
+  .mlh__ctas .btn {
+    display: inline-block;
+    margin-bottom: 16px;
+    margin-right: 8px;
+  }
+}
+
+.mlh__cntnr {
+  width: 100%;
+  position: relative;
+
+  @include mq($from: tablet) {
+    @include centerer;
+    padding-top: unset;
+
+    & .lph__prop-txt--ul-img li:before {
+      font-size: 2rem;
+      line-height: px2rem(30px);
+    }
+  }
+
+  & .lph__prop-txt--ul-img li {
+    padding-left: px2rem(40px);
+    min-height: px2rem(32px);
+  }
+}
+
+.mlh__prop-txt {
+  margin: 0 0 1.3em;
+}
+
+@media (max-width: 47.99em) {
+  .mlh__prop-title {
+    text-align: center;
+  }
+
+  .mlh__ctas {
+    max-width: unset;
+    text-align: center;
+  }
+}

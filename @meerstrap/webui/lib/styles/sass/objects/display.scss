@@ -1,0 +1,22 @@
+@import '../support.scss';
+
+// Visibility and display utilities
+$display-types: (
+  block,
+  flex,
+  inline,
+  inline-block,
+  inline-flex,
+  none,
+  table,
+  table-cell
+);
+
+// Responsive display utilities
+@each $screen, $size in $ctm-screens {
+    @include media($screen) {
+        @each $type in $display-types {
+            .d#{$size}-#{$type} { display: $type !important; }
+          }
+    }
+}

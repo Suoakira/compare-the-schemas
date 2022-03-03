@@ -1,0 +1,51 @@
+.prd-lnks {
+  &__lnk {
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 15px 5px;
+    transition: all .1s ease-in-out;
+    width: 100%;
+
+    &:hover {
+      background-color: rgba($ctm-blue-750, 0.04);
+      border-color: rgba($ctm-blue-750, 0.4);
+      transform: scale(1.035);
+    }
+  }
+
+  &__icn-wrpr {
+    display: block;
+    margin-bottom: 6px;
+    position: relative;
+  }
+
+  &__prd-lnk-txt {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    align-items: center;
+  }
+
+  &__icn-bg {
+    position: absolute;
+  }
+
+  &__icn-bg,
+  &__icon-fg {
+    height: 70px;
+    width: 70px;
+
+    @include mq($from: tablet) {
+      height: 90px;
+      width: 90px;
+    }
+  }
+
+  &__icon-fg {
+    position: relative;
+  }
+}

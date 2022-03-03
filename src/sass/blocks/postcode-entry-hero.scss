@@ -1,0 +1,221 @@
+@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+@import "../base/variables";
+@import "../components/modal";
+
+.pc.lph {
+  min-height: 352px;
+
+  @include mq($from: tablet) {
+    min-height: 386px;
+  }
+}
+
+.pc-cntnr {
+  position: relative;
+
+  @include mq($until: tablet) {
+    padding: 15px 12px 24px;
+  }
+
+  @media (max-width: 320px) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  @include mq($from: tablet) {
+    padding-top: 54px;
+    padding-bottom: 48px;
+
+    & .lph__prop-cntnr {
+      max-width: 100%;
+    }
+  }
+}
+
+.pc-form {
+  position: relative;
+  background-color: $ctm-white;
+  border-radius: 10px;
+  padding: 13px 16px 17px;
+  margin: 20px auto 0;
+  max-width: 410px;
+
+  @include mq($from: tablet) {
+    margin: 20px 0 0;
+  }
+
+  &__input {
+    background-color: $ctm-blue-720;
+    border: 1px solid $ctm-blue-620;
+    border-bottom: 4px solid $ctm-blue-520;
+    border-radius: 3px;
+    font-size: px2rem(18px);
+    font-weight: bold;
+    margin: 0 8px 0 0;
+    min-width: 0;
+    padding: px2rem(16px);
+
+    @include mq($until: large-mobile) {
+      padding: px2rem(16px) px2rem(6px);
+    }
+
+    &:focus:not(:hover):not(:active) {
+      outline-width: 5px;
+      background-color: $ctm-white;
+    }
+
+    &:focus {
+      outline-width: 0;
+    }
+
+    &::placeholder {
+      color: $ctm-blue-520;
+      font-weight: 300;
+    }
+
+    &:valid:not(:placeholder-shown) {
+      background-color: $ctm-blue-720;
+      color: $ctm-blue-150;
+      border: 1px solid $ctm-blue-620;
+      border-bottom: 4px solid $ctm-blue-520;
+    }
+
+    &:not(:placeholder-shown) {
+      background-color: $ctm-red-720;
+      color: $ctm-red-280;
+      border: 1px solid $ctm-red-380;
+      border-bottom: 4px solid $ctm-red-380;
+    }
+
+    &--cntnr {
+      display: flex;
+      margin-bottom: px2rem(8px);
+    }
+
+    @include mq($from: tablet) {
+      &--cntnr button {
+        width: 156px;
+      }
+    }
+  }
+
+  &__dsclmr {
+    display: flex;
+
+    &__txt {
+      font-size: px2rem(12px);
+      line-height: px2rem(16px);
+      @include mq($from: tablet) {
+        font-size: px2rem(14px);
+      }
+
+      p {
+        margin: 0;
+      }
+
+      a {
+        color: $ctm-green-170;
+      }
+    }
+
+    &__mdl {
+      align-items: center;
+    }
+  }
+
+  &__heading {
+    font-size: px2rem(21px);
+    margin-bottom: px2rem(8px);
+    font-weight: bold;
+    display: block;
+  }
+
+  .btn {
+    border-radius: px2rem(28px);
+    white-space: nowrap;
+    min-width: 145px;
+  }
+}
+
+.ticks:before {
+  box-sizing: border-box;
+  color: $ctm-green-150;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg' fill='%230E7B0D'%3E%3Cpath d='M34.4 3.5l-2.6 2.8-18.3 19.3L8 20.1l-2.7-2.7L0 22.8l2.7 2.7 8.3 8.3 2.8 2.8 2.7-2.9 21-22.2L40 8.6l-5.6-5.1z'%3E%3C/path%3E%3C/svg%3E");
+  height: 18px;
+  left: 0;
+  position: absolute;
+  width: 18px;
+  content: "";
+}
+
+.pc-ttl,
+.pc-copy {
+  @include mq($until: tablet) {
+    width: calc(100% - 27px);
+  }
+}
+
+.pc-ttl h1 {
+  line-height: px2rem(30px);
+}
+
+.pc-copy {
+  @include mq($from: tablet) {
+    padding-left: 16px;
+  }
+
+  & p {
+    font-size: px2rem(18px);
+    line-height: px2rem(21px);
+    margin: 0;
+    width: 94%;
+    margin-left: 7%;
+
+    @include mq($from: tablet) {
+      margin-left: 2%;
+    }
+  }
+
+  & .ticks:first-child {
+    margin-bottom: 5px;
+  }
+}
+
+.pc-telephone__cntnr {
+  padding: 17px 1px 0 3px;
+  font-size: 18px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+
+  @include mq($from: tablet) {
+    padding: 20px 0 0;
+    justify-content: flex-start;
+  }
+
+  & .tlphn {
+    text-decoration: underline;
+    font-size: px2rem(18px);
+  }
+
+  & p {
+    margin-bottom: 5px;
+  }
+
+  & + div {
+    font-size: px2rem(14px);
+    text-align: center;
+
+    @include mq($from: tablet) {
+      text-align: left;
+    }
+  }
+}
+
+// target IE only
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .pc-telephone__cntnr .tlphn {
+    line-height: 1.5;
+  }
+}

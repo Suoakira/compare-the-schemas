@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Global footer
+   ========================================================================== */
+
+/**
+ * --------------------
+ * Class abbreviations
+ * --------------------
+ *
+ * gbl-ftr = global footer
+   gbl-ftr__cntnr = global footer container
+   gbl-ftr__nav = global footer navigation
+   gbl-ftr__col = global footer column
+   gbl-ftr__hdng = global footer heading
+   gbl-ftr__lnk = global footer link
+   gbl-ftr__cntnt = global footer content
+ */
+
+.gbl-ftr {
+  background: $ctm-blue;
+  color: $ctm-white;
+  font-size: 15px;
+  line-height: 1.6;
+
+  // includes links in footer nav and links added via wysiwyg 
+  a {
+    color: $ctm-white;
+  }
+
+  &__cntnr {
+    padding: 30px $container-horizontal-padding;
+  }
+
+  &__nav {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $ctm-grey-light;
+    margin: 0 -5px 20px;
+
+    [class*="col-"] {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  &__col {
+    padding-top: 20px;
+  }
+
+  &__hdng {
+    margin: 0;
+  }
+
+  &__lnk {
+    font-weight: 400;
+  }
+
+  &__cntnt a {
+    font-weight: 400;
+    text-decoration: underline;
+  }
+
+  &__logo {
+    height: 30px;
+    width: 150px;
+  }
+
+  &__welc {
+
+    form {
+      font-weight: 700;
+      text-align: center;
+      padding: 10px;
+      margin: 0 auto 15px;
+      background: $ctm-blue-dark;
+      border: 1px solid $ctm-blue-light;
+      font-size: px2rem(16px);
+    }
+
+    .btn {
+      padding: 0;
+      border: 0;
+      color: $ctm-green;
+      min-width: 0;
+
+      svg {
+        display: none;
+      }
+    }
+  }
+}

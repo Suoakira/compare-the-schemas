@@ -1,0 +1,247 @@
+$text-colour: #252525;
+$tabletWidth: map-get($mq-breakpoints, "tablet");
+$desktopWidth: map-get($mq-breakpoints, "desktop");
+$largeHeight: 800px;
+
+.as {
+  color: $text-colour;
+  padding-top: 20px;
+
+  @include mq($from: tablet) {
+    padding-top: 40px;
+  }
+
+  &__intro {
+    margin-bottom: 25px;
+
+    @include mq($from: tablet) {
+      margin-bottom: 45px;
+      max-width: none;
+    }
+  }
+
+  &__sub-hdg {
+    font-size: px2rem(14px);
+
+    @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+      font-size: px2rem(21px);
+      margin-top: -5px;
+    }
+  }
+
+  &__sub-hdg-txt {
+    display: inline-block;
+    padding-left: 25px;
+    position: relative;
+
+    @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+      padding-left: 45px;
+    }
+
+    &:before {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 .5l10.036 11' stroke='%23252525' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+      content: "";
+      height: 7px;
+      left: 10px;
+      position: absolute;
+      top: 0;
+      width: 7px;
+
+      @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+        height: 10px;
+        top: 4px;
+        width: 10px;
+      }
+    }
+  }
+
+  &__hdg {
+    font-size: px2rem(39px);
+    margin: 0;
+
+    @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+      font-size: px2rem(60px);
+    }
+  }
+
+  &__hdg-txt {
+    display: inline-block;
+    padding-top: 3px;
+    position: relative;
+
+    &:before,
+    &:after {
+      background: $text-colour;
+      content: "";
+      height: 2px;
+      left: 0;
+      position: absolute;
+      width: 20px;
+
+      @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+        width: 30px;
+      }
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    &:after {
+      bottom: 0;
+    }
+  }
+
+  &__cont {
+    @include mq($from: tablet) {
+      max-width: 800px;
+      min-height: 600px;
+      position: relative;
+    }
+
+    @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+      max-width: $max-content-width;
+    }
+  }
+
+  &__lnk-wrpr {
+    @include mq($until: desktop) {
+      margin: 0 0 20px 20px;
+      overflow: auto;
+    }
+  }
+
+  &__lnk-cntnr,
+  &__lnk-innr-cntnr {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+
+    @include mq($from: desktop) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &__lnk {
+    color: $text-colour;
+    display: block;
+    font-weight: bold;
+    margin-right: 20px;
+    text-align: center;
+    width: 140px;
+
+    @include mq($from: tablet) {
+      margin: 0 0 30px;
+    }
+
+    @include mq($from: desktop) {
+      &:hover .as__svg {
+        transform: scale(1.2);
+      }
+    }
+
+    @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+      font-size: px2rem(24px);
+      margin: 0 0 60px;
+      width: 184px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__lnk-txt {
+    display: block;
+    padding: 12px 0;
+    position: relative;
+
+    &:before,
+    &:after {
+      background: $text-colour;
+      content: "";
+      height: 2px;
+      left: 50%;
+      margin-left: -10px;
+      position: absolute;
+      width: 20px;
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    &:after {
+      bottom: 0;
+    }
+  }
+
+  &__arr {
+    fill: $ctm-blue-dark;
+    height: 10px;
+    width: 6px;
+    
+    @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+      height: 16px;
+      width: 9px;
+    }
+  }
+
+  &__svg {
+    height: 60px;
+    margin-bottom: 13px;
+    transition: transform .2s;
+    width: 60px;
+
+    @media (min-height: $largeHeight) and (min-width: $tabletWidth) {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  &__img {
+    display: block;
+    max-width: 100%;
+
+    @include mq($from: tablet) {
+      max-width: 500px;
+    }
+  }
+}
+
+// Animations 
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.a-fade-in-up {
+  animation-delay: 1s;
+  animation-duration: .7s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+  opacity: 0;
+}
+
+.a-delay-1200 {
+  animation-delay: 1.2s;
+}
+
+.a-delay-1400 {
+  animation-delay: 1.4s;
+}
+
+.a-delay-1600 {
+  animation-delay: 1.6s;
+}
+
+.a-delay-1800 {
+  animation-delay: 1.6s;
+}

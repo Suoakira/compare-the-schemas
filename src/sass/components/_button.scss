@@ -1,0 +1,524 @@
+﻿/* ==========================================================================
+   Regular Buttons
+   ========================================================================== */
+
+/**
+ * ----------------
+ * Types - Legacy styles
+ * ----------------
+ * Primary
+ * Hollow
+ * Inverse
+ * Secondary (Grey)
+ * Hollow on White (Turquiose)
+ * Disabled
+ * 
+ * ----------------
+ * Modifiers for all types
+ * ----------------
+ * 
+ * Medium & Small for all buttons
+ * Left Arrow, Right Arrow, Down Arrow, Up Arrow
+ *
+ * --------------------
+ * Class abbreviations
+ * --------------------
+ *
+ * .btn = button
+ * .btn--inv = button inverse
+ * .btn--hlw = button hollow
+ * .btn--how = button hollow on white
+ * .btn--hog = button hollow on grey
+ * .btn--sec = button secondary 
+ * .btn--dis = button disabled
+ * .btn--fw = button fixed width
+ * .btn--sm = button small
+ * .btn__ar = button arrow
+ * .btn--ar-r = button right arrow
+ * .btn--ar-d = button down arrow
+ * .btn--ar-u = button up arrow
+ * .btn--ar-l = button left arrow
+ * .btn--icn = button icon only
+ * .btn--prd-icn = button with product icon and text
+ */
+
+$default-colors: (
+  font-color: $ctm-white,
+  bg-color: $ctm-green,
+  border-color: $ctm-green,
+  hover-font-color: $ctm-white,
+  hover-bg-color: darken($ctm-green, 2%),
+  hover-border-color: darken($ctm-green, 2%)
+);
+
+$inverse-colors: (
+  font-color: $ctm-green,
+  bg-color: $ctm-white,
+  border-color: $ctm-white,
+  hover-font-color: $ctm-green,
+  hover-border-color: darken($ctm-white, 3%),
+  hover-bg-color: darken($ctm-white, 3%)
+);
+
+$hollow-colors: (
+  font-color: $ctm-white,
+  border-color: $ctm-white,
+  bg-color: transparent,
+  hover-font-color: $ctm-white,
+  hover-border-color: $ctm-green-light,
+  hover-bg-color: transparent
+);
+
+$hollow-on-white-colors: (
+  font-color: $ctm-green,
+  border-color: $ctm-green,
+  bg-color: transparent,
+  hover-font-color: $ctm-green-dark,
+  hover-border-color: $ctm-green-dark,
+  hover-bg-color: transparent
+);
+
+// #319F2D is a shade of green that when combined with grey lightest meets AA a11y requirements
+$secondary-colors: (
+  font-color: #319F2D,
+  border-color: $ctm-grey-lightest,
+  bg-color: $ctm-grey-lightest,
+  hover-font-color: #319F2D,
+  hover-border-color: #319F2D,
+  hover-bg-color: $ctm-grey-lightest
+);
+
+$hollow-on-grey-colors: (
+  font-color: #319F2D,
+  border-color: #319F2D,
+  bg-color: transparent,
+  hover-font-color: $ctm-green-dark,
+  hover-border-color: $ctm-green-dark,
+  hover-bg-color: transparent
+);
+
+$disabled-colors: (
+  font-color: $ctm-grey-lighter,
+  border-color: $ctm-grey,
+  bg-color: $ctm-grey,
+  hover-font-color: $ctm-grey-light,
+  hover-border-color: $ctm-grey,
+  hover-bg-color: $ctm-grey
+);
+
+@mixin btn-modifier($color-map) {
+  color: map-get($color-map, font-color);
+  border-color: map-get($color-map, border-color);
+  background-color: map-get($color-map, bg-color);
+
+  &:hover {
+    color: map-get($color-map, hover-font-color);
+    border-color: map-get($color-map, hover-border-color);
+    background-color: map-get($color-map, hover-bg-color);
+    text-decoration: none;
+  }
+}
+
+.btn-common {
+  display: inline-block;
+  position: relative;
+  padding: 0.75rem 1rem;
+  min-width: 160px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  border-style: solid;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  @extend .btn-common;
+  @include btn-modifier($default-colors);
+
+  &--inv {
+    @include btn-modifier($inverse-colors);
+    text-shadow: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  &--hlw {
+    @include btn-modifier($hollow-colors);
+  }
+
+  &--how {
+    @include btn-modifier($hollow-on-white-colors);
+    text-shadow: none;
+  }
+
+  &--hog {
+    @include btn-modifier($hollow-on-grey-colors);
+    text-shadow: none;
+  }
+
+  &--sec {
+    @include btn-modifier($secondary-colors);
+    text-shadow: none;
+  }
+
+  &--dis {
+    @include btn-modifier($disabled-colors);
+    cursor: default;
+  }
+
+  .fc__innr  &,
+  .row & {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-al-lt & {
+    margin-right: auto;
+  }
+
+  .btn-al-ctr & {
+    margin: auto;
+  }
+
+  .btn-al-rt & {
+    margin-left: auto;
+  }
+
+  /* ==========================
+   Fixed Width
+   ========================== */
+
+  // &--fw {
+  //   width: 160px;
+  // }
+
+  /* ==========================
+   Sizes
+   ========================== */
+
+  &--sm {
+    padding: 0.5rem 1rem;
+    min-width: 140px;
+  }
+
+  /* ==========================
+   Arrows
+   ========================== */
+
+  &__ar {
+    width: px2rem(18px);
+    height: px2rem(18px);
+    position: absolute;
+    top: 50%;
+    margin-top: px2rem(-9px);
+  }
+
+  &--ar-r,
+  &--ar-d,
+  &--ar-u {
+    padding-right: 2.75rem;
+    padding-left: 1rem;
+    text-align: left;
+
+    .btn__ar {
+      right: 0.75em;
+    }
+
+  }
+
+  &--ar-d {
+    .btn__ar {
+      transform: rotate(90deg);
+    }
+  }
+
+  &--ar-u {
+    .btn__ar {
+      transform: rotate(270deg);
+    }
+  }
+
+  &--ar-l {
+    padding-right: 1rem;
+    padding-left: 2.75rem;
+    text-align: right;
+
+    .btn__ar {
+      left: 0.75em;
+      transform: rotate(180deg);
+    }
+  }
+
+  /* ==========================
+   Icon Only
+   ========================== */
+
+  &--icn {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    min-width: auto;
+    line-height: 0;
+    width: 30px;
+    height: 30px;
+
+    &__icn {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      background: transparent;
+      opacity: 0.7;
+    }
+
+    &.btn--sm {
+      width: 20px;
+      height: 20px;
+    }
+
+    &.btn--lg {
+      width: 40px;
+      height: 40px;
+    }
+
+    svg {
+      pointer-events: none;
+    }
+  }
+
+  /* ==========================
+   Product icon and text
+   ========================== */
+
+  &--prd-icn {
+    border-radius: px2rem(30px);
+    min-width: 0;
+    height: 100%;
+    line-height: 1;
+    padding: px2rem(16px) px2rem(5px);
+    width: 100%;
+
+    &__icn {
+      display: block;
+      margin: 0 auto 7px;
+      height: 38px;
+      width: 60px;
+    }
+  }
+}
+
+/**
+ * ----------------
+ * Types - Design System C
+ * ----------------
+ * Primary
+ * Secondary
+ *
+ * ----------------
+ * Modifiers for all types
+ * ----------------
+ * Large, Medium & Small for all buttons
+ * Left Arrow, Right Arrow, Down Arrow, Up Arrow
+ *
+ * --------------------
+ * Class abbreviations
+ * --------------------
+ * 
+ * .btn--dsc = Design System C primary style button
+ * .btn--dsc-sec = Design System C secondary style button
+*/
+
+$dsc-primary-colors: (
+  font-color: $ctm-white,
+  bg-color: $ctm-green-170,
+  border-color: $ctm-green-170,
+  shadow-color: $ctm-green-150,
+  hover-bg-color: $ctm-green-150,
+  hover-border-color: $ctm-green-150,
+  hover-shadow-color: $ctm-green-100
+);
+
+$dsc-secondary-colors: (
+  font-color: $ctm-green-170,
+  bg-color: $ctm-white,
+  border-color: $ctm-grey-620,
+  shadow-color: $ctm-grey-670,
+  hover-bg-color: $ctm-grey-750,
+  hover-border-color: $ctm-grey-620,
+  hover-shadow-color: $ctm-grey-620
+);
+
+$dsc-hollow-colors: (
+  font-color: $ctm-white,
+  bg-color: transparent,
+  border-color: $ctm-white,
+  shadow-color: transparent,
+  hover-bg-color: transparent,
+  hover-border-color: $ctm-green-light,
+  hover-shadow-color: transparent
+);
+
+@mixin dsc-btn-modifier($color-map) {
+  background-color: map-get($color-map, bg-color);
+  border-color: map-get($color-map, border-color);
+  box-shadow: inset 0 -3px 0 map-get($color-map, shadow-color);
+  color: map-get($color-map, font-color);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: map-get($color-map, hover-bg-color);
+    border-color: map-get($color-map, hover-border-color);
+    box-shadow: inset 0 -3px 0 map-get($color-map, hover-shadow-color);
+    color: map-get($color-map, font-color);
+    text-decoration: none;
+
+    &:after {
+      box-shadow: 0 4px 8px rgba($ctm-black, .24), 0 -1px 4px rgba($ctm-black, .08);
+      opacity: 1;
+    }
+  }
+}
+
+.btn--dsc {
+  @include dsc-btn-modifier($dsc-primary-colors);
+  border-radius: px2rem(24px);
+  min-width: px2rem(48px);
+  min-height: px2rem(48px);
+  font-size: px2rem(18px);
+  line-height: px2rem(24px);
+  padding: px2rem(11px) px2rem(24px);
+  position: relative;
+  border-width: 0;
+  text-shadow: none;
+
+  &:after {
+    border-radius: px2rem(24px);
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  &-sec {
+    @include dsc-btn-modifier($dsc-secondary-colors);
+    border-width: 1px;
+  }
+
+  &-hlw {
+    @include dsc-btn-modifier($dsc-hollow-colors);
+    border-width: 2px;
+
+  }
+
+  /* ==========================
+   Sizes
+   ========================== */
+
+  &.btn--lg {
+    border-radius: px2rem(28px);
+    min-width: px2rem(56px);
+    min-height: px2rem(56px);
+    font-size: px2rem(21px);
+    line-height: px2rem(26px);
+    padding: px2rem(14px) px2rem(32px);
+
+    &:after {
+      border-radius: px2rem(28px);
+    }
+
+    &.btn--ar-r,
+    &.btn--ar-d,
+    &.btn--ar-u {
+      padding-right: px2rem(64px);
+
+      .btn__ar {
+        right: px2rem(24px);
+      }
+
+    }
+
+    &.btn--ar-l {
+      padding-left: px2rem(64px);
+  
+      .btn__ar {
+        left: px2rem(24px);
+      }
+    }
+  }
+
+  &.btn--sm {
+    min-width: px2rem(32px);
+    min-height: px2rem(32px);
+    font-size: px2rem(15px);
+    line-height: px2rem(20px);
+    padding: px2rem(5px) px2rem(16px);
+
+    &.btn--ar-r,
+    &.btn--ar-d,
+    &.btn--ar-u {
+      padding-right: px2rem(38px);
+
+      .btn__ar {
+        right: px2rem(12px);
+      }
+
+    }
+
+    &.btn--ar-l {
+      padding-left: px2rem(38px);
+  
+      .btn__ar {
+        left: px2rem(12px);
+      }
+    }
+
+    .btn__ar {
+      height: px2rem(18px);
+      width: px2rem(18px);
+      margin-top: -9px;
+    }
+  }
+
+  /* ==========================
+   Arrows
+   ========================== */
+
+  .btn__ar {
+    width: px2rem(24px);
+    height: px2rem(24px);
+    margin-top: -12px;
+  }
+
+  &.btn--ar-r,
+  &.btn--ar-d,
+  &.btn--ar-u {
+    padding-right: px2rem(56px);
+    text-align: left;
+
+    .btn__ar {
+      right: px2rem(16px);
+    }
+
+  }
+
+  &.btn--ar-d {
+    .btn__ar {
+      transform: rotate(90deg);
+    }
+  }
+
+  &.btn--ar-l {
+    padding-left: px2rem(56px);
+    text-align: right;
+
+    .btn__ar {
+      left: px2rem(16px);
+      transform: rotate(180deg);
+    }
+  }
+}

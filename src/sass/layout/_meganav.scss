@@ -1,0 +1,260 @@
+/* ==========================
+   Desktop Meganav
+   ========================== */
+
+/**
+ * --------------------
+ * Class abbreviations
+ * --------------------
+ *
+ * .mn = meganav
+ * .mn__hrd-lst = meganav header list
+ * .mn__hdr = meganav header
+ * .mn__sbhdr-lst = meganav sub-header list
+ * .mn__sbhdr = meganav sub-header
+ * .mn__sbhdr-itm = meganav sub-header item
+ * .mn__sbhdr-ttl = meganav sub-header title
+ * .mn__menu = meganav menu
+ * .mn__menu-innr = meganav menu inner
+ * .mn__col = meganav column
+ * .mn__col--dbl-wdth = meganav column double width
+ * .mn__col--brdr = meganav column with border left
+ * .mn__col-itm = meganav column item
+ * .mn__col-lnk = meganav column link
+ * .mn__col-lnk--bld = meganav column bold link
+ * .mn__img = meganav image 
+ * 
+ */
+
+.mn {
+  color: $ctm-white;
+  padding: 0 calc(#{$container-horizontal-padding} - 10px);
+
+  &__menu-btn {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
+
+    @include mq($from: desktop) {
+      display: none;
+    }
+
+    .mn__arr {
+      color: $ctm-green;
+    }
+  }
+
+  &__close {
+    @extend .mmn__close;
+  }
+
+  &__btn-wrpr {
+    @extend .mmn__btn-wrpr;
+  }
+
+  &-open {
+
+    &:after {
+      background: $ctm-black;
+      content: "";
+      height: 100vh;
+      left: 0;
+      opacity: .6;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      z-index: 99;
+    }
+  }
+  
+  &__hdr,
+  &__sbhdr {
+    display: inline-block;
+  }
+
+  &__hdr {
+    @extend .mmn__grp-hdr-lnk;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__sbhdr-itm-hdr {
+
+    .mn__arr {
+      .mn__sbhdr-itm--m-open & {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  &__ico {
+    @extend .mmn__ico;
+  }
+
+  &__arr {
+    @extend .mmn__arr;
+  }
+
+  &__sbhdr-btn {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 44px;
+  }
+
+  &__sbhdr-ttl {
+    display: block;
+    padding: 15px 30px;
+    transition: all .25s;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  &__menu {
+
+    a {
+      color: $ctm-blue-dark;
+    }
+
+    .mn__rewards & {
+      background: $ctm-white;
+    }
+  }
+
+  &__col {
+    @include mq($from: desktop) {
+      flex-basis: 160px;
+      flex-shrink: 0;
+      padding: 0 6px;
+      max-width: 160px; // IE11 fix
+    }
+
+    &--dbl-wdth {
+      @include mq($from: desktop) {
+        flex-basis: 320px;
+        max-width: 320px; // IE11 fix
+      }
+    }
+
+    &--brdr {
+      @include mq($from: desktop) {
+        border-left: 1px solid $ctm-blue-lighter;
+        padding: 0 10px;
+      }
+    }
+
+    &:last-child {
+      @include mq($from: desktop) {
+        padding-left: 10px;
+      }
+    }
+
+    &--open + .mn__col .mn__col-itm--hdr {
+      @include mq($until: desktop) {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__col-itm {
+    padding: 8px 0;
+    font-weight: 700;
+
+    @include mq($until: desktop) {
+      margin-left: 55px;
+    }
+
+    &:not(.mn__col-itm--hdr) {
+      @include mq($until: desktop) {
+        display: none;
+        padding-right: 10px;
+      }
+    }
+
+    .mn__col--open & {
+      display: block;
+
+      .mn__arr {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+
+    &.mn__col-no-header {
+      @include mq($until: desktop) {
+        display: none;
+      }
+    }
+  }
+
+  &__col-itm--hdr {
+    @include mq($until: desktop) {
+      border-top: 1px solid rgba($ctm-blue-lighter, 0.3);
+      color: $ctm-blue-dark;
+      padding: 0 45px 0 0;
+      position: relative;
+    }
+
+    .mn__col--open & {
+      @include mq($until: desktop) {
+        border-bottom: 1px solid rgba($ctm-blue-lighter, 0.3);
+        margin-bottom: 10px;
+      }
+    }
+
+    .mn__col-lnk,
+    .mn__col-lbl {
+      @extend .mmn__dd-hdr-lnk;
+      
+      @include mq($until: desktop) {
+        font-weight: 700;
+      }
+
+      @include mq($from: desktop) {
+        border: 0;
+        padding: 0;
+      }
+    }
+
+    .mn__col-lbl {
+      border: 0;
+    }
+  }
+  
+  &__col-lnk {
+    font-weight: 400;
+
+    &--bld {
+      font-weight: 700;
+    }
+  }
+
+  &__img {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  // additional styles for Rewards menu
+  &__rewards {
+    .mn__col-lnk--bld {
+      display: block;
+      min-height: 36px;
+    }
+
+    .mn__col:last-child {
+      background: $ctm-white;
+
+      .mn__col-itm--hdr {
+        border-top-width: 1px;
+      }
+    }
+  }
+}
+
+amp-sidebar {
+  height: 100%;
+}

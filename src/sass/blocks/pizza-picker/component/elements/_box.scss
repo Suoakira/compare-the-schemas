@@ -1,0 +1,28 @@
+&__box {
+  @include absolute(top -265px right 0 bottom 0 left 0);
+
+  background: transparent url('#{$assets-url}pizza-box.png') 0 0 / cover
+    no-repeat;
+  display: none;
+  height: 563px;
+  margin: auto;
+  width: 300px;
+
+  @include media-breakpoint-up(lg) {
+    height: 940px;
+    top: 0;
+    transform: rotate(-90deg);
+    width: 501px;
+  }
+
+  @include media-breakpoint-down-max-height(sm) {
+    height: 478px;
+    top: -195px;
+    width: 255px;
+  }
+
+  [data-active='4'] &,
+  [data-active='5'] & {
+    display: block;
+  }
+}

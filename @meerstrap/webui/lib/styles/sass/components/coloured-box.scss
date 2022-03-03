@@ -1,0 +1,99 @@
+@import '../support.scss';
+
+.Panel {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: $border-radius-m;
+    padding: 30px;
+
+    &.Panel-coloured {
+        border-left-width: 2px;
+        border-left-style: solid;
+
+        @media(min-width: $media-tablet) {
+            border-left-width: 4px;
+        }
+
+        @media(min-width: $media-tablet) {
+            border-left-width: 8px;
+        }
+
+        &-blue {
+            border-left-color: $blue-430;
+        }
+
+        &-orange {
+            border-left-color: #e4a242; /* This is not a design system C colour */
+        }
+
+        &-green {
+            border-left-color: #00ba76; /* This is not a design system C colour */
+        }
+
+        &-purple {
+            border-left-color: #9e2c63; /* This is not a design system C colour */  
+        }
+
+        &-disabled {
+            filter: grayscale(100%);
+            opacity: 0.5;
+        }
+    }
+
+    .Panel-cover-type {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .Panel-header {
+        @extend %base-size-3;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+    }
+
+    .Panel-content {
+        @extend %base-size-3;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Panel-icon {
+        margin-right: 9px;
+        display: inline-block;
+    
+        svg {
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+    
+        &__blue {
+            path {
+                fill: $blue-430;
+            }
+        }
+    
+        &__orange {
+            path {
+                fill: #e4a242; /* This is not a design system C colour */
+            }
+        }
+    
+        &__green {
+            path {
+                fill: #00ba76; /* This is not a design system C colour */
+            }
+        }
+    
+        &__purple {
+            path {
+                fill: #9e2c63; /* This is not a design system C colour */
+            }
+        }
+    }
+}

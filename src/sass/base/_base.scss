@@ -1,0 +1,75 @@
+﻿/**
+ * --------------------
+ * Class abbreviations
+ * --------------------
+ *
+ * gbl-wrp = global wrapper
+ * cntnr = container
+ * lst-nstyl = list unstyle 
+ * btn-nstyl = button unstyled
+ */
+
+/* ==========================
+   Base Styles
+   ========================== */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body:not(.mce-content-body) {
+  background-color: $ctm-grey-dark;
+}
+
+.gbl-wrp {
+  background-color: $ctm-white;
+  max-width: $max-page-width;
+  margin: 0 auto;
+}
+
+/* ==========================
+   Helper/Foundation Classes
+   ========================== */
+
+// Container class restricting content width to fixed value
+.cntnr {
+  max-width: $max-content-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-horizontal-padding;
+  padding-right: $container-horizontal-padding;
+}
+
+// Unstyled Lists
+.lst-nstyl {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  li {
+    margin-bottom: 0;
+  }
+}
+
+// Unstyled button
+.btn-nstyl {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+// Disabled button without class
+button[disabled] {
+  @extend .btn--dis;
+}
+
+// A class to hide content when JS is not enabled, often used with amp-mustache
+html:not([amp-version]).d-amp .hide-no-js { /* stylelint-disable-line selector-no-qualifying-type */
+  display: none;
+}

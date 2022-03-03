@@ -1,0 +1,36 @@
+.auth {
+  align-items: center;
+  border-right: 1px solid $ctm-blue-light;
+  display: flex;
+  margin-right: 20px;
+  width: calc(100% - 71px);
+
+  @include mq($from: tablet) {
+    min-width: 235px;
+    width: 35%;
+  }
+
+  &__img {
+    height: 65px;
+    width: 65px;
+
+    @include mq($from: desktop) {
+      height: 75px;
+      width: 75px;
+    }
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &__dtl {
+    margin: 0 10px;
+
+    strong {
+      @include mq($until: tablet) {
+        display: block;
+      }
+    }
+  }
+}

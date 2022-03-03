@@ -1,0 +1,24 @@
+﻿@import "../base/variables";
+
+.sitemap {
+  &__accordion {
+    position: relative;
+    min-height: 200px;
+  }
+
+  .ldr {
+    &--dark {
+      border-top-color: $ctm-blue;
+    }
+  }
+
+  &__lnk-wrp {
+    overflow: auto;
+    margin-bottom: 1.3rem;
+
+    .sitemap-lnk {
+      justify-content: center;
+      padding: 10px;
+    }
+  }
+}

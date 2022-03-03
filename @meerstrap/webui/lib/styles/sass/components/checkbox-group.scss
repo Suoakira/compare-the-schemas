@@ -1,0 +1,30 @@
+@import '../support.scss';
+
+.CheckboxGroup {
+    margin-bottom: $spacing-xs;
+    display: flex;
+    align-items: center;
+    color: $blue-150;
+    cursor: pointer;
+    position: relative; // so the input doesn't go awol on the page
+
+    .Checkbox {
+        align-self: flex-start;
+    }
+
+    & > input {
+        opacity: 0;
+        height: 0;
+        width: 0;
+        position: absolute; // to take the element out of the flow for browsers like Firefox
+    }
+
+    .CheckboxGroup-labelWrapper {
+        margin-left: 16px;
+    }
+}
+
+.CheckboxGroupDisabled {
+    color: $grey-460;
+    cursor: default;
+}

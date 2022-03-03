@@ -1,0 +1,65 @@
+@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+@import "../base/variables";
+
+.ctm-form {
+  position: relative;
+
+  &__heading {
+    margin: auto 0;
+  }
+
+  &__input {
+    background-color: $ctm-blue-720;
+    border: 1px solid $ctm-blue-620;
+    border-bottom: 4px solid $ctm-blue-520;
+    border-radius: 3px;
+    font-size: px2rem(18px);
+    font-weight: bold;
+    min-width: 0;
+    padding: px2rem(16px);
+
+    @include mq($until: large-mobile) {
+      padding: px2rem(16px) px2rem(6px);
+    }
+
+    &:focus:not(:hover):not(:active) {
+      outline-width: 5px;
+      background-color: $ctm-white;
+    }
+
+    &:focus {
+      outline-width: 0;
+    }
+
+    &::placeholder {
+      color: $ctm-blue-520;
+      font-weight: 300;
+    }
+
+    &:valid:not(:placeholder-shown) {
+      background-color: $ctm-blue-720;
+      color: $ctm-blue-150;
+      border: 1px solid $ctm-blue-620;
+      border-bottom: 4px solid $ctm-blue-520;
+    }
+
+    &:not(:placeholder-shown) {
+      background-color: $ctm-red-720;
+      color: $ctm-red-280;
+      border: 1px solid $ctm-red-380;
+      border-bottom: 4px solid $ctm-red-380;
+    }
+
+    &--cntnr {
+      display: flex;
+      margin-bottom: px2rem(8px);
+    }
+
+    @include mq($from: tablet) {
+      &--cntnr button {
+        width: 156px;
+      }
+    }
+  }
+}

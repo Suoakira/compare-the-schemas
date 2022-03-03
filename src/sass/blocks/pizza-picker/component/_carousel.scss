@@ -1,0 +1,229 @@
+&__slider {
+  @include relative;
+  @include square(100%);
+
+  display: block;
+
+  .frame {
+    @include relative;
+    @include square(100%);
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    .slides {
+      @include reset-list;
+      @include square(100%);
+
+      display: flex;
+
+      [data-active='3'] & {
+        @include media-breakpoint-up(lg) {
+          @media (min-height: 700px) {
+            transform: none !important;
+          }
+        }
+      }
+
+      li {
+        @include relative;
+        @include square(100%, null, 100%);
+
+        display: block;
+
+        [data-active='3'] & {
+          @include media-breakpoint-up(lg) {
+            @media (min-height: 700px) {
+              @include absolute(top 0 right 0 bottom 0 left 0);
+              @include square(90px, null, 90px);
+
+              margin: auto;
+
+              &.olives {
+                top: -320px;
+                left: -650px;
+              }
+
+              &.mushrooms {
+                top: -55px;
+                left: -830px;
+              }
+
+              &.caviar {
+                top: -72px;
+                left: -480px;
+              }
+
+              &.jalapenos {
+                top: 220px;
+                left: -610px;
+              }
+
+              &.pineapple {
+                top: 550px;
+                left: -800px;
+              }
+
+              &.spicy-beef {
+                top: 480px;
+                left: -475px;
+              }
+
+              &.chicken {
+                top: 250px;
+                left: -875px;
+              }
+
+              &.peppers {
+                top: -300px;
+                right: -620px;
+              }
+
+              &.grubs {
+                top: -90px;
+                right: -840px;
+              }
+
+              &.pepperoni {
+                top: -72px;
+                right: -460px;
+              }
+
+              &.sweetcorn {
+                top: 220px;
+                right: -530px;
+              }
+
+              &.onion {
+                top: 250px;
+                right: -800px;
+              }
+
+              &.ham {
+                top: 500px;
+                right: -660px;
+              }
+            }
+          }
+        }
+
+        > div {
+          @include absolute(top 0 left 0);
+          @include square(100%, null, 100%);
+
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          a {
+            color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  &.pizza-app__ingredients {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .prev,
+  .next {
+    @include absolute(top 342px);
+    @include square(40px);
+
+    background-color: transparent;
+    background-image: url('#{$assets-url}css_sprites.png');
+    background-repeat: no-repeat;
+    background-position: -91px -127px;
+    background-size: 372px 216px;
+    cursor: pointer;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+
+    @include media-breakpoint-up(lg) {
+      @media (min-height: 700px) {
+        @include square(50px);
+
+        background-position: -151px -202px;
+        background-size: 581px 338px;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.2;
+    }
+
+    [data-active='2'] & {
+      top: 299px;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+
+      @include media-breakpoint-down(md) {
+        @media (min-height: 600px) {
+          top: 342px;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          top: 522px;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        top: 249px;
+      }
+    }
+
+    [data-active='3'] & {
+      top: 78px;
+      right: 0;
+      left: 0;
+      margin: auto;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          display: none;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        top: 67px;
+      }
+    }
+  }
+
+  .next {
+    background-position: -129px -127px;
+
+    @include media-breakpoint-up(lg) {
+      @media (min-height: 700px) {
+        background-position: -207px -202px;
+      }
+    }
+
+    [data-active='2'] & {
+      right: -230px;
+    }
+
+    [data-active='3'] & {
+      right: -130px;
+    }
+  }
+
+  .prev {
+    [data-active='2'] & {
+      left: -230px;
+    }
+
+    [data-active='3'] & {
+      left: -130px;
+    }
+  }
+}

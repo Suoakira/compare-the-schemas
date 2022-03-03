@@ -1,0 +1,370 @@
+﻿// Mixins
+@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+
+// Base
+@import "../base/variables";
+
+.mg-calc {
+  @include mq($from: tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__ttl,
+  &__second,
+  &__toggle-btn,
+  &__form {
+    display: flex;
+  }
+
+  &__form {
+    @include mq($from: tablet, $until: desktop ) {
+      margin-right: 24px;
+    }
+  }
+
+  &__intro {
+    @include mq($from: tablet) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__ttl-copy {
+    @include mq($until: large-mobile) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__description {
+    max-width: 710px;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
+  }
+
+  &__toggle-btn {
+    text-align: left;
+  }
+
+  &__label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: px2rem(6px);
+  }
+
+  &__fieldset {
+    border: 0;
+    border-bottom: 1px solid currentColor;
+    margin: 0 -20px 20px;
+    padding: 0 20px 20px;
+    position: relative;
+
+    @include mq($from: tablet) {
+      border: 0;
+      margin: 0;
+      padding: 0 0 20px;
+    }
+  }
+
+  &__form-fields {
+    @include mq($from: tablet) {
+      max-width: 350px;
+    }
+  }
+
+  &__pound {
+    margin-right: 2px;
+    font-weight: normal;
+  }
+
+  &__plus,
+  &__minus {
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+    flex: 1 0 auto;
+  }
+
+  &__number {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    margin-right: 4px;
+    font-weight: bold;
+  }
+
+  &__hide {
+    display: none;
+  }
+
+  &__btn {
+    margin-top: 20px;
+    width: 100%;
+
+    // @include mq($from: tablet) {
+    //   display: none;
+    // }
+  }
+
+  &__input {
+    display: flex;
+    appearance: textfield;
+    border: 1px solid $ctm-blue-light;
+    border-bottom: 4px solid $ctm-blue-lighter;
+    border-radius: 3px;
+    background: $ctm-blue-lighter-30;
+    max-width: 700px;
+    width: 100%;
+    padding: px2rem(15px) 0 px2rem(15px) px2rem(12px);
+    transition: box-shadow 0.32s, color 0.35ms, border-color 0.32s, background-color 0.32s;
+    font-weight: bold;
+
+    &:focus:not(:hover):not(:active) {
+      outline-width: 5px;
+    }
+
+    &:focus {
+      outline-width: 0;
+    }
+
+    &::placeholder {
+      color: $ctm-blue-520;
+      font-weight: lighter;
+    }
+
+    &[type="number"]::-webkit-inner-spin-button,
+    &[type="number"]::-webkit-outer-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__input-pound {
+    position: relative;
+
+    &:before {
+      content: "£";
+      position: absolute;
+      left: 12px;
+      top: 17px;
+    }
+
+    .mg-calc__input {
+      padding-left: px2rem(28px);
+    }
+  }
+
+  &__error {
+    input {
+      background: $ctm-red-720;
+      border-color: $ctm-red-380;
+      color: $ctm-red-280;
+
+      &::placeholder {
+        color: $ctm-red-280;
+      }
+    }
+
+    &::before {
+      color: $ctm-red-280;
+    }
+  }
+
+  &__error-msg {
+    color: $ctm-red-280;
+  }
+  
+  &__extra-fees {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__extra-fees-dscriptn {
+    font-size: px2rem(15px);
+  }
+
+  &--icn-sizing {
+    width: 21px;
+    height: 21px;
+    margin: 0 5px;
+
+    @include mq($until: large-mobile) {
+      width: 16px;
+      height: 16px;
+      margin: 0 4px;
+    }
+  }
+
+  &__cta-with-anchor {
+    background: $ctm-blue;
+    color: $ctm-white;
+    border-radius: 10px;
+    margin: 30px 0 0;
+    padding: 15px;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  &__widget {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24), 0 -1px 2px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+
+    &-circle {
+      height: 320px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-result {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    &-txt {
+      padding-left: 64px;
+      padding-right: 64px;
+
+      @include mq($from: tablet, $until: desktop) {
+        padding-left: 52px;
+        padding-right: 52px;
+      }
+    }
+
+    &-cntnr {
+      @include mq($from: tablet) {
+        max-width: 420px;
+      }
+    }
+  }
+
+  &__loan-to-value {
+    display: inline-block;
+    max-width: 200px;
+  }
+
+  &__details {
+    &:after {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      width: 75%;
+      padding-top: 20px;
+      border-bottom: 3px solid $ctm-blue;
+    }
+
+    &-txt {
+      @include mq($from: tablet) {
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+
+  &__info-icon {
+    width: 19px;
+    height: 18px;
+    margin: 0 5px;
+  }
+  
+  &__close-icon {
+    background-color: currentColor;
+    width: 19px;
+    height: 18px;
+    border-radius: 50%;
+    fill: $ctm-white;
+    margin: 0 5px;
+
+    @include mq($until: large-mobile) {
+      width: 16px;
+      height: 16px;
+      margin: 0 4px;
+    }
+  }
+
+  &__modal {
+    background-color: $ctm-white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .25);
+    font-weight: normal;
+    padding: 15px;
+    text-align: left;
+    margin-top: 5px;
+    width: 100%;
+
+    &--float {
+      left: 0;
+      position: absolute;
+      z-index: 1;
+      margin: 0 20px;
+      width: calc(100% - 40px);
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+fieldset:nth-of-type(4) {
+  border: none;
+}
+
+.circular-chart {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include mq($until: large-mobile) {
+    width: 250px;
+    height: 250px;
+  }
+
+  width: 300px;
+  height: 300px;
+  position: absolute;
+}
+
+.circle {
+  fill: transparent;
+  stroke-width: 3.5px;
+  stroke-linecap: butt;
+}
+
+.circle-green {
+  stroke: $ctm-green;
+  z-index: 1;
+}
+
+.circle-orange {
+  stroke: $ctm-orange;
+}
+
+.toggle-modal,
+.toggle-icon {
+  display: none;
+}
+
+.btn-nstyl {
+  &:focus:not(:hover):not(:active) {
+    outline-width: 5px;
+  }
+
+  &:focus {
+    outline-width: 0;
+  }
+}

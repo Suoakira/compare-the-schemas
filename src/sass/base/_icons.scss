@@ -1,0 +1,16 @@
+﻿/* ===========================
+   SVG Icons
+   =========================== */
+
+// Hides spritesheet
+.svg-icon-spritesheet {
+  display: none;
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+
+// Ensures that the svg inherits colour from it's parent
+svg {
+  fill: currentColor;
+}

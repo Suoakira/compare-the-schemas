@@ -1,0 +1,72 @@
+&__oven {
+  @include absolute(top 0 right 0 bottom 0 left 0, 1);
+  @include square(100%);
+
+  margin: auto;
+  max-height: 778px;
+  max-width: 1105px;
+  overflow: hidden;
+
+  &__img {
+    @include absolute(top 0 right 0 bottom 0 left 0);
+    @include square(100%, null, 100%);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+
+    &--1 {
+      background-image: url('#{$assets-url}oven-overlay_1.jpg');
+      z-index: 1;
+    }
+
+    &--2 {
+      transition: transform 1s ease;
+      z-index: 2;
+
+      div {
+        @include square(100%);
+
+        animation: ovenOverlayIn 0.7s 0.4s ease forwards;
+        background-image: url('#{$assets-url}oven-overlay_2.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transform: translateY(100%);
+      }
+
+      .is-holding & {
+        transform: scale(1.3);
+        transition: transform 5s ease;
+      }
+    }
+
+    &--3 {
+      background-image: url('#{$assets-url}oven-overlay_3.png');
+      z-index: 3;
+    }
+
+    &--4 {
+      background-image: url('#{$assets-url}oven-overlay_4.png');
+      opacity: 0;
+      transition: opacity 1s ease;
+      z-index: 4;
+
+      .is-holding & {
+        opacity: 1;
+        transition: opacity 5s ease;
+      }
+    }
+  }
+}
+
+@keyframes ovenOverlayIn {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

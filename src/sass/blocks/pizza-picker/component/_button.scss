@@ -1,0 +1,38 @@
+&__btn {
+  @include secondary-font(18px, 400);
+
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  padding: 0.75rem 1rem;
+  line-height: 1.5;
+  width: 230px;
+
+  &-primary {
+    background-color: $white;
+    border-color: $white;
+    color: $black;
+
+    &:hover {
+      background-color: $white;
+      border-color: $white;
+    }
+  }
+
+  &-default {
+    border-color: $white;
+    color: $white;
+
+    &:hover {
+      border-color: $white;
+    }
+  }
+
+  &-group {
+    [class^=col-] {
+      margin-bottom: 20px;
+    }
+  }
+}

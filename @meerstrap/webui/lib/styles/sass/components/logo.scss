@@ -1,0 +1,29 @@
+@import '../support.scss';
+
+.Logo {
+    display: block;
+    width: 238px;
+    overflow-x: hidden;
+
+    .Logo-icon {
+        width: 238px;
+        height: 43px;
+        vertical-align: middle;
+    }
+
+    &__compact {
+        width: 43px;
+
+        .Logo-icon {
+            width: 43px;
+        }
+
+        @include media(tablet) {
+            width: 238px;
+
+            .Logo-icon {
+                width: 238px;
+            }
+        }
+    }
+}

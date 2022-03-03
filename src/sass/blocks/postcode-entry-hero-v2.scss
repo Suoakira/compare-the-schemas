@@ -1,0 +1,178 @@
+// mixins
+@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+
+// Base
+@import "../base/variables";
+
+// components 
+@import "../components/hero-redesign";
+@import "../components/_form";
+
+.pc-v2 {
+  @include hero;
+
+  &__cntnr {
+    @include hero-container;
+  }
+
+  &__card {
+    @include hero-card;
+
+    @include mq($from: desktop) {
+      max-width: 480px;
+    }
+  }
+
+  &__ttl {
+    @include hero-title;
+  }
+
+  &__contnt-wrp {
+    position: relative;
+
+    &--des {
+      @include mq($from: tablet) {
+        min-height: 245px;
+      }
+    }
+
+    &--bot {
+      @include mq($until: tablet) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: inherit;
+      }
+    }
+  }
+
+  &__img-wrpr {
+    display: flex;
+
+    &--rt {
+      justify-content: flex-end;
+      padding-left: 12px;
+    }
+
+    &--ctr {
+      @include mq($until: tablet) {
+        justify-content: space-around;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    &--lt {
+      @include mq($until: tablet) {
+        padding-right: 12px;
+      }
+    }
+
+    @include mq($from: tablet) {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .pc-v2__contnt-wrp--bot & {
+      @include mq($until: tablet) {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__float-img {
+    max-width: 100%;
+    position: relative;
+  }
+
+  &__prop {
+    @include hero-prop-text;
+    font-size: px2rem(16px);
+    line-height: 1.5;
+
+    ul,
+    ol {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1em;
+    }
+
+    li {
+      background-position: 0 3px;
+      background-repeat: no-repeat;
+      background-size: 20px 18px;
+      margin-bottom: .5em;
+      padding-left: 28px;
+    }
+  }
+
+  &__sub-txt {
+    padding-bottom: 16px;
+    padding-top: 16px;
+
+    @include mq($from: tablet) {
+      padding-bottom: 24px;
+      padding-top: 24px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 16px;
+
+    &.btn--dsc-sec {
+      margin-left: 0;
+    }
+  }
+
+  .ctm-form {
+    &__input-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__input {
+      padding: 0.8rem 1rem;
+      width: 100%;
+    }
+
+    &__heading {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    &__err-msg {
+      color: $ctm-red-280;
+      line-height: px2rem(28px);
+      font-size: px2rem(16px);
+    }
+
+    &__input-err {
+      background-color: $ctm-red-720;
+      color: $ctm-red-280;
+      border: 1px solid $ctm-red-380;
+      border-bottom: 4px solid $ctm-red-380;
+
+      &::placeholder {
+        color: $ctm-red-280;
+      }
+    }
+
+    @include mq($from: tablet) {
+      &__input-wrap {
+        flex-direction: row;
+      }
+
+      &__heading {
+        margin: auto 0;
+      }
+    }
+  }
+}

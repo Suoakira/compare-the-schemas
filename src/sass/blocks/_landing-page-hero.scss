@@ -1,0 +1,186 @@
+﻿.lph {
+  position: relative;
+  min-height: 480px;
+}
+
+.lph__cntnr {
+  width: 100%;
+  @include centerer;
+}
+
+.lph__bg-img {
+  img {
+    object-fit: cover;
+  }
+}
+
+.lph__prop-cntnr {
+  position: relative;
+  text-align: center;
+
+  @include mq($from: tablet) {
+    text-align: left;
+    max-width: 80%;
+  }
+
+  @include mq($from: desktop) {
+    max-width: 65%;
+  }
+}
+
+.lph__prop-txt {
+  margin: 0 0 1.3em;
+
+  p {
+    margin-bottom: .6em;
+  }
+}
+
+.lph__prop-txt--ul-img {
+  text-align: left;
+
+  ul {
+    list-style: none;
+    margin-top: px2rem(20px);
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 1em;
+    min-height: 40px;
+    padding-left: 50px;
+    position: relative;
+  }
+
+  li:before {
+    box-sizing: border-box;
+    color: $ctm-green;
+    content: "\2713";
+    font-size: px2rem(40px);
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 3px;
+    width: 30px;
+  }
+}
+
+.lph__prop-txt-innr {
+  display: inline;
+
+  p:first-of-type {
+    display: inline;
+  }
+
+  p:nth-of-type(2) {
+    margin-top: 1.3em;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.lph__ctas {
+  text-align: center;
+
+  a:first-child {
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  .btn {
+    width: 230px;
+  }
+
+  @include mq($from: tablet) {
+    text-align: left;
+
+    a:first-child {
+      display: inline-block;
+      margin: 0 10px 0 0;
+    }
+  }
+}
+
+.lph__txt-btn {
+  color: $ctm-green;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Returners panel
+.lph__rtrn {
+  margin: 0 -20px;
+  padding: 20px;
+  background: rgba($ctm-black, 0.3);
+
+  @include mq($from: tablet) {
+    border-radius: 20px;
+    display: flex;
+    margin: 0;
+  }
+
+  .lph__ctas {
+    @include mq($from: tablet) {
+      max-width: 230px;
+    }
+  }
+}
+
+.lph__rtrn-txt {
+  display: flex;
+  align-items: center;
+  margin: 0 0 15px;
+  
+  @include mq($from: tablet) {
+    margin-right: 20px;
+    max-width: 280px;
+  }
+}
+
+.lph__icon {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  margin-right: 20px;
+  height: 60px;
+  width: 60px;
+
+  svg {
+    fill: $ctm-blue-dark;
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.lph__lnk {
+  display: inline-block;
+  margin-top: 0;
+
+  @include mq($from: tablet) {
+    margin-top: 15px;
+  }
+
+  &:hover {
+    color: lighten($ctm-green, 10%);
+  }
+}
+
+.lph__logo {
+  margin: 1.3em auto 0;
+  max-width: 220px;
+
+  @include mq($from: tablet) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

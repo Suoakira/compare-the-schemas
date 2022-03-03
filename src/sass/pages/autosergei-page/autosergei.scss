@@ -1,0 +1,10 @@
+// Mixins
+@import "../../helpers/mixins";
+@import "../../../../../node_modules/sass-mq/mq";
+
+// Base
+@import "../../base/variables";
+
+// Blocks
+@import "../../blocks/autosergei-hero";
+@import "../../blocks/autosergei-content";

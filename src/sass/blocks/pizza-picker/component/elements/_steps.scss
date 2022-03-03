@@ -1,0 +1,183 @@
+&__steps {
+  @include absolute(top 0 left 0 right 0, 9998);
+
+  margin: 0 auto;
+
+  &__title {
+    @include secondary-font(34px, 500);
+
+    margin-bottom: 0;
+    display: block;
+    line-height: 0.71;
+    letter-spacing: normal;
+    margin: 0 auto;
+    padding: 32px 20px 0;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba($black, 0.57);
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(base) {
+      font-size: 30px;
+    }
+
+    @include media-breakpoint-up(md) {
+      font-size: 38px;
+      line-height: 0.63;
+      padding-top: 60px;
+    }
+
+    @include media-breakpoint-down-max-height(sm) {
+      font-size: 26px;
+      padding-top: 20px;
+    }
+
+    @include media-breakpoint-up-max-height(md) {
+      padding-top: 20px;
+    }
+  }
+
+  &__list {
+    @include reset-list;
+
+    align-items: center;
+    background-color: transparent;
+    background-image: url('#{$assets-url}css_sprites.png');
+    background-position: -128px -3px;
+    background-size: 378px 220px;
+    background-repeat: no-repeat;
+    display: flex;
+    font-size: 0.75rem;
+    height: 45px;
+    justify-content: space-around;
+    margin: 38px auto 0;
+    opacity: 0;
+    padding-left: 28px;
+    padding-right: 28px;
+    transform: translateY(-100px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    width: 250px;
+
+    @include media-breakpoint-up(md) {
+      background-position: -151px -3px;
+      background-size: 447px 260px;
+      height: 54px;
+      width: 300px;
+    }
+
+    &.is-active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+
+      @include media-breakpoint-down-max-height(sm) {
+        display: none;
+      }
+
+      @include media-breakpoint-up-max-height(md) {
+        display: none;
+      }
+    }
+
+    [data-active='0'] & {
+      display: none !important;
+    }
+
+    [data-active='5'] & {
+      @include media-breakpoint-down(md) {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+    }
+
+    li {
+      height: 100%;
+      margin: 0;
+
+      &:last-of-type {
+        margin-left: 10px;
+        margin-right: 5px;
+      }
+
+      &.is-active {
+        a {
+          cursor: pointer;
+        }
+
+        &:not(.is-current) a:hover span {
+          background-color: rgba($white, 0.7);
+        }
+      }
+
+      &.is-current {
+        animation: steps-in 0.4s ease forwards;
+
+        span {
+          background: rgba($white, 1);
+        }
+      }
+
+      &.is-last span {
+        line-height: 1000em;
+
+        &::after {
+          @include absolute(top -3px bottom 0 left -3px right 0);
+          @include square(17px);
+
+          background-color: transparent;
+          background-image: url('#{$assets-url}css_sprites.png');
+          background-position: -440px -99px;
+          background-size: 480px 279px;
+          background-repeat: no-repeat;
+          content: '';
+          margin: auto;
+        }
+      }
+
+      span {
+        @include secondary-font(16px, 900);
+        @include square(24px, 100%);
+        @include relative;
+
+        align-items: center;
+        background: rgba($white, 0.45);
+        color: $dark-red;
+        display: block;
+        justify-content: center;
+        letter-spacing: normal;
+        line-height: normal;
+        margin: 8px auto;
+        padding-top: 4px;
+        pointer-events: none;
+        text-transform: uppercase;
+        transition: background 0.4s ease;
+
+        @include media-breakpoint-up(md) {
+          @include square(28px);
+
+          font-size: 20px;
+        }
+      }
+
+      a {
+        color: $white;
+        cursor: default;
+        display: block;
+        text-decoration: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+@keyframes steps-in {
+  0% {
+    opacity: 0.45;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

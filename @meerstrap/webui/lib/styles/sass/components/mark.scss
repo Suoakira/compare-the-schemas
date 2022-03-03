@@ -1,0 +1,23 @@
+@import '../support.scss';
+
+.Mark {
+    width: $validation-icon-size;
+    height: $validation-icon-size;
+    max-width: $validation-icon-size;
+    display: block;
+
+    .Mark__icon {
+        width: $validation-icon-size;
+        height: $validation-icon-size;
+        fill: currentColor;
+    }
+
+    &__is-valid {
+        color: $green-primary;
+    }
+
+    &__is-incomplete,
+    &__is-invalid {
+        color: $red-primary;
+    }
+}

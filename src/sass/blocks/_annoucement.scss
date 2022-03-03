@@ -1,0 +1,18 @@
+.ancmt {
+  font-size: px2rem(16px);
+  line-height: 1.5;
+
+  &__lnk {
+    display: block;
+  }
+
+  &__msg {
+    display: flex;
+    justify-content: center;
+    padding: 16px 20px;
+  }
+
+  &__img {
+    margin-right: 8px;
+  }
+}

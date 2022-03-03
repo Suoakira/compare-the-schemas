@@ -1,0 +1,52 @@
+﻿@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+@import "../base/variables";
+
+.calc-other {
+  margin: 30px 0;
+
+  &__cont-hero {
+    padding-bottom: unset;
+  }
+
+  &__hero {
+    height: auto;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 28px 26px;
+    box-shadow: 0 2px 4px 0 rgba($ctm-black, 0.5), 0 -1px 2px 0 rgba($ctm-black, 0.01);
+
+    &__desc {
+      flex: 1;
+      flex-basis: auto;
+    }
+
+    .btn {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  @include mq($from: tablet) {
+    &__mortgage {
+      padding-right: 20px;
+    }
+
+    &__ovr-pymnt {
+      padding-left: 20px;
+    }
+
+    &__card {
+      height: 100%;
+    }
+
+    .btn {
+      width: auto;
+    }
+  }
+}

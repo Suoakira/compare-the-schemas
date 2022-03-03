@@ -1,0 +1,102 @@
+&__ingredient {
+  @include relative;
+  @include square(56px);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 2000em;
+  overflow: hidden;
+  transform-origin: center center;
+
+  .js_slide & {
+    background-image: none !important;
+  }
+
+  &.is-moving {
+    @include absolute(null, 5);
+
+    overflow: hidden;
+  }
+
+  @each $tuple in $ingredientsconfig {
+    &[data-type='#{nth($tuple, 1)}'] {
+      background-image: url('#{$raw-ingredients}#{nth($tuple, 1)}.png');
+
+      &.alt-1 {
+        background-image: url('#{$raw-ingredients}#{nth($tuple, 1)}-1.png');
+      }
+
+      &.alt-2 {
+        background-image: url('#{$raw-ingredients}#{nth($tuple, 1)}-2.png');
+      }
+
+      [data-active='5'] & {
+        background-image: url('#{$cooked-ingredients}#{nth($tuple, 1)}.png');
+
+        &.alt-1 {
+          background-image: url('#{$cooked-ingredients}#{nth($tuple, 1)}-1.png');
+        }
+
+        &.alt-2 {
+          background-image: url('#{$cooked-ingredients}#{nth($tuple, 1)}-2.png');
+        }
+      }
+    }
+  }
+
+  span {
+    transition: opacity 0.4s ease;
+  }
+
+  @mixin slideSpan() {
+    @include absolute(bottom -44px left -20px right 0);
+    @include primary-font();
+
+    color: $white;
+    height: 27px;
+    letter-spacing: normal;
+    line-height: 1.2;
+    margin: auto;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba($black, 0.57);
+    user-select: none;
+    white-space: initial;
+    width: calc(100% + 40px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    [data-active='5'] & {
+      @include square(94px);
+    }
+
+    @media (min-height: 700px) {
+      @include square(94px);
+
+      .js_slide &,
+      .js_slide.active & {
+        line-height: 1;
+        overflow: visible;
+
+        span {
+          @include slideSpan();
+
+          bottom: -34px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .active & {
+    line-height: 1;
+    overflow: visible;
+
+    span {
+      @include slideSpan();
+
+      @include media-breakpoint-down-max-height(sm) {
+        bottom: -35px;
+      }
+    }
+  }
+}

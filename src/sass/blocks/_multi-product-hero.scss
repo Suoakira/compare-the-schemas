@@ -1,0 +1,29 @@
+@import "homepage-hero";
+
+.hph {
+  &__hdlne {
+    margin: 0 0 20px;
+  }
+
+  &__cntnr {
+    min-height: 0;
+    @include mq($until: tablet) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__actns {
+    overflow: hidden;
+  }
+
+  .img {
+    margin: 0 0 20px;
+    width: 200px;
+  }
+
+  &__img {
+    @include mq($until: tablet) {
+      margin-bottom: 0;
+    }
+  }
+}

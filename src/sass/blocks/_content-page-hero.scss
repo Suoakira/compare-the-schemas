@@ -1,0 +1,156 @@
+.cph {
+  position: relative;
+
+  @include mq($from: tablet) {
+    height: 450px;
+  }
+
+  &__bg {
+    height: 300px;
+    position: relative;
+
+    @include mq($from: tablet) {
+      height: 100%;
+    }
+
+    video,
+    img {
+      object-fit: cover;
+    }
+
+    &--drk {
+      &:after {
+        background-color: $ctm-black;
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: 0.4;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+
+  }
+
+  &__cntnr {
+    @include mq($until: tablet) {
+      padding: 0;
+    }
+
+    @include mq($from: tablet) {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      z-index: 5;
+    }
+  }
+
+  &__cont {
+    @include mq($until: tablet) {
+      background: $ctm-blue-lightest;
+      color: $ctm-blue;
+      overflow: hidden;
+      padding: 20px;
+
+      &--mob {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 40px);
+        z-index: 5;
+      }
+    }
+
+    @include mq($from: tablet) {
+      width: 50%;
+    }
+  }
+
+  &__h1 {
+    @include mq($until: tablet) {
+      text-align: center;
+    }
+
+    @include mq($from: tablet) {
+      width: 50%;
+    }
+
+    &.uline::after {
+      @include mq($until: tablet) {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+      }
+    }
+  }
+
+  .scl {
+    margin: 20px 0;
+
+    @include mq($from: tablet) {
+      margin: 1.3em 0 0;
+    }
+
+    &--hide {
+      @include mq($until: tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__intro {
+    @include mq($from: tablet) {
+      margin-top: 1.3em;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    &--mob {
+      @include mq($from: tablet) {
+        display: none;
+      }
+    }
+
+    &--dsktp {
+      @include mq($until: tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__ctas {
+    text-align: center;
+    margin-top: 1.3em;
+
+    a:first-child {
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    .btn {
+      width: 230px;
+    }
+
+    @include mq($from: tablet) {
+      text-align: left;
+
+      &--cntre {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      a:first-child {
+        display: inline-block;
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+}

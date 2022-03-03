@@ -1,0 +1,19 @@
+&__flour {
+  @include absolute(bottom 0 right -100px, 1);
+
+  background: url('#{$assets-url}flour.png') 0 0 / cover no-repeat;
+  height: 286px;
+  width: 248px;
+
+  @include media-breakpoint-up(lg) {
+    bottom: -200px;
+    height: 578px;
+    right: -280px;
+    width: 600px;
+  }
+
+  [data-active='4'] &,
+  [data-active='5'] & {
+    display: none;
+  }
+}

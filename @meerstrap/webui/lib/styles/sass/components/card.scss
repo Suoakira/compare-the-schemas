@@ -1,0 +1,36 @@
+@import '../support.scss';
+
+.Card {
+    color: $blue-150;
+    background-color: $ctm-white;
+    border-color: $grey-670;
+    box-shadow: $elevation-level-1-downwards;
+
+    @media screen and (min-width: $media-mobile - 1) {
+        border-radius: $border-radius-s;
+    }
+}
+
+.CardBlue {
+    background-color: $blue-720;
+}
+
+.CardYellow {
+    background-color: $yellow-720;
+}
+
+.CardMargin {
+    margin-bottom: $spacing-lg;
+}
+
+.CardPadding {
+    padding: $spacing-sm $spacing-xs;
+
+    @media screen and (min-width: $media-mobile) {
+        padding: $spacing-sm;
+    }
+    
+    @media screen and (min-width: $media-tablet) {
+        padding: $spacing-lg;
+    }
+}

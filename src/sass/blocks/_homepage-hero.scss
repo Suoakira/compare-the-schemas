@@ -1,0 +1,255 @@
+$fullSizeImageWidth: 463px;
+$fullSizeImageHeight: 420px;
+$reducedImageWidth: 364px;
+$reducedImageHeight: 330px;
+
+.hph {
+  background-image: radial-gradient(ellipse at 70% center, #0190C8 0, #012A68 45%, #001745 65%, $ctm-black 100%);
+  position: relative;
+
+  &__bg img {
+    object-fit: cover;
+  }
+
+  &__cntnr {
+    min-height: 433px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    position: relative;
+
+    @include mq($from: tablet) {
+      min-height: 387px;
+    }
+
+    @include mq($from: small-desktop) {
+      min-height: 351px;
+    }
+
+    &--with-img {
+      min-height: 757px;
+
+      @include mq($from: tablet) {
+        min-height: 387px;
+      }
+
+      @include mq($from: small-desktop) {
+        min-height: $fullSizeImageHeight;
+      }
+    }
+
+    &--with-txt {
+      @include mq($from: tablet) {
+        min-height: 483px;
+      }
+
+      @include mq($from: small-desktop) {
+        min-height: 447px;
+      }
+    }
+
+    &.hph__cntnr--with-txt:not(.hph__cntnr--with-img) {
+      @include mq($until: tablet) {
+        min-height: 530px;
+      }
+    }
+  }
+
+  &__hdr {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 25px;
+  }
+
+  &__hdg {
+    margin: 0;
+  }
+
+  &__sgn-in {
+    order: 2;
+
+    span {
+      display: none;
+
+      @include mq($from: small-desktop) {
+        display: inline;
+      }
+    }
+  }
+
+  &__actns,
+  &__cont {
+    @include mq($from: tablet) {
+      width: calc(100% - #{$reducedImageWidth});
+    }
+
+    @include mq($from: small-desktop) {
+      width: calc(100% - #{$fullSizeImageWidth});
+    }
+  }
+
+  &__prds {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px 25px;
+  }
+
+  &__prd-itm {
+    padding: 0 5px 10px;
+    width: 33.33%;
+  }
+
+  &__cont {
+    overflow: hidden;
+    text-align: center;
+
+    @include mq($from: tablet) {
+      text-align: left;
+    }
+
+    & > :first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__cpy {
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+
+    + p {
+      margin-top: 5px;
+    }
+  }
+
+  &__cta {
+    margin-top: 1.3em;
+  }
+
+  &__img {
+    font-size: 0;
+    margin: 0 auto 20px;
+    max-width: $fullSizeImageWidth;
+
+    @include mq($from: tablet) {
+      bottom: 0;
+      height: $reducedImageHeight;
+      margin: 0;
+      position: absolute;
+      right: 0;
+      width: $reducedImageWidth;
+    }
+
+    @include mq($from: small-desktop) {
+      height: $fullSizeImageHeight;
+      width: $fullSizeImageWidth;
+    }
+  }
+
+  &__welc {
+    font-weight: 400;
+    margin: 0 0 .3em;
+  }
+
+  &__txt-lnk--hide {
+    @include mq($from: tablet) {
+      display: none;
+    }
+  }
+
+  &__rtrn-txt-lnk {
+    @include mq($from: tablet) {
+      text-align: right;
+    }
+  }
+
+  &__qte {
+    margin: 0 0 10px;
+
+    @include mq($from: tablet) {
+      font-size: px2rem(23px);
+    }
+  }
+
+  &__prce {
+    display: block;
+    font-size: px2rem(40px);
+
+    @include mq($from: tablet) {
+      display: inline;
+      font-size: inherit;
+    }
+  }
+
+  &__qte-actn {
+    background: rgba($ctm-grey-lighter, .2);
+    border-radius: 10px;
+    margin: 0 0 10px;
+    padding: 15px;
+
+    @include mq($from: small-desktop) {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &__qte-actn-btn {
+    margin: 10px 0 0;
+
+    @include mq($from: small-desktop) {
+      margin: 0 0 0 20px;
+      white-space: nowrap;
+    }
+  }
+
+  &__qte-actn-txt {
+    margin: 0 auto;
+    max-width: 240px;
+
+    @include mq($from: tablet) {
+      margin: 0;
+      max-width: none;
+    }
+  }
+
+  &__nrr-hdg {
+    margin: 0 0 10px;
+  }
+
+  &__txt-btn {
+    color: $ctm-green;
+    font-weight: 700;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+[amp-access="view = 'non-recent-returner'"]:not([amp-access-hide]) {
+  @include mq($from: tablet, $until: small-desktop) {
+    & ~ .hph__cont {
+      width: 100%;
+    }
+
+    & ~ .hph__actns,
+    & ~ .hph__img {
+      float: left;
+    }
+
+    & ~ .hph__actns {
+      margin-right: 20px;
+      width: calc(100% - 290px);
+
+      .hph__prd-itm {
+        min-height: 127px;
+      }
+    }
+    
+    & ~ .hph__img {
+      height: auto;
+      position: static;
+      width: 270px;
+    }
+  }
+}

@@ -1,0 +1,100 @@
+﻿/**
+ * --------------------
+ * Colour Utility Classes
+ * --------------------
+ *
+ * bc = background colour 
+ * c = colour
+ * lnk = link colour
+ */
+
+/* Colours available in CMS */
+$cms-colours: (
+  ("blue", $ctm-blue), 
+  ("blue-dk", $ctm-blue-150), 
+  ("blue-lt", $ctm-blue-light), 
+  ("blue-ltr", $ctm-blue-lighter), 
+  ("blue-ltst", $ctm-blue-lightest),
+  ("grn", $ctm-green),
+  ("grn-dk", $ctm-green-darker),
+  ("grn-lt", $ctm-green-light),
+  ("grn-ltr", $ctm-green-lighter),
+  ("grn-ltst", $ctm-green-lightest),
+  ("white", $ctm-white),
+  ("grey-dk", $ctm-grey-dark),
+  ("grey-ltst", $ctm-grey-720),
+  ("black", $ctm-black),
+  ("oleg-hot-air-balloon", $oleg-hot-air-balloon),
+  ("oleg-big-night-sky", $oleg-big-night-sky),
+  ("oleg-wise-old-elephant", $oleg-wise-old-elephant),
+);
+
+@mixin cms-text-colours($list) {
+  @each $colour in $list {
+    .c-#{nth($colour, 1)} {
+      color: #{nth($colour, 2)};
+    }
+  }
+}
+
+@mixin cms-bg-colours($list) {
+  @each $colour in $list {
+    .bc-#{nth($colour, 1)} {
+      background-color: #{nth($colour, 2)};
+    }
+  }
+}
+
+@mixin cms-link-colours($list) {
+  @each $colour in $list {
+    @if nth($colour, 1) == "grn" {
+      .lnk-#{nth($colour, 1)} {
+        a:not(.btn),
+        .lbx-lnk__txt {
+          color: $ctm-green-a11y-links;
+        }
+      }
+    } @else {
+      .lnk-#{nth($colour, 1)} {
+        a:not(.btn),
+        .lbx-lnk__txt {
+          color: #{nth($colour, 2)};
+        }
+      }
+    }
+  }
+}
+
+/* Generate colour classes */
+@include cms-text-colours($cms-colours);
+@include cms-bg-colours($cms-colours);
+@include cms-link-colours($cms-colours);
+
+/* Background Gradients */
+
+// Rewards Gradient 
+.b-grdnt-rwrds {
+  background-image: radial-gradient(ellipse at center center, #0190C8 0, #012A68 55%, #001745 75%, $ctm-black 100%);
+}
+
+// Blue to Purple Linear Gradient
+.b-grdnt-b-p-lnr {
+  background-image: linear-gradient(to bottom, #1A2344 0%, 80%, #2C3C7E 95%);
+}
+
+// Rewards Gold Gradient
+.b-grdnt-rwrds-gold {
+  background-image: $ctm-rewards-gradient-gold-1;
+}
+
+// Brand world gradient
+.b-grdnt-brand-world {
+  background-image: radial-gradient(circle at 27% 123%, #0445af, rgba(4, 69, 175, 0.5) 16%, rgba(4, 69, 175, 0) 38%), radial-gradient(circle at 63% 47%, #0445af, rgba(4, 69, 175, 0.5) 23%, rgba(4, 69, 175, 0.1) 49%, rgba(4, 69, 175, 0.05) 57%), linear-gradient(to bottom, #00205f, #00205f);
+}
+
+// IE does not support linear gradient with transition points 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .b-grdnt-b-p-lnr {
+    background-image: linear-gradient(to bottom, #1A2344, #2C3C7E);
+  }
+}

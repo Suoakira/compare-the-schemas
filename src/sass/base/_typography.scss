@@ -1,0 +1,161 @@
+﻿/* ==================================
+   Typography
+   ================================== */
+
+/* =====================
+   Mixins & Variables
+   ===================== */
+
+// class name, mobile and desktop font sizes
+// 18.7px is considered large text when bold to meet WCAG2 AA guidelines
+$font-sizes: (
+  ("font-tiny", px2rem(12px), px2rem(14px)),
+  ("font-small", px2rem(14px), px2rem(16px)),
+  ("font-medium", px2rem(18.7px), px2rem(18.7px)),
+  ("font-large", px2rem(20px), px2rem(22px)),
+  ("font-h3", px2rem(24px), null),
+  ("font-h2", px2rem(28px), null),
+  ("font-h1", px2rem(30px), px2rem(40px))
+);
+
+@mixin font-size($mobile-size, $desktop-size) {
+  font-size: $mobile-size;
+
+  @if $desktop-size != null {
+
+  }
+}
+
+@mixin font-size-classes($list) {
+  @each $size in $list {
+    .#{nth($size, 1)} {
+      @include font-size(#{nth($size, 2)}, #{nth($size, 3)});
+    }
+  }
+}
+
+/* =====================
+   Styles
+   ===================== */
+
+html {
+  color: $ctm-blue;
+  font-family: $font-family;
+  font-size: 100%; // 100% equates to a default of 16px in most browsers but users have the ability to overwrite in browser settings
+  line-height: 1.2;
+}
+
+body {
+  @extend .font-medium;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// generate font-size classes
+@include font-size-classes($font-sizes);
+
+h1 {
+  @extend .font-h1;
+  margin: 0 0 0.3em;
+}
+
+h2 {
+  @extend .font-h2;
+}
+
+h3 {
+  @extend .font-h3;
+}
+
+h4 {
+  @extend .font-large;
+}
+
+h5 {
+  @extend .font-medium;
+}
+
+h6 {
+  @extend .font-small;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.75em;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1.3em;
+}
+
+ul,
+ol {
+  ul,
+  ol {
+    margin: px2rem(10px) 0 0;
+  }
+}
+
+li {
+  margin-bottom: px2rem(10px);
+}
+
+// Text align centre class
+.txt-centr {
+  text-align: center;
+}
+
+// Text align right class
+.txt-rght {
+  text-align: right;
+}
+
+// light class to override use of bold font on headings
+.light {
+  font-weight: 400;
+}
+
+// class to add a small underline underneath headings
+.uline {
+  padding-bottom: 10px;
+  position: relative;
+
+  &:after {
+    background: currentColor;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 0;
+    max-width: 75px;
+    position: absolute;
+    width: 17%;
+  }
+
+  &.txt-centr {
+    @extend .txt-centr;
+
+    &:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.txt-centr-sm {
+
+  }
+}
+
+a {
+  font-weight: 700;
+  color: $ctm-green;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

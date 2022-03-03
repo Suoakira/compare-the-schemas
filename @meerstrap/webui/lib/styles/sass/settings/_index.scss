@@ -1,0 +1,26 @@
+// Colour CSS Properties
+@import './_colours';
+
+// Animation CSS Properties
+@import './_animation';
+
+// Border Radius CSS Properties
+@import './_border-radius';
+
+// Spacing CSS Properties
+@import './_spacing';
+
+// Elevation CSS Properties
+@import './_elevation';
+
+// Typography CSS Properties
+@import './_typography';
+
+// ZIndex
+@import './_zindex';
+
+// Other values
+$width-standard: 456px;
+$width-large: 672px;
+$width-extra-large: 984px;
+$validation-icon-size: 24px;

@@ -1,0 +1,378 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.as-products__item {
+  &:first-child,
+  &:nth-child(3),
+  &:nth-child(5) {
+    background: $ctm-blue-dark;
+    color: $ctm-white;
+
+    .as-products__icon {
+      @include mq($from: tablet) {
+        order: 2;
+      }
+    }
+  }
+}
+
+.as-products {
+  &__icon {
+    svg {
+      margin: 0 auto;
+    }
+  }
+
+}
+
+.intersectionobserver {
+  .home-icon {
+    &__rect {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+    }
+
+    &__lines,
+    &__mini-rect {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+
+    &__top-line {
+      stroke-dasharray: 150;
+      stroke-dashoffset: 150;
+    }
+
+    &__bottom-circle,
+    &__top-circle,
+    &__house,
+    &__couch {
+      opacity: 0;
+    }
+  }
+
+  .car-icon {
+    &__rect {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+    }
+
+    &__lines {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+    
+    &__windscreen {
+      stroke-dasharray: 120;
+      stroke-dashoffset: 120;
+    }
+    
+    &__car-outline {
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+    }
+    
+    &__headlights {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+    
+    &__bottom-circle,
+    &__top-circle,
+    &__wheel,
+    &__paper {
+      opacity: 0;
+    }
+  }
+
+  .energy-icon {
+    &__rect {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+    }
+    
+    &__bottom-line {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+    }
+    
+    &__top-line {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+    
+    &__bottom-circle,
+    &__top-circle,
+    &__env-group,
+    &__light {
+      opacity: 0;
+    }
+  }
+
+  .credit-card-icon {
+    &__rect {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+    }
+    
+    &__lines {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+    }
+    
+    &__left-circle,
+    &__right-circle,
+    &__waves,
+    &__cards {
+      opacity: 0;
+    }
+  }
+
+  .app-icon {
+    &__rect {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+    }
+    
+    &__meals,
+    &__2for1,
+    &__top-circle,
+    &__aleks,
+    &__phone,
+    &__bottom-circle {
+      opacity: 0;
+    }
+    
+    &__long-lines {
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+    }
+    
+    &__top-lines {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+    
+    &__bottom-right-line {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+  }
+}
+
+.intersectionobserver .as-products__icon--animate {
+  .home-icon {
+    &__rect {
+      animation: dash .75s linear forwards;
+    }
+
+    &__lines {
+      animation: dash .5s linear forwards;
+      animation-delay: .3s;
+    }
+
+    &__top-line {
+      animation: dash .5s linear forwards;
+      animation-delay: .5s;
+    }
+
+    &__bottom-circle {
+      animation: show .1s linear forwards;
+      animation-delay: .7s;
+    }
+
+    &__top-circle {
+      animation: show .1s linear forwards;
+      animation-delay: .9s;
+    }
+
+    &__house {
+      animation: show .3s linear forwards;
+      animation-delay: .7s;
+    }
+
+    &__mini-rect {
+      animation: dash .3s linear forwards;
+      animation-delay: .7s;
+    }
+
+    &__couch {
+      animation: show .2s linear forwards;
+      animation-delay: .9s;
+    }
+  }
+
+  .car-icon {
+    &__rect {
+      animation: dash .75s linear forwards;
+    }
+
+    &__lines {
+      animation: dash 5s linear forwards;
+      animation-delay: .75s;
+    }
+    
+    &__windscreen {
+      animation: dash .5s linear forwards;
+      animation-delay: .5s;
+    }
+    
+    &__car-outline {
+      animation: dash .5s linear forwards;
+      animation-delay: .7s;
+    }
+    
+    &__headlights {
+      animation: dash 1s linear forwards;
+      animation-delay: .5s;
+    }
+    
+    &__bottom-circle,
+    &__top-circle,
+    &__wheel,
+    &__paper {
+      animation: show .1s linear forwards;
+    }
+    
+    &__top-circle {
+      animation-delay: 1.2s;
+    }
+    
+    &__bottom-circle {
+      animation-delay: 1.3s;
+    }
+    
+    &__wheel {
+      animation-delay: .7s;
+    }
+    
+    &__paper {
+      animation-delay: .8s;
+    }
+  }
+
+  .energy-icon {
+    &__rect {
+      animation: dash .75s linear forwards;
+    }
+    
+    &__bottom-line {
+      animation: dash .7s linear forwards;
+      animation-delay: .25s;
+    }
+    
+    &__top-line {
+      animation: dash .5s linear forwards;
+      animation-delay: .25s;
+    }
+    
+    &__bottom-circle,
+    &__top-circle,
+    &__env-group,
+    &__light {
+      animation: show .3s linear forwards;
+    }
+    
+    &__bottom-circle {
+      animation-delay: .95s;
+    }
+    
+    &__top-circle {
+      animation-delay: .7s;
+    }
+    
+    &__env-group,
+    &__light {
+      animation-delay: .5s;
+    }
+  }
+
+  .credit-card-icon {
+    &__rect {
+      animation: dash .75s linear forwards;
+    }
+    
+    &__lines {
+      animation: dash .7s linear forwards;
+      animation-delay: .2s;
+    }
+    
+    &__left-circle,
+    &__right-circle,
+    &__waves,
+    &__cards {
+      animation: show .3s linear forwards;
+    }
+    
+    &__left-circle {
+      animation-delay: .4s;
+    }
+     
+    &__cards {
+      animation-delay: .5s;
+    }
+   
+    &__right-circle,
+    &__waves {
+      animation-delay: .6s;
+    }
+  }
+
+  .app-icon {
+    &__rect {
+      animation: dash .75s linear forwards;
+    }
+    
+    &__meals,
+    &__2for1,
+    &__top-circle,
+    &__aleks,
+    &__phone,
+    &__bottom-circle {
+      animation: show .3s linear forwards;
+    }
+    
+    &__meals,
+    &__phone,
+    &__2for1 {
+      animation-delay: .5s;
+    }
+    
+    &__aleks,
+    &__top-circle {
+      animation-delay: .2s;
+    }
+    
+    &__long-lines {
+      animation: dash .7s linear forwards;
+      animation-delay: .3s;
+    }
+    
+    &__top-lines {
+      animation: dash .3s linear forwards;
+      animation-delay: .15s;
+    }
+    
+    &__bottom-right-line {
+      animation: dash .2s linear forwards;
+      animation-delay: .4s;
+    }
+    
+    &__bottom-circle {
+      animation-delay: .9s;
+    }
+  }
+}
+    
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}

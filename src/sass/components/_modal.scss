@@ -1,0 +1,120 @@
+@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+@import "../base/variables";
+
+.modal {
+  &__info-btn-wrapper {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+
+  &__info-btn {
+    background-color: $ctm-yellow-650;
+    border: 1px solid $ctm-yellow-540;
+    border-radius: 50%;
+    color: $ctm-yellow-120;
+    display: block;
+    font-family: serif;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    width: 24px;
+  }
+
+  &__info-icon {
+    display: inline-block;
+
+    &.toggle-icon {
+      display: none;
+    }
+  }
+
+  &__close-icon {
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+
+    &.toggle-icon {
+      display: none;
+    }
+  }
+
+  &__info-modal {
+    display: none;
+    background-color: $ctm-yellow-650;
+    border: 1px solid $ctm-yellow-390;
+    border-radius: 4px;
+    color: $ctm-yellow-120;
+    font-size: px2rem(15px);
+    line-height: 1.3;
+    left: 0;
+    top: 156px;
+    padding: 16px;
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+
+    @include mq($from: tablet) {
+      top: 112px;
+      left: 409px;
+      max-width: 292px;
+    }
+
+    &.toggle-modal {
+      display: block;
+    }
+
+    a {
+      font-weight: 400;
+      text-decoration: underline;
+      color: $ctm-yellow-120;
+    }
+  }
+
+  &__info-modal:before {
+    content: "";
+    position: absolute;
+    right: 19px;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 10px;
+    border-color: transparent transparent $ctm-yellow-390;
+
+    @include mq($from: tablet) {
+      top: 12px;
+      left: -13px;
+      right: auto;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__info-modal:after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 7px 9px;
+    border-color: transparent transparent $ctm-yellow-650;
+
+    @include mq($from: tablet) {
+      top: 12px;
+      left: -11px;
+      right: auto;
+      transform: rotate(-90deg);
+    }
+  }
+
+  .loan__label {
+    @include mq($from: tablet) {
+      margin-bottom: 0;
+      flex-grow: 1;
+    }
+  }
+}

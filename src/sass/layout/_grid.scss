@@ -1,0 +1,143 @@
+﻿/* ==========================================================================
+   bootstrap-like grid
+   ========================================================================== */
+
+// Provides the ability to layout content in a bootstrap-like grid format using HTML classes (eg col-xs-12 col-md-4 col-lg-2)
+// Required: sass-mq
+
+// * does not handle offsets and resets
+
+// Column widths for IE11
+$column-sizes: (8.33333%, 16.66667%, 25%, 33.33333%, 41.66667%, 50%, 58.33333%, 66.66667%, 75%, 83.33333%, 91.66667%, 100%);
+$gutter-width: $container-horizontal-padding / 2;
+$columns: 12;
+
+// common styling applied to any column (class="col-*" in bootstrap)
+%columnDefaultStyles {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
+}
+
+/// set something to behave as a row (like having a class="row" on your element in a bootstrap project)
+@mixin row() {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter-width;
+  margin-right: -$gutter-width;
+}
+
+@mixin make-bootstrap-breakpoint-classes($class) {
+  @for $i from 1 through $columns {
+    .col-#{$class}-#{$i} {
+      width: nth($column-sizes, $i);
+    }
+  }
+}
+
+@mixin make-bootstrap-classes() {
+  .row {
+    @include row();
+
+    > .epi-editContainer {
+      @include row();
+    }
+
+    // Remove Grid Gutters
+    &--rm-gt {
+      margin-left: 0;
+      margin-right: 0;
+
+      [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    // Bottom border styles
+    &--bdr-sld {
+      border-bottom: 1px solid currentColor;
+    }
+
+    &--bdr-dot {
+      border-bottom: 1px dotted currentColor;
+    }
+
+    &--bdr-dsh {
+      border-bottom: 1px dashed currentColor;
+    }
+  }
+
+  $list: ".col-sm-1, .col-md-1, .col-lg-1";
+
+  @for $i from 2 through $columns {
+    $list: "#{$list}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+  }
+
+  #{$list} {
+    @extend %columnDefaultStyles;
+  }
+
+  @include make-bootstrap-breakpoint-classes("sm");
+}
+
+@include make-bootstrap-classes();
+
+// Alignment for columns
+.vr-al {
+  &-top {
+    align-self: start;
+  }
+
+  &-ctr {
+    align-self: center;
+  }
+
+  &-bot {
+    align-self: end;
+  }
+}
+
+.hr-al-ctr {
+  justify-content: center;
+}
+
+.hr-al-lt {
+  justify-content: flex-start;
+}
+
+.hr-al-rt {
+  justify-content: flex-end;
+}
+
+// Remove margin bottom of last child in column
+.row > [class^=col-] > *:last-child {
+  margin-bottom: 0;
+}
+
+// Spacing of columns based on row spacing
+[class^=col-] {
+  .p-t-sm & {
+    margin-bottom: $container-horizontal-padding;
+  }
+
+  .p-t-md & {
+    margin-bottom: $container-horizontal-padding * 2;
+  }
+
+  .p-t-lg & {
+    margin-bottom: $container-horizontal-padding * 3;
+  }
+}
+
+//////////////////////////////
+// example!
+//
+// `<div class="row">
+//    <div class="com-sm-12 col-md-6 col-lg-4"></div>
+//    <div class="com-sm-12 col-md-6 col-lg-4"></div>
+//    <div class="com-sm-12 col-md-6 col-lg-4"></div>
+//  </div>`
+///////////////////////////////

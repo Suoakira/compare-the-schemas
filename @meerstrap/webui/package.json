@@ -1,0 +1,43 @@
+{
+    "name": "@meerstrap/webui",
+    "description": "Library of shared icons, HTML, CSS and JavaScript.",
+    "version": "15.10.0",
+    "author": "Meerstrap",
+    "license": "UNLICENSED",
+    "publishConfig": {
+        "registry": "http://npm.meer-spacestation.co.uk"
+    },
+    "homepage": "https://github.com/CompareTheMarket/meerstrap.universe/modules/webui#readme",
+    "bugs": {
+        "url": "https://github.com/CompareTheMarket/meerstrap.universe/issues"
+    },
+    "main": "lib",
+    "module": "lib",
+    "sideEffects": false,
+    "files": [
+        "lib",
+        "assets"
+    ],
+    "scripts": {
+        "clean": "rimraf lib",
+        "build": "node ./build.js",
+        "dev": "nodemon -e css,scss,sass --watch src ./build.js",
+        "build:watch": "nodemon -e css,scss,sass --watch src ./build.js",
+        "test": "node ./test.js",
+        "test:ci": "node ./test.js"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.0.1",
+        "ncp": "^2.0.0",
+        "nodemon": "^2.0.4",
+        "postcss": "^8.0.5",
+        "precss": "^4.0.0",
+        "rimraf": "^3.0.2",
+        "sass": "^1.26.5"
+    },
+    "gitHead": "0f527c14e9decdc6a89cabadd3eaf7a89d8217e3"
+
+,"_resolved": "http://npm.meer-spacestation.co.uk/@meerstrap%2fwebui/-/webui-15.10.0.tgz"
+,"_integrity": "sha512-o2rtVr8cJKEPasKQVxMcnqQYFDpy7mJKIIdySoqAfSvs6j8LrHTPvrQaUZM0FHxJoqwrz2hPU4PK3VE6eecJAw=="
+,"_from": "@meerstrap/webui@15.10.0"
+}

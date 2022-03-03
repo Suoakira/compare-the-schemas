@@ -1,0 +1,46 @@
+// Mixins
+@import "../base/variables";
+@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+
+.slb {
+  background: $ctm-white;
+  padding: 0 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  
+  &__header {
+    a {
+      font-size: px2rem(18px);
+      color: $ctm-blue-230;
+    }
+  }
+  
+  &__hdr-lnk {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: px2rem(18px);
+    @include mq($from: tablet) {
+      font-size: px2rem(16px);
+    }
+  }
+
+  &__lnk-item {
+    a {
+      font-weight: normal;
+      font-size: px2rem(18px);
+      color: $ctm-green-170;
+      @include mq($from: tablet) {
+        font-size: px2rem(15px);
+      }
+    }
+  }
+
+  .col-md-5 {
+    margin-bottom: 10px;
+    @include mq($from: tablet) {
+      width: 20%;
+      margin-bottom: 0;
+    }
+  }
+}

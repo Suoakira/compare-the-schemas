@@ -1,0 +1,83 @@
+﻿.fc {
+  &__blck {
+    padding: $container-horizontal-padding;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    min-height: 250px;
+    position: relative;
+
+    .fc__col:first-child & {
+      min-height: 500px;
+    }
+  }
+
+  &__innr {
+    max-width: 450px;
+    position: relative;
+    z-index: 2;
+    // Remove margin bottom of last child in inner feature content block
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__bg-img {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__bg-img img {
+    object-fit: cover;
+  }
+
+  &__img {
+    margin: 0 auto 1rem;
+    max-width: 240px;
+  }
+
+  &__dark {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__dark:after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(51, 51, 51, 0.4);
+    content: "";
+    left: 0;
+    top: 0;
+  }
+
+  @include mq($from: tablet) {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+    }
+
+    &__blck {
+      flex-grow: 1;
+      width: 50%;
+
+      .fc__col & {
+        width: auto;
+      }
+    }
+
+    // &--reverse .flex__col--first {
+    //   order: 2;
+    // }
+  }
+}

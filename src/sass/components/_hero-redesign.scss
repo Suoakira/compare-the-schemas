@@ -1,0 +1,76 @@
+@mixin hero {
+  padding-top: 16px;
+  position: relative;
+  min-height: 498px;
+
+  @include mq($from: tablet) {
+    min-height: 370px;
+    padding: 24px 0;
+  }
+
+  @include mq($from: desktop) {
+    min-height: 380px;
+    padding: 32px 0;
+  }
+
+  .btn {
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+  }
+
+  .btn--dsc-sec {
+    @include mq($until: desktop) {
+      margin-top: 12px;
+    }
+
+    @include mq($from: desktop) {
+      margin-left: 12px;
+    }
+  }
+
+  .lph__bg-img img {
+    object-fit: cover;
+  }
+}
+
+@mixin hero-container {
+  max-width: $max-content-width;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+@mixin hero-card {
+  background: rgba($ctm-white, 0.88);
+  box-shadow: 0 4px 4px rgba($ctm-black, 0.25), 0 -1px 2px rgba($ctm-black, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 16px;
+  position: relative;
+  max-width: 460px;
+
+  @include mq($from: tablet) {
+    max-width: 350px;
+    padding: 24px;
+  }
+
+  @include mq($from: desktop) {
+    padding: 32px;
+  }
+}
+
+@mixin hero-title {
+  font-size: px2rem(21px);
+  line-height: 1.25;
+  margin-bottom: 16px;
+
+  @include mq($from: tablet) {
+    font-size: px2rem(24px);
+  }
+}
+
+@mixin hero-prop-text {
+  p {
+    margin-bottom: 1em;
+  }
+}

@@ -1,0 +1,17 @@
+$border-radius-s: 3px !default; // CTM default
+$border-radius-m: 4px !default;
+$border-radius-l: 6px !default;
+$border-radius-xl: 8px !default;
+
+$border-radius: $border-radius-s !default;
+
+$ctm-border-radius: (
+    "s": $border-radius-s,
+    "m": $border-radius-m,
+    "l": $border-radius-l,
+    "xl": $border-radius-xl
+) !default;
+
+@function borderRadius($value) {
+    @return map-get($ctm-border-radius, $value);
+}

@@ -1,0 +1,7 @@
+@import '../support.scss';
+
+.Textarea {
+    @extend %input;
+    height: 5em;
+    resize: none;
+}

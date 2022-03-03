@@ -1,0 +1,21 @@
+﻿/* ================================
+   Full Bleed SASS file
+   ================================ */
+
+/**
+ * No foundation styles to be added due to conflicts between MIT and Third Party CSS
+ * e.g. .btn, .col, .row etc
+ */
+
+// Base
+@import "../../base/variables";
+
+// Core
+@import "../../_core.scss";
+
+// Blocks
+@import "../../blocks/_lightbox-video-hero.scss";
+
+.svg-icon-spritesheet {
+  display: none;
+}

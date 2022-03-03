@@ -1,0 +1,21 @@
+﻿table {
+  border: 1px solid $ctm-blue;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+thead {
+  background: $ctm-grey-lightest;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tbl-wrpr {
+  margin-bottom: 1.3rem;
+  overflow: auto;
+}

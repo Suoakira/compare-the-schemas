@@ -1,0 +1,24 @@
+@import '../settings/_colours';
+
+.text-blue-primary {
+    color: $blue-primary !important;
+}
+.text-green-primary {
+    color: $green-primary !important;
+}
+.text-red-primary {
+    color: $red-primary !important;
+}
+.text-white-primary {
+    color: $ctm-white !important;
+}
+
+.bg-blue-primary {
+    background-color: $blue-primary !important;
+}
+.bg-green-primary {
+    background-color: $green-primary !important;
+}
+.bg-red-primary {
+    background-color: $red-primary !important;
+}

@@ -1,0 +1,65 @@
+/* stylelint-disable */
+@import '../support.scss';
+
+.Checkbox {
+    display: inline-block;
+    border: 2px solid $grey-670;
+    fill: $ctm-white;
+    flex-shrink: 0;
+    width: $spacing-md;
+    height: $spacing-md;
+    border-radius: $border-radius-m;
+    color: $ctm-white;
+    background-color: $ctm-white;
+    cursor: pointer;
+
+    label:hover &,
+    input:focus + &,
+    &:hover,
+    &:active,
+    &:focus {
+        outline: none;
+        box-shadow: $elevation-level-2-downwards;
+    }
+
+    svg {
+        padding: 20%;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.CheckboxLarge {
+    width: $spacing-lg;
+    height: $spacing-lg;
+    border-radius: $border-radius-m;
+}
+
+
+.CheckboxChecked {
+    background-color: $green-270;
+    border: 2px solid $green-170;
+}
+
+.CheckboxIncomplete, .CheckboxInvalid {
+    border-color: $red-380;
+}
+
+.CheckboxDisabled.CheckboxChecked {
+    background-color: $grey-670;
+    border: 2px solid $grey-620;
+}
+
+.CheckboxDisabled {
+    background-color: $grey-720;
+    border: 2px solid $grey-620;
+    opacity: 0.5;
+    cursor: default;
+
+    label:hover &,
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: none;
+    }
+}

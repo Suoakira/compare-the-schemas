@@ -1,0 +1,108 @@
+﻿.mi {
+  border-bottom: 1px solid $ctm-white;
+  border-top: 1px solid $ctm-white;
+
+  &__cntnr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include mq($from: tablet) {
+      flex-wrap: nowrap;
+      padding: 20px;
+    }
+  }
+
+  &__cntnt {
+    border-top: 1px solid $ctm-white;
+    order: 1;
+    padding: 20px 0;
+
+    @include mq($from: tablet) {
+      border-right: 1px solid $ctm-white;
+      border-top: 0;
+      order: 0;
+      padding: 0 20px 20px 0;
+      width: 62%;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__actns {
+    padding-top: 20px;
+    text-align: center;
+
+    @include mq($from: tablet) {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      width: 38%;
+    }
+
+    &--mm {
+      border-bottom: 1px solid $ctm-white;
+      padding: 0 0 20px;
+
+      .img-cntr {
+        margin-bottom: 10px;
+      }
+
+      @include mq($from: tablet) {
+        border-bottom: 1px solid $ctm-white;
+        border-right: 0;
+        padding: 0 20px 20px;
+      }
+    }
+
+    &--nw-cstmr {
+      padding: 20px 0;
+
+      @include mq($from: tablet) {
+        padding: 20px;
+      }
+    }
+  }
+
+  &__dtl {
+    margin: 5px 0;
+
+    &-typ {
+      font-weight: 700;
+
+      &:before {
+        content: "";
+        display: block;
+        margin: 5px;
+      }
+    }
+
+    &-dat {
+      margin: 0;
+    }
+
+    &-typ,
+    &-dat {
+      display: inline;
+    }
+  }
+
+  &__pstr {
+    float: right;
+    margin: 0 0 10px 15px;
+    width: 100px;
+
+    @include mq($from: tablet) {
+      float: left;
+      margin: -70px 20px 10px 0;
+      position: relative;
+      width: 200px;
+      z-index: 1;
+    }
+  }
+}

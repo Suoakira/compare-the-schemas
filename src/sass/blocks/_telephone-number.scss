@@ -1,0 +1,14 @@
+﻿.tlphn {
+  font-size: px2rem(30px);
+  display: block;
+  cursor: default;
+  
+  .fc__innr &,
+  .row & {
+    margin-bottom: 1.3em;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

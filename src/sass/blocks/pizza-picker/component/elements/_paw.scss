@@ -1,0 +1,258 @@
+&__paw {
+  margin: auto;
+  overflow: hidden;
+  pointer-events: none;
+
+  &--sergei {
+    @include absolute(right 0 left 0, 10000);
+
+    background: transparent url('#{$assets-url}meerkat_hand-open.png') 0 0 /
+      cover no-repeat;
+    height: 800px;
+    transform: translateY(100%);
+    transform-origin: center top;
+    width: 243px;
+
+    &--wrap {
+      @include relative(null, 10000);
+
+      display: none;
+      opacity: 0;
+
+      &.is-visible {
+        @include media-breakpoint-up(lg) {
+          animation: pawIn 0.7s 1s ease forwards;
+          display: block;
+
+          [data-active='3'] & {
+            animation-delay: 2s;
+          }
+        }
+      }
+
+      &.is-active {
+        display: block;
+        opacity: 1;
+
+        &.is-grubs-animation .pizza-app__paw {
+          @include media-breakpoint-up(lg) {
+            animation: pawOutIn 0.7s 0.3s ease forwards;
+          }
+        }
+
+        .pizza-app__paw {
+          @mixin stealAnimation {
+            animation: stealCaviarGrubsSergei 0.8s ease forwards;
+            display: block;
+            height: 438px;
+            left: 0 !important;
+            opacity: 0;
+            right: -45px !important;
+            top: 235px !important;
+            transform: rotate(-90deg) translateY(100%);
+            width: 133px;
+          }
+
+          @include media-breakpoint-down(md) {
+            @include stealAnimation;
+          }
+
+          // @include media-breakpoint-up(lg) {
+          //   @media (min-height: 700px) {
+          //     @include stealAnimation;
+          //   }
+          // }
+
+          @include media-breakpoint-down(sm) {
+            top: 180px !important;
+          }
+
+          @include media-breakpoint-down-max-height(sm) {
+            top: 90px !important;
+          }
+
+          @include media-breakpoint-up-max-height(md) {
+            top: 90px !important;
+          }
+        }
+      }
+    }
+  }
+
+  &--robed {
+    @include absolute(top 225px right 0 left -305px, 10001);
+
+    height: 150px;
+    opacity: 0;
+    transform: translateX(-100%);
+    width: 438px;
+
+    @include media-breakpoint-down(sm) {
+      top: 165px;
+    }
+
+    @include media-breakpoint-down-max-height(sm) {
+      top: 85px;
+    }
+
+    @include media-breakpoint-up-max-height(md) {
+      top: 85px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      height: 250px;
+      left: -100px;
+      right: 0;
+      top: -250px;
+      transform: rotate(90deg) translate(0, -100%);
+      width: 731px;
+
+      @media (min-height: 700px) {
+        bottom: 0;
+        left: -1005px;
+        top: 90px;
+        transform: rotate(-5deg) translate(-100%, -100%);
+      }
+    }
+
+    &.is-active {
+      animation: stealCaviarGrubsMd 1s ease-in-out forwards;
+      display: block;
+      opacity: 0;
+
+      @include media-breakpoint-up(lg) {
+        @media (max-height: 699px) {
+          animation-name: stealCaviarGrubsSm;
+        }
+      }
+    }
+
+    [data-active='3'] & {
+      background: transparent url('#{$assets-url}meerkat_hand-robed.png') 0 0 /
+        cover no-repeat;
+    }
+  }
+}
+
+&[data-active='3'].mouse-is-down .pizza-app__paw--sergei {
+  background-image: url('#{$assets-url}meerkat_hand-closed.png');
+}
+
+@keyframes pawIn {
+  from {
+    opacity: 0;
+    transform: translateY(800px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pawOutIn {
+  0%,
+  100% {
+    transform: translateY(0) rotate(8deg);
+  }
+
+  50% {
+    transform: translateY(800px);
+  }
+}
+
+@keyframes stealCaviarGrubsSergei {
+  0% {
+    opacity: 0;
+    transform: rotate(-90deg) translateY(100%);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(-90deg) translateY(-20%);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(-90deg) translateY(100%);
+  }
+}
+
+@keyframes stealCaviarGrubsSm {
+  0% {
+    opacity: 0;
+    transform: rotate(90deg) translate(-100%, 0);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(90deg) translate(0, 0);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(90deg) translate(-100%, 0);
+  }
+}
+
+@keyframes stealCaviarGrubsMd {
+  0% {
+    opacity: 0;
+    transform: rotate(-10deg) translate(-100%, -100%);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(-10deg) translate(-100%, -100%);
+  }
+}
+
+@keyframes stealGrubs {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) rotate(180deg);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(0) rotate(180deg);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100%) rotate(180deg);
+  }
+}

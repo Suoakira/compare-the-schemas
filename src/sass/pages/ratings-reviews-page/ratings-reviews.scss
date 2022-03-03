@@ -1,0 +1,39 @@
+/* stylelint-disable */
+
+// Mixins
+@import "../../helpers/mixins";
+@import "../../../../../node_modules/sass-mq/mq";
+
+// Base
+@import "../../base/variables";
+
+#content {
+  .bv-cleanslate .bv-content-list-container {
+    padding: 10px 0 !important;
+
+    .bv-action-bar {
+      display: none !important;
+    }
+
+    .bv-inline-histogram-row-active {
+      background-color: $ctm-blue !important;
+    }
+
+    .bv-control-bar,
+    .bv-section-summary-inline .bv-content-title {
+      background-color: $ctm-blue-dark !important;
+    }
+
+    .bv-section-summary-inline .bv-content-title  {
+      margin-bottom: 1em !important;
+    }
+
+    .bv-active-filters {
+      background-color: $ctm-blue !important;
+    }
+
+    .bv-active-filter-button-clear {
+      color: $ctm-blue-dark !important;
+    }
+  }
+}

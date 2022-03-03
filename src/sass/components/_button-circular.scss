@@ -1,0 +1,189 @@
+﻿/* ==========================================================================
+   Circular CTA Buttons
+   ========================================================================== */
+
+/**
+ * ----------------
+ * Circular Buttons
+ * ----------------
+ * 
+ * Without Text
+ * Without Text Inverse
+ * 
+ * With Text
+ * With Text Inverse
+ * 
+ * ----------------
+ * Modifiers
+ * ----------------
+ * 
+ * Medium & Small for all buttons
+ * On White Background
+ * 
+ *
+ * ------------------------
+ * Class abbreviations:
+ * ------------------------
+ * .c-btn = circular button
+ * .c-btn__txt = circular button text
+ * .c-btn__ico = circular button icon
+ * .c-btn--md = circular button medium
+ * .c-btn--sm = circular button small
+ * .c-btn--inv = circular button inverse
+ * .c-btn--wbg = circular button white background
+ * .c-btn-cntnr = circular button container
+ * .c-btn-cntnr--a = circular button container which is an anchor
+ * .c-btn-cntnr__lnk = circular button container link
+ * .c-btn-cntnr__lbg = circular button container light background
+ * .c-btn-cntnr__subtxt = circular button container sub text
+ */
+
+// all these combinations do not meet a11y AA or AAA standards
+
+$circular-btn-font-color: $ctm-white;
+$circular-btn-bg-color: $ctm-green;
+$circular-btn-border-color: $ctm-green;
+$circular-btn-hover-font-color: $ctm-green;
+$circular-btn-hover-bg-color: $ctm-white;
+$circular-btn-hover-border-color: $ctm-white;
+
+$circular-btn-size: 125px;
+$circular-btn-size-medium: 105px;
+$circular-btn-size-small: 85px;
+$circular-btn-border-radius: 5px;
+
+.c-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: $circular-btn-size;
+  height: $circular-btn-size;
+  color: $circular-btn-font-color;
+  background-color: $circular-btn-bg-color;
+  border: 5px solid $circular-btn-border-color;
+  border-radius: 50%;
+  text-decoration: none;
+
+  &:hover,
+  .c-btn-cntnr--a:hover & {
+    color: $circular-btn-hover-font-color;
+    background-color: $circular-btn-hover-bg-color;
+    border-color: $circular-btn-hover-bg-color;
+    text-decoration: none;
+  }
+
+  &__ico {
+    height: 3rem;
+  }
+
+  &__txt {
+    font-weight: 700;
+    margin: 0.5rem 0;
+  }
+
+  &--inv {
+    color: $circular-btn-hover-font-color;
+    background-color: $circular-btn-hover-bg-color;
+    border: 5px solid $circular-btn-hover-border-color;
+
+    &:hover,
+    .c-btn-cntnr--a:hover & {
+      color: $circular-btn-font-color;
+      background-color: $circular-btn-bg-color;
+      border: $circular-btn-border-radius solid $circular-btn-border-color;
+    }
+  }
+
+  &--wbg {
+    &.c-btn--inv {
+      border-color: $circular-btn-border-color;
+    }
+
+    &:hover,
+    .c-btn-cntnr--a:hover & {
+      border-color: $circular-btn-border-color;
+    }
+  }
+
+  &--md {
+    width: $circular-btn-size-medium;
+    height: $circular-btn-size-medium;
+
+    .c-btn__ico {
+      height: 2.5rem;
+    }
+  }
+
+  &--sm {
+    width: $circular-btn-size-small;
+    height: $circular-btn-size-small;
+
+    .c-btn__ico {
+      height: 2rem;
+    }
+  }
+}
+
+/* ========================
+   With Links Outside Circle
+   ======================== */
+
+.c-btn-cntnr {
+  display: block;
+  text-decoration: none;
+  width: $circular-btn-size + ($circular-btn-border-radius * 2);
+  color: $circular-btn-font-color;
+  margin: 0 auto;
+  text-align: center;
+
+  &__txt {
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+
+  &:hover .c-btn-cntnr__txt {
+    color: darken($ctm-white, 8%);
+  }
+
+  &__lnk {
+    color: $circular-btn-font-color;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    display: inline-block;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--lbg {
+    .c-btn-cntnr__txt,
+    .c-btn-cntnr__lnk {
+      color: $ctm-blue;
+      @extend .font-small;
+  
+      &:hover {
+        color: $ctm-blue;
+        text-decoration: underline;
+      }
+    }
+  
+    &:hover .c-btn-cntnr__txt {
+      color: $ctm-blue;
+      text-decoration: underline;
+    }
+  
+    .c-btn-cntnr__subtxt {
+      display: block;
+      color: $ctm-grey-dark;
+      font-size: px2rem(10px);
+      font-weight: 400;
+    }
+  }
+}

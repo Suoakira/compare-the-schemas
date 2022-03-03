@@ -1,0 +1,273 @@
+$gradient-blue: #0445af;
+
+.lph-v2 {
+  background-color: #01041B;
+  background-image: radial-gradient(circle at 38% 110%, $gradient-blue, rgba($gradient-blue, 0.5) 20%, rgba($gradient-blue, 0)), radial-gradient(circle at 66% 50%, $gradient-blue, rgba($gradient-blue, .5) 40%, rgba($gradient-blue, 0));
+  padding-top: 25px;
+
+  @include mq($from: tablet) {
+    padding-top: 50px;
+  }
+
+  @include mq($from: desktop) {
+    padding-top: 90px;
+  }
+
+  &--no-img {
+    padding-bottom: 25px;
+
+    @include mq($from: tablet) {
+      padding-bottom: 50px;
+    }
+  
+    @include mq($from: desktop) {
+      padding-bottom: 90px;
+    }
+  }
+
+  &__cntr {
+    @include mq($until: tablet) {
+      max-width: 380px;
+    }
+  }
+
+  &__row {
+    justify-content: center;
+
+    @include mq($from: desktop) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__rtrn {
+    margin-bottom: px2rem(40px);
+    text-align: center;
+    min-height: 140px;
+    position: relative;
+
+    @include mq($from: tablet) {
+      margin-bottom: 0;
+      text-align: left;
+      min-height: 200px;
+    }
+
+    @include mq($from: desktop) {
+      min-height: 235px;
+    }
+  }
+
+  &__ldr {
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 60px;
+    border-width: 5px;
+  }
+
+  &__ttl {
+    font-size: px2rem(21px);
+    margin-bottom: px2rem(18px);
+
+    @include mq($from: tablet) {
+      font-size: px2rem(24px);
+    }
+
+    @include mq($from: desktop) {
+      font-size: px2rem(32px);
+      margin-bottom: px2rem(30px);
+    }
+  }
+
+  &__btn {
+    @include mq($from: desktop) {
+      margin-bottom: px2rem(14px);
+    }
+  }
+
+  &__lnk {
+    margin-left: px2rem(10px);
+  }
+
+  &__cont {
+    align-items: center;
+
+    @include mq($from: tablet) {
+      align-items: flex-start;
+    }
+  }
+
+  &__lst {
+    font-size: px2rem(18px);
+    max-width: 360px;
+
+    @include mq($from: desktop) {
+      font-size: px2rem(20px);
+    }
+  }
+
+  &__li {
+    min-height: 60px;
+    padding-bottom: 1em;
+    padding-left: 56px;
+    position: relative;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &:before {
+      content: "\2713";
+      color: $ctm-green;
+      font-size: px2rem(40px);
+      font-weight: 700;
+      height: 40px;
+      left: 0;
+      line-height: 40px;
+      position: absolute;
+      text-align: center;
+      top: 6px;
+      width: 40px;
+    }
+  }
+
+  &__img {
+    margin-top: 1rem;
+
+    img {
+      display: block;
+    }
+  }
+
+  &__toy {
+    margin: 20px 0 0 56px;
+  }
+}
+
+/* 
+ Alternative design with Sergei holding the card
+*/
+
+.lph-v2--alt {
+  padding-bottom: 25px;
+
+  @include mq($from: tablet) {
+    padding-top: 112px;
+    padding-bottom: 65px;
+  }
+
+  @include mq($from: desktop) {
+    padding-top: 120px;
+    padding-bottom: 85px;
+  }
+
+  .lph-v2__cont {
+    @include mq($from: tablet) {
+      margin-top: 40px;
+    }
+
+    @include mq($from: desktop) {
+      margin-top: 50px;
+    }
+  }
+
+  .lph-v2__lst-wrp {
+    position: relative;
+    width: 100%;
+
+    @include mq($until: tablet) {
+      margin-top: 120px;
+    }
+
+    @include mq($from: desktop) {
+      padding: 0 20px;
+    }
+
+    &:before {
+      content: "";
+      height: 232px;
+      position: absolute;
+      right: 18px;
+      top: -156px;
+      width: 149px;
+
+      @include mq($from: tablet) {
+        right: auto;
+        left: 209px;
+      }
+
+      @include mq($from: desktop) {
+        left: 202px;
+      }
+    }
+  }
+
+  .lph-v2__lst {
+    background-color: $ctm-white;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px 0 rgba($ctm-black, 0.25);
+    color: $ctm-blue;
+    font-size: px2rem(18px);
+    padding: 34px 20px 28px;
+    position: relative;
+    width: 100%;
+
+    @include mq($from: tablet) {
+      font-size: px2rem(17px);
+      padding: 34px 27px 20px;
+    }
+
+    &:before {
+      content: "";
+      height: 27px;
+      position: absolute;
+      right: 150px;
+      top: -17px;
+      width: 28px;
+    }
+
+    &:after {
+      content: "";
+      height: 25px;
+      position: absolute;
+      right: -9px;
+      top: 9px;
+      width: 25px;
+    }
+  }
+
+  .lph-v2__li {
+    min-height: 48px;
+    padding-left: 53px;
+
+    &:before {
+      font-size: px2rem(30px);
+      height: 30px;
+      line-height: 30px;
+      top: -2px;
+      width: 30px;
+    }
+  }
+
+  .lph-v2__toy {
+    margin: 20px 0 0;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .lph-v2__val-txt,
+  .lph-v2__val-txt p {
+    display: inline;
+  }
+
+  .lph-v2__txt--mb {
+    margin-bottom: 1.3em;
+    font-size: px2rem(18.7px);
+    max-width: 510px;
+  }
+}
+
+[amp-access^="view = 'no-quote'"][amp-access-hide] ~ .lph-v2__rtrn .lph-v2__ldr,
+[amp-access^="view != 'no-quote'"][amp-access-hide] ~ .lph-v2__rtrn .lph-v2__ldr {
+  display: none;
+}

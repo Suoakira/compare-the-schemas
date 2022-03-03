@@ -1,0 +1,106 @@
+﻿/* ==========================
+   Px to REM Converter
+   ========================== */
+
+/* 
+  For ~20px sized text in REMs
+  px2rem(20px)
+*/
+$mq-base-font-size: 16px;
+@function px2rem($px, $base-font-size: $mq-base-font-size) {
+  @if unitless($px) {
+    @return px2rem($px * 1px, $base-font-size);
+  } @else if unit($px) == rem {
+    @return $px;
+  }
+
+  @return ($px / $base-font-size) * 1rem;
+}
+
+/* ==========================
+   Responsive Embed
+   ========================== */
+
+// Credit: Nicolas Gallagher and SUIT CSS.
+
+/* 
+  Example implementation: 
+  <div class="embed-responsive">
+    <iframe class="embed-responsive__item" src="..."></iframe>
+  </div>
+
+  For a 16:9 ratio video you would use: 
+  @include embed-responsive(16, 9);
+*/
+
+@mixin embed-responsive($width, $height) {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: percentage($height / $width);
+  }
+
+  &__item,
+  iframe,
+  embed,
+  object,
+  video {
+    border: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/* ==========================
+   CSS image replacement
+   ========================== */
+
+@mixin text-hide() {
+  background-color: transparent;
+  border: 0;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+/* ==========
+   Centerer
+   ========== */
+
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ==========
+   Clearfix
+   ========== */
+
+@mixin clearfix() {
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+/* ==========
+   Cover BG
+   ========== */
+
+@mixin cover-background($img-uri) {
+  background: url($img-uri) no-repeat center;
+  background-size: cover;
+}

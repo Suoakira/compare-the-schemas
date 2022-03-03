@@ -1,0 +1,132 @@
+&__bowl {
+  @include relative;
+  @include square(75px, null, 75px);
+
+  @include media-breakpoint-up(lg) {
+    @media (min-height: 700px) {
+      @include square(90px, null, 90px);
+
+      &.caviar {
+        @include square(115px, null, 115px);
+      }
+    }
+  }
+
+  @include media-breakpoint-down-max-height(sm) {
+    @include square(55px, null, 55px);
+  }
+
+  &::after,
+  &::before {
+    background-image: url('#{$assets-url}bowl/bowl_sprites.png');
+    background-repeat: no-repeat;
+    background-size: 320px 320px;
+    pointer-events: none;
+
+    @include media-breakpoint-up(lg) {
+      @media (min-height: 700px) {
+        background-size: 380px 380px;
+      }
+    }
+
+    @include media-breakpoint-down-max-height(sm) {
+      background-size: 230px 230px;
+    }
+  }
+
+  &::before {
+    @include absolute(top 0 right 0 bottom 0 left 0, 2);
+    @include square(100%);
+
+    content: '';
+  }
+
+  @each $tuple in $ingredientsconfig {
+    &.#{nth($tuple, 1)}::before {
+      background-position: #{nth($tuple, 3)};
+        
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          background-position: #{nth($tuple, 2)};
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        background-position: #{nth($tuple, 4)};
+      }
+    }
+  }
+
+  &.caviar::before {
+    background-position: -98px -279px;
+    background-size: 360px 360px;
+
+    @include media-breakpoint-up(lg) {
+      @media (min-height: 700px) {
+        background-position: -130px -382px;
+        background-size: 500px 500px;
+      }
+    }
+    
+    @include media-breakpoint-down-max-height(sm) {
+      background-position: -77px -219px;
+      background-size: 280px 280px;
+    }
+  }
+
+  &.grubs {
+    &::before {
+      background-position: -242px -1px;
+  
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          background-position: -288px -2px;
+        }
+      }
+      
+      @include media-breakpoint-down-max-height(sm) {
+        background-position: -174px 0px;
+      }
+    }
+
+    &.is-active::before {
+      background-position: -1px -241px;
+
+      @include media-breakpoint-up(lg) {
+        @media (min-height: 700px) {
+          background-position: -3px -287px;
+        }
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        background-position: -1px -173px;
+      }
+    }
+  }
+
+  &:not(.caviar)::after {
+    @include absolute(bottom -12px right -12px, 1);
+    @include square(100%);
+
+    background-position: -162px -242px;
+    content: '';
+
+    @include media-breakpoint-up(lg) {
+      @media (min-height: 700px) {
+        background-position: -190px -287px;
+      }
+    }
+
+    @include media-breakpoint-down-max-height(sm) {
+      background-position: -115px -173px;
+      bottom: -8px;
+      right: -8px;
+    }
+  }
+
+  .pizza-app__ingredient {
+    @include absolute(top 0 right 0 bottom 0 left 0);
+
+    margin: auto;
+  }
+}

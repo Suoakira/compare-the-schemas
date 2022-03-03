@@ -1,0 +1,254 @@
+// Mixins
+@import "../../helpers/mixins";
+@import "../../../../../node_modules/sass-mq/mq";
+
+// Base
+@import "../../base/variables";
+
+.EPiServerForms {
+  background: $ctm-white;
+  border-radius: 3px;
+  box-shadow: rgba($ctm-black, 0.24) 0 2px 4px, rgba($ctm-black, 0.08) 0 -1px 2px;
+  margin: 0 auto;
+  max-width: 676px;
+  padding: 20px;
+
+  @include mq($from: tablet) {
+    padding: 32px 32px 0;
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+.Form__Fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.Form__Element {
+  margin: 0 0 32px;
+
+  &--NonData {
+    margin-bottom: 0;
+  }
+
+  &__Caption,
+  &__ValidationError {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__ValidationError {
+    color: $ctm-red-280;
+    margin-top: 10px;
+  }
+}
+
+.FormTextbox__Input,
+.FormSelection__Select {
+  appearance: none;
+  background: $ctm-blue-lighter-30;
+  border: 1px solid $ctm-blue-lighter;
+  border-bottom: 4px solid $ctm-blue-light;
+  border-radius: 3px;
+  font-weight: bold;
+  max-width: 360px;
+  padding: px2rem(15px) 0 px2rem(15px) px2rem(12px);
+  transition: box-shadow .32s, color .35ms, border-color .32s, background-color .32s;
+  width: 100%;
+
+  &::placeholder {
+    color: $ctm-blue-lighter;
+    font-weight: normal;
+  }
+
+  &:focus {
+    background: $ctm-white;
+    border-color: $ctm-blue-light;
+    box-shadow: 0 2px 12px 0 rgba(2, 20, 52, .3);
+    outline: 0;
+  }
+
+  // validation error state
+  &.user-invalid {
+    background: $ctm-red-720;
+    border-color: $ctm-red-380;
+    color: $ctm-red-280;
+
+    &::placeholder {
+      color: $ctm-red-570;
+    }
+  }
+}
+
+.FormTextbox__Textarea {
+  min-height: 120px;
+  padding-right: 12px;
+}
+
+.FormSelection__Select {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17' fill='%230a2765'%3E%3Cpath d='M11.2 7.5H5.8c-.2 0-.3.1-.3.3l.1.2L8 10.3c.1.1.3.2.5.2s.3-.1.5-.2l2.4-2.4.1-.2c0-.1-.2-.2-.3-.2m-2.7 7.8c-1.7 0-3.5-.7-4.8-2-1.3-1.3-2-3.1-2-4.8 0-1.7.7-3.5 2-4.8 1.3-1.3 3.1-2 4.8-2s3.5.7 4.8 2c1.3 1.3 2 3.1 2 4.8 0 1.7-.7 3.5-2 4.8-1.3 1.3-3.1 2-4.8 2M8.5 0C3.8 0 0 3.8 0 8.5s3.7 8.4 8.4 8.5h.3c4.6-.1 8.4-3.8 8.4-8.5C17 3.8 13.2 0 8.5 0'/%3E%3C/svg%3E");
+  background-position: right 15px center;
+  background-repeat: no-repeat;
+  background-size: 17px 17px;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.FormChoice {
+  &__Label {
+    align-items: center;
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  &__Input {
+    cursor: pointer;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+
+    &--Checkbox:checked {
+      + .FormChoice__Checkmark {
+        background: $ctm-green;
+        border-color: $ctm-green-dark;
+        color: $ctm-white;
+      }
+
+      + .FormChoice__Checkmark .FormChoice__Checkmark-Icon {
+        display: block;
+      }
+    }
+
+    &--Checkbox:focus {
+      + .FormChoice__Checkmark {
+        box-shadow: rgba($ctm-black, 0.24) 0 4px 8px, rgba($ctm-black, 0.08) 0 -1px 4px;
+      }
+    }
+
+    &--Radio:checked {
+      + .FormChoice__Circle {
+        background: $ctm-green;
+        border-color: $ctm-green-dark;
+      }
+
+      + .FormChoice__Circle:after {
+        opacity: 1;
+      }
+    }
+
+    &--Radio:focus {
+      + .FormChoice__Circle {
+        box-shadow: rgba($ctm-black, 0.24) 0 4px 8px, rgba($ctm-black, 0.08) 0 -1px 4px;
+      }
+    }
+  }
+
+  &__Checkmark {
+    border-radius: 5px;
+    transition: box-shadow .32s, color .35ms, border-color .32s, background-color .32s;
+
+    &-Icon {
+      display: none;
+    }
+  }
+
+  &__Checkmark,
+  &__Circle {
+    background: $ctm-white;
+    border: 2px solid $ctm-grey-lighter;
+    cursor: pointer;
+    display: inline-block;
+    height: 24px;
+    margin-right: 16px;
+    width: 24px;
+
+    &:hover {
+      box-shadow: rgba($ctm-black, 0.24) 0 4px 8px, rgba($ctm-black, 0.08) 0 -1px 4px;
+      outline: none;
+    }
+  }
+
+  &__Circle {
+    border-radius: 50%;
+    position: relative;
+    transition: background-color 320ms cubic-bezier(0.55, 0.06, 0.68, 0.19) 0s, border-color 240ms cubic-bezier(0.55, 0.06, 0.68, 0.19) 0s;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      width: calc(50% + 2px);
+      height: calc(50% + 2px);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      border-radius: 50%;
+      background: $ctm-white;
+      transition: transform 240ms cubic-bezier(0.55, 0.06, 0.68, 0.19) 240ms, opacity 240ms cubic-bezier(0.55, 0.06, 0.68, 0.19) 0s;
+    }
+  }
+
+  &__Image {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 100%;
+  }
+
+  &__ImageGroup {
+    @include mq($from: tablet) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &--Image {
+    margin-bottom: 12px;
+  }
+
+  &--Image__Item {
+    width: calc(50% - 10px);
+  }
+
+  &--Image__Label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}
+
+.FormStep__Description {
+  margin-bottom: 1.3em;
+}
+
+.Form__NavigationBar {
+  padding-top: 32px;
+
+  @include mq($from: tablet) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 32px;
+  }
+
+  &__ProgressBar {
+    padding: 20px 0;
+
+    @include mq($from: tablet) {
+      padding: 0;
+    }
+  }
+}
+
+.Form__Status__Message {
+  overflow: hidden;
+}

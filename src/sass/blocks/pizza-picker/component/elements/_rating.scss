@@ -1,0 +1,284 @@
+&__pizza-rating {
+  p {
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__img {
+    background-color: transparent;
+    background-image: url('#{$assets-url}css_sprites.png');
+    background-repeat: no-repeat;
+    display: block;
+    line-height: 2000em;
+    margin: 0 4px;
+    overflow: hidden;
+
+    &--wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-brand-logo-1,
+    &-brand-logo-2 {
+      @include absolute(top 0);
+
+      margin: 0;
+    }
+
+    &-brand-logo-1 {
+      background-size: 375px 218px;
+      background-position: -213px -172px;
+      height: 25px;
+      left: 15px;
+      top: 9px;
+      width: 56px;
+
+      @include media-breakpoint-up(lg) {
+        background-size: 581px 338px;
+        background-position: -331px -268px;
+        height: 37px;
+        top: 30px;
+        width: 86px;
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        background-size: 300px 175px;
+        background-position: -170px -138px;
+        height: 20px;
+        width: 47px;
+      }
+    }
+
+    &-brand-logo-2 {
+      background-size: 375px 218px;
+      background-position: -172px -172px;
+      height: 37px;
+      right: 15px;
+      top: 6px;
+      width: 39px;
+
+      @include media-breakpoint-up(lg) {
+        background-position: -267px -267px;
+        background-size: 581px 338px;
+        height: 56px;
+        top: 20px;
+        width: 59px;
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        background-size: 300px 175px;
+        background-position: -138px -138px;
+        height: 29px;
+        width: 31px;
+      }
+    }
+
+    &-you-ve-created {
+      background-size: 420px 244px;
+      background-position: -331px -144px;
+      height: 18px;
+      left: 0;
+      margin-bottom: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      right: 0;
+      width: 88px;
+
+      @include media-breakpoint-up(lg) {
+        background-size: 581px 338px;
+        background-position: -461px -200px;
+        height: 25px;
+        margin-bottom: 12px;
+        width: 117px;
+      }
+    }
+
+    &-app-store {
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-image: url('#{$assets-url}css_sprites.png');
+      background-size: 480px 279px;
+      background-position: -349px -244px;
+      height: 30px;
+      width: 92px;
+
+      @include media-breakpoint-up(lg) {
+        background-size: 581px 338px;
+        background-position: -423px -296px;
+        height: 36px;
+        width: 110px;
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        background-size: 400px 233px;
+        background-position: -291px -204px;
+        height: 25px;
+        width: 76px;
+      }
+    }
+
+    &-google-play {
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-image: url('#{$assets-url}css_sprites.png');
+      background-size: 480px 279px;
+      background-position: -349px -209px;
+      height: 30px;
+      width: 100px;
+
+      @include media-breakpoint-up(lg) {
+        background-size: 581px 338px;
+        background-position: -422px -254px;
+        height: 36px;
+        width: 120px;
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        background-size: 400px 233px;
+        background-position: -290px -175px;
+        height: 25px;
+        width: 84px;
+      }
+    }
+  }
+
+  &__name {
+    p {
+      @include relative;
+      @include secondary-font(28px, 600);
+
+      background: $red;
+      color: $white;
+      height: 38px;
+      line-height: 38px;
+      margin: 0 auto;
+      text-transform: uppercase;
+      width: calc(100% - 40px);
+
+      @include media-breakpoint-up(lg) {
+        font-size: 38px;
+        height: 51px;
+        line-height: 51px;
+        max-width: 320px;
+      }
+
+      @include media-breakpoint-down-max-height(sm) {
+        font-size: 20px;
+        height: 32px;
+        line-height: 32px;
+      }
+
+      span {
+        @include relative(bottom 1em);
+
+        opacity: 0;
+      }
+
+      &::after,
+      &::before {
+        @include absolute(top 0, 2);
+
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-image: url('#{$assets-url}css_sprites.png');
+        background-size: 572px 333px;
+        background-position: -393px -198px;
+        content: '';
+        height: 43px;
+        width: 23px;
+
+        @include media-breakpoint-up(lg) {
+          background-size: 774px 450px;
+          background-position: -533px -268px;
+          height: 57px;
+          width: 36px;
+        }
+
+        @include media-breakpoint-down-max-height(sm) {
+          background-position: -344px -176px;
+          background-size: 505px 294px;
+          height: 36px;
+          width: 23px;
+        }
+      }
+
+      &::after {
+        background-position: -428px -198px;
+    
+        right: -22px;
+
+        @include media-breakpoint-up(lg) {
+          background-position: -573px -268px;
+        }
+
+        @include media-breakpoint-down-max-height(sm) {
+          background-position: -377px -176px;
+        }
+      }
+
+      &::before {
+        left: -22px;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0 auto;
+
+    @include media-breakpoint-down(md) {
+      max-width: 223px;
+    }
+
+    &--description {
+      @include media-breakpoint-down(md) {
+        @include absolute(top 0 right 0 bottom -920px left 0);
+        
+        height: 110px;
+        margin: auto;
+
+        @media (min-height: 760px) {
+          bottom: -1000px;
+        }
+
+        @include media-breakpoint-down-max-height(sm) {
+          bottom: -720px;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAJUlEQVQYV2OcGeP7n4GBgSF9yWZGEI0OGAkqwKYLWQyrsSQpAAB24AgGFC+xvQAAAABJRU5ErkJggg==')
+          0 top repeat-x;
+        margin-top: 45px;
+        padding-top: 30px;
+      }
+
+      p {
+        @include secondary-font(26px, 500);
+
+        color: $white;
+        letter-spacing: normal;
+        line-height: 1.15;
+        margin-bottom: 19px;
+        text-align: center;
+        text-transform: uppercase;
+
+        @include media-breakpoint-down(md) {
+          text-shadow: 0 2px 10px rgba($black, 0.57);
+        }
+
+        @include media-breakpoint-down-max-height(sm) {
+          font-size: 22px;
+          margin-bottom: 5px;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}

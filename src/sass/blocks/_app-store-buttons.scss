@@ -1,0 +1,30 @@
+﻿.app-btns {
+  margin: 0 0 20px;
+
+  @include mq($from: tablet) {
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  &__col {
+    margin: 0 0 20px;
+
+    @include mq($from: tablet) {
+      margin: 0 10px;
+    }
+  }
+
+  &__lnk {
+    display: block;
+    line-height: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  &.centr-align {
+    align-self: center;
+  }
+}

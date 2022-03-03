@@ -1,0 +1,75 @@
+@import '../support.scss';
+
+.Row, .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    // expect direct children to be columns
+    > div[class^="col"] {
+        box-sizing: border-box;
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        display: block;
+
+        padding: 8px;
+        @media all and (max-width: #{$media-tablet - 1}) {
+            padding: 6px;
+        }
+    }
+}
+
+.col-stretch {
+    flex-grow: 1 !important;
+}
+
+.col-auto {
+    width: auto !important; // ensure no browser inheritence
+}
+
+.row + .row,
+.Row + .Row {
+    padding-top: 6px;
+    @include media('tablet') {
+        padding-top: $spacing-xs;
+    }
+}
+
+@each $screen, $type in $ctm-screens {
+    @include media($screen) {
+        @for $i from 1 through 11 {
+            .col#{$type}-#{$i} { 
+                width: calc(#{$i} / 12 * 100%) !important;
+            }
+        }
+        .col#{$type}-12 { 
+            width: 100% !important; 
+        }
+
+        @for $i from 1 through 11 {
+            .offset#{$type}-#{$i} { 
+                margin-left: calc(#{$i} / 12 * 100%) !important;
+            }
+        }
+    }
+}
+
+@mixin gutters ($gutter-width: 8px) {
+    margin: -$gutter-width;
+
+    > div[class^="col"] {
+        padding-right: $gutter-width;
+        padding-left: $gutter-width;
+    }
+}
+
+.gutter {
+    @include gutters(6px);
+    @include media('tablet') {
+        @include gutters(8px);
+    }
+}
+
+.gutter-small {
+    @include gutters(6px);
+}

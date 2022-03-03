@@ -1,0 +1,179 @@
+/* ==========================
+   Mobile Meganav (mmn)
+   ========================== */
+
+/**
+ * --------------------
+ * Class abbreviations
+ * --------------------
+ *
+ * .mmn = Mobile mega nav
+ * .mmn__grp-hdr = Mobile mega nav group header
+ * .mmn__grp-hdr-lnk = Mobile mega nav group header link
+ * .mmn__hdr = Mobile mega nav header
+ * .mmn__dd = Mobile mega nav drop down
+ * .mmn__dd-hdr = Mobile mega nav drop down header
+ * .mmn__dd-hdr-lnk = Mobile mega nav drop down header link
+ * .mmn__sctn = Mobile mega nav section
+ * .mmn__arr = Mobile mega nav arrow
+ * .mmn__ico = Mobile mega nav icon
+ * .mmn__lnk-lst = Mobile mega nav link list
+ * .mmn__lnk = Mobile mega nav link
+ * .mmn__img = Mobile mega nav image
+ */
+
+// Dirty AMP hack
+[class$=amphtml-sidebar-mask] {
+  opacity: .6;
+}
+
+.mmn {
+  background: $ctm-blue-dark;
+  width: 80vw;
+
+  &__btn-wrpr {
+    text-align: right;
+
+    + .mmn__grp-hdr {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  &__close {
+    color: $ctm-white;
+    font-size: px2rem(44px);
+    padding: 0 10px;
+  }
+
+  &__grp-hdr-lnk {
+    display: block;
+    font-weight: 400;
+    padding: 15px;
+    text-transform: uppercase;
+  }
+
+  &__hdr {
+    background: $ctm-blue-dark;
+    color: $ctm-white;
+    margin-left: 15px;
+    padding: 15px 40px;
+  }
+
+  &__hdr,
+  &__dd-hdr {
+    border: 0;
+    font-weight: 700;
+  }
+
+  &__hdr,
+  &__grp-hdr {
+    border-top: 1px solid rgba($ctm-blue, 0.5);
+  }
+
+  &__grp-hdr {
+    padding-top: 15px;
+  }
+
+  &__dd,
+  &__dd-hdr {
+    background: $ctm-white;
+  }
+
+  &__dd-hdr {
+    border-top: 1px solid rgba($ctm-blue-lighter, 0.3);
+    color: $ctm-blue-dark;
+    margin-left: 55px;
+    padding: 0 45px 0 0;
+  }
+
+  &__dd-hdr-lnk,
+  &__dd-hdr-ttl,
+  &__lnk {
+    color: $ctm-blue-dark;
+    display: block;
+  }
+
+  &__dd-hdr-lnk,
+  &__dd-hdr-ttl {
+    padding: 15px 0;
+  }
+
+  &__dd-hdr-lnk {
+    border-right: 1px solid rgba($ctm-blue-lighter, 0.3);
+  }
+
+  &__dd {
+    .mmn__sctn:last-child {
+      background: $ctm-blue-lightest;
+
+      .mmn__dd-hdr {
+        background: $ctm-blue-lightest;
+        border-top-width: 0;
+      }
+    }
+
+    .mmn__arr {
+      color: $ctm-green;
+    }
+  }
+
+  &__sctn {
+    &[expanded] {
+      > .mmn__dd-hdr {
+        border-bottom: 1px solid rgba($ctm-blue-lighter, 0.3);
+      }
+
+      .mmn__hdr > .mmn__arr,
+      > .mmn__dd-hdr .mmn__arr {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  &__arr,
+  &__ico {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__arr {
+    height: 8px;
+    right: 15px;
+    transition: all .3s;
+    width: 14px;
+  }
+
+  &__ico {
+    left: 0;
+    width: 16px;
+  }
+
+  &__lnk-lst {
+    padding: 15px 15px 15px 55px;
+  }
+
+  &__lnk {
+    font-weight: 400;
+    margin: 8px 0;
+  }
+
+  &__img {
+    display: block;
+    margin: 0 0 8px;
+  }
+  // Dirty override to remove blue background on the last item in Meerkats drop down
+  /* stylelint-disable selector-max-compound-selectors, selector-max-specificity  */
+  amp-accordion:last-of-type amp-accordion:last-of-type {
+    .mmn__sctn:last-child {
+      background: $ctm-white;
+
+      .mmn__dd-hdr {
+        background: $ctm-white;
+        border-top-width: 1px;
+      }
+    }
+  }
+  /* stylelint-enable */
+}

@@ -1,0 +1,15 @@
+$assets-url: '../../../campaigns/pizza-picker/assets/';
+
+$ingredientsconfig: 'pepperoni' '-98px -2px' '-82px -1px' '-59px 0px', 'pineapple' '-288px -98px' '-242px -82px' '-174px -58px', 'olives' '-98px -98px' '-82px -82px' '-58px -58px', 'onion' '-2px -98px' '-2px -82px' '-0 -58px', 'ham' '-193px -193px' '-162px -161px' '-115px -116px', 'jalapenos' '-193px -98px' '-162px -81px' '-116px -58px', 'mushrooms' '-98px -193px' '-82px -162px' '-58px -116px', 'sweetcorn' '-193px -3px' '-161px 0px' '-116px 0px', 'chicken' '-2px -193px' '-1px -161px' '-1px -115px', 'peppers' '-288px -193px' '-242px -161px' '-173px -116px', 'spicy-beef' '-2px -2px' '-1px -1px' '0 0';
+$pizzabaseconfig: 'thin', 'classic', 'stuffed', 'scone';
+
+$raw-ingredients: '#{$assets-url}ingredients/raw/';
+$cooked-ingredients: '#{$assets-url}ingredients/cooked/';
+
+$raw-base: '#{$assets-url}base/raw/';
+$cheese-base: '#{$assets-url}base/cheese/';
+$cooked-base: '#{$assets-url}base/cooked/';
+
+@import './colors';
+@import './fonts';
+@import './grid';

@@ -1,0 +1,25 @@
+/* ==================================
+   Fonts / Font Face
+   ================================== */
+
+$font-path: "/assets/fonts";
+$font-face-families: ( 
+  ("Sun", "#{$font-path}/SunCTM-Bold", "700", "normal"), 
+  ("Sun", "#{$font-path}/SunCTM-Light", "400", "normal")
+);
+
+@mixin font-face($list) {
+  @each $font in $list {
+    @font-face {
+      font-family: nth($font, 1);
+      src:
+        url("#{nth($font, 2)}.woff2") format("woff2"),
+        url("#{nth($font, 2)}.woff") format("woff");
+      font-weight: #{nth($font, 3)};
+      font-style: #{nth($font, 4)};
+      font-display: fallback;
+    }
+  }
+}
+
+@include font-face($font-face-families);

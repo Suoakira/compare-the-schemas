@@ -1,0 +1,923 @@
+﻿@import "../helpers/mixins";
+@import "../../../../node_modules/sass-mq/mq";
+@import "../base/variables";
+
+@font-face {
+  font-family: "Apercu Fur";
+  src: url("../../fonts/ApercuFur-bold.woff2") format("woff2"), url("../../fonts/ApercuFur-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Simples_W_Bd";
+  src: url("../../fonts/Simples_W_Bd.woff2") format("woff2"), url("../../fonts/Simples_W_Bd.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Simples_W_Rg";
+  src: url("../../fonts/Simples_W_Rg.woff2") format("woff2"), url("../../fonts/Simples_W_Rg.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Simples_W_Bk";
+  src: url("../../fonts/Simples_W_Bk.woff2") format("woff2"), url("../../fonts/Simples_W_Bk.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+.mm-chklst {
+  background: #0019AA;
+  font-family: "Simples_W_Rg", Verdana, sans-serif;
+
+  &__banner {
+    background-image: linear-gradient(180deg, #001964 0%, #1A3FDC 83.76%);
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &--title {
+      font-family: "Apercu Fur";
+      font-weight: bold;
+      font-size: 40px;
+      line-height: 46px;
+      text-transform: uppercase;
+      font-feature-settings: "ss05" on;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      margin: 0;
+      color: #FFF;
+
+      @include mq($from: tablet) {
+        font-size: 60px;
+        line-height: 69px;
+      }
+    }
+
+    &--desc {
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+
+    &--subtitle {
+      font-family: "Simples_W_Bd";
+      font-style: normal;
+      font-weight: bold;
+      font-size: 17px;
+      line-height: 26px;
+      color: #FFF;
+      margin-bottom: 16px;
+
+      @include mq($from: tablet) {
+        font-size: 22px;
+        line-height: 33px;
+      }
+    }
+
+    &--questionRow {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding-bottom: 30px;
+      z-index: 10;
+
+      @include mq($from: tablet) {
+        padding-bottom: 75px;
+      }
+    }
+
+    &--radioButton {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    &--radioLabel {
+      font-family: "Simples_W_Bd";
+      background: #FFF;
+      border: 1px solid #0028D7;
+      box-sizing: border-box;
+      border-radius: 16px;
+      display: inline-block;
+      padding: 16px;
+      margin-right: 16px;
+      color: #001964;
+      width: 160px;
+      text-align: center;
+    }
+
+    &--radioLabel-selected {
+      background: #4BE78C;
+      box-shadow: 0 0 0 2px #76C1FF;
+    }
+
+    &--radioInput {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: right;
+      color: #0038D7;
+      flex: none;
+      order: 2;
+      align-self: stretch;
+      flex-grow: 0;
+      margin: 0 auto;
+      display: block;
+      margin-top: 0;
+      margin-right: auto;
+      margin-bottom: 12px;
+      margin-left: auto;
+    }
+
+    & > .cntnr {
+      padding-top: 24px;
+      position: relative;
+
+      @include mq($from: tablet) {
+        padding-top: 64px;
+      }
+    }
+
+    &--image-desktop {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: none;
+
+      @include mq($from: tablet) {
+        display: block;
+      }
+    }
+
+    &--image-mobile {
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      right: 10px;
+      height: 100%;
+      display: none;
+      @include mq($until: tablet) {
+        display: block;
+      }
+    }
+  }
+
+  &__stages {
+    padding-bottom: 32px;
+    background: #0028D7;
+
+    & > .cntnr {
+      padding-top: 24px;
+    }
+
+    &--title {
+      font-family: "Simples_W_Bd";
+      font-size: 22px;
+      line-height: 31px;
+      font-style: normal;
+
+      @include mq($from: tablet) {
+        font-size: 25px;
+        line-height: 38px;
+      }
+    }
+
+    &--timeline {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      &::after {
+        content: "";
+        background: #667FE8;
+        position: absolute;
+        left: 46px;
+        right: 46px;
+        height: 8px;
+        bottom: 8px;
+      }
+
+      @include mq($until: tablet) {
+        display: none;
+      }
+    }
+
+    &--timeline-buy {
+      & .mm-chklst__stages--mortgage-in-principle {
+        display: block;
+      }
+
+      & .mm-chklst__stages--home-hunting {
+        display: block;
+      }
+
+      & .mm-chklst__stages--tenancy-application {
+        display: none;
+      }
+
+      & .mm-chklst__stages--tenancy-agreement {
+        display: none;
+      }
+
+      & .mm-chklst__stages--mortgage-application {
+        display: block;
+      }
+
+      & .mm-chklst__stages--contracts {
+        display: block;
+      }
+
+      & .mm-chklst__stages--preparing-for-the-move {
+        display: block;
+      }
+
+      & .mm-chklst__stages--moving-day {
+        display: block;
+      }
+    }
+
+    &--timeline-rent {
+      & .mm-chklst__stages--mortgage-in-principle {
+        display: none;
+      }
+
+      & .mm-chklst__stages--home-hunting {
+        display: block;
+      }
+
+      & .mm-chklst__stages--tenancy-application {
+        display: block;
+      }
+
+      & .mm-chklst__stages--tenancy-agreement {
+        display: block;
+      }
+
+      & .mm-chklst__stages--mortgage-application {
+        display: none;
+      }
+
+      & .mm-chklst__stages--contracts {
+        display: none;
+      }
+
+      & .mm-chklst__stages--preparing-for-the-move {
+        display: block;
+      }
+
+      & .mm-chklst__stages--moving-day {
+        display: block;
+      }
+    }
+
+    &--timeline-carousel {
+      display: block;
+      position: relative;
+      left: -20px;
+      width: calc(100% + 40px);
+      
+      @include mq($from: tablet) {
+        display: none;
+      }
+
+      .amp-carousel-button-prev {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: unset;
+        border-radius: unset;
+        background: linear-gradient(90deg, #0028D7 0%, rgba(0, 40, 215, 0) 100%);
+        width: 60px;
+        height: 100%;
+        clip: unset;
+        clip-path: unset;
+      }
+
+      .amp-carousel-button-next {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: unset;
+        border-radius: unset;
+        background: linear-gradient(90deg, #0028D7 0%, rgba(0, 40, 215, 0) 100%);
+        transform: rotate(180deg);
+        width: 60px;
+        height: 100%;
+        clip: unset;
+        clip-path: unset;
+      }
+
+      .i-amphtml-carousel-scroll {
+        scrollbar-width: none;
+      }
+      
+      .i-amphtml-carousel-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .i-amphtml-carousel-content {
+        height: 100%;
+      }
+
+      .mm-chklst__stages--timeline-carousel-item {
+        height: 100%;
+      }
+
+      .mm-chklst__stages--timeline-carousel-item-start {
+        height: 100%;
+      }
+
+      .mm-chklst__stages--timeline-carousel-item-end {
+        height: 100%;
+      }
+
+      .mm-chklst__stages--timeline-item {
+        height: 100%;
+      }
+    }
+
+    &--timeline-carousel-buy {
+      & .mm-chklst__stages--mortgage-in-principle {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--home-hunting {
+        display: block;
+      }
+
+      & .mm-chklst__stages--home-hunting-buy {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--home-hunting-rent {
+        display: none !important;
+      }
+
+      & .mm-chklst__stages--tenancy-application {
+        display: none !important;
+      }
+
+      & .mm-chklst__stages--tenancy-agreement {
+        display: none !important;
+      }
+
+      & .mm-chklst__stages--mortgage-application {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--contracts {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--preparing-for-the-move {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--moving-day {
+        display: inline-block;
+      }
+    }
+
+    &--timeline-carousel-rent {
+      & .mm-chklst__stages--mortgage-in-principle {
+        display: none !important;
+      }
+
+      & .mm-chklst__stages--home-hunting {
+        display: block;
+      }
+
+      & .mm-chklst__stages--home-hunting-buy {
+        display: none !important;
+      }
+
+      & .mm-chklst__stages--home-hunting-rent {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--tenancy-application {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--tenancy-agreement {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--mortgage-application {
+        display: none !important;
+      }
+
+      & .mm-chklst__stages--contracts {
+        display: none !important;
+      }
+
+      & .mm-chklst__stages--preparing-for-the-move {
+        display: inline-block;
+      }
+
+      & .mm-chklst__stages--moving-day {
+        display: inline-block;
+      }
+    }
+
+    &--timeline-carousel-item {
+      width: 150px;
+      margin: 0;
+      position: relative;
+      vertical-align: top;
+      display: none;
+
+      &::after {
+        content: "";
+        background: #667FE8;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 8px;
+        bottom: 8px;
+        z-index: -1;
+      }
+
+      & .mm-chklst__stages--timeline-item {
+        position: unset;
+      }
+    }
+
+    &--timeline-carousel-item-show {
+      display: inline-block;
+    }
+
+    &--timeline-carousel-item-start {
+      width: 150px;
+      margin: 0;
+      position: relative;
+      vertical-align: top;
+      display: none;
+
+      &::after {
+        content: "";
+        background: #667FE8;
+        position: absolute;
+        left: 40px;
+        right: 0;
+        height: 8px;
+        bottom: 8px;
+        z-index: -1;
+      }
+
+      & .mm-chklst__stages--timeline-item {
+        position: unset;
+      }
+    }
+
+    &--timeline-carousel-item-end {
+      width: 92px;
+      margin: 0;
+      position: relative;
+      vertical-align: top;
+      display: none;
+
+      &::after {
+        content: "";
+        background: #667FE8;
+        position: absolute;
+        left: 0;
+        right: 40px;
+        height: 8px;
+        bottom: 8px;
+        z-index: -1;
+      }
+
+      & .mm-chklst__stages--timeline-item {
+        position: unset;
+      }
+    }
+
+    &--timeline-item {
+      width: 92px;
+      z-index: 10;
+      position: relative;
+      cursor: pointer;
+      display: none;
+      padding-top: 2px;
+
+      &-hov:hover {
+        transform: scale(1.035);
+      }
+    }
+
+    &--timeline-item-show {
+      display: block;
+    }
+
+    &--timeline-item-icon {
+      display: block;
+      margin: auto;
+    }
+
+    &--timeline-item-label {
+      font-family: "Simples_W_Bd";
+      text-align: center;
+      margin-top: 10px;
+      white-space: normal;
+      margin-bottom: 34px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 23px;
+
+      @include mq($from: tablet) {
+        font-size: 17px;
+        line-height: 26px;
+      }
+    }
+
+    &--timeline-item-point {
+      width: 24px;
+      height: 24px;
+      background: #1A3FDC;
+      border: 5px solid #B2BFF3;
+      box-sizing: border-box;
+      border-radius: 50%;
+      margin-top: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      bottom: 0;
+      position: absolute;
+      left: 34px;
+      right: auto;
+
+      &::after {
+        content: "";
+        width: 14px;
+        height: 14px;
+        background: #0028D7;
+        border: 3px solid #FFF;
+        box-sizing: border-box;
+        border-radius: 50%;
+        display: none;
+      }
+    }
+
+    &--timeline-item-selected {
+      & .mm-chklst__stages--timeline-item-point::after {
+        display: block;
+      }
+    }
+
+  }
+
+  &__contentContainer {
+    font-family: "Simples_W_Bd";
+    display: flex;
+    flex-direction: column;
+    padding-top: 48px;
+    padding-bottom: 33px;
+
+    @include mq($from: tablet) {
+      flex-direction: row;
+    }
+
+    @include mq($until: tablet) {
+      padding-top: 16px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &__stage {
+      display: none;
+
+      & > h3 {
+        font-size: 25px;
+        display: none;
+  
+        /* stylelint-disable-next-line max-nesting-depth */
+        @include mq($from: tablet) {
+          display: block;
+        }
+      }
+    }
+
+    &__content {
+      $self: &;
+      flex: 1 1 55%;
+
+      &--content-section {
+        margin-bottom: 16px;
+      }
+
+      & > div > div {
+        background-color: #0F27AF;
+        padding: 16px;
+
+        /* stylelint-disable-next-line max-nesting-depth */
+        @include mq($from: tablet) {
+          border-radius: 8px;
+          margin-right: 18px;
+        }
+      }
+
+      & h4 {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+
+      &--tick-text {
+        margin-left: 8px;
+        font-size: 20px;
+      }
+
+      &--tick {
+        fill: #fff;
+        width: 16px;
+        height: 14px;
+      }
+
+      &--accordion-heading {
+        color: #CCFFDC;
+        background-color: transparent;
+        border: none;
+        margin-bottom: 16px;
+        font: {
+          size: 17px;
+          weight: bold;
+        }
+      }
+
+      &--chevron {
+        fill: #CCFFDC;
+        width: 11;
+        height: 11;
+        transform: rotate(0deg);
+        transition: transform 0.3s linear;
+      }
+
+      [aria-expanded="true"] #{ $self }--chevron {
+        transform: rotate(-180deg);
+        transition: transform 0.3s linear;
+      }
+
+      &--chevron-text {
+        margin-left: 4px;
+        font-size: 17px;
+      }
+
+      &--accordion-content {
+        font-family: "Simples_W_Bk";
+        font-size: 15px;
+        line-height: 23px;
+        margin: {
+          left: 18px;
+        }
+      }
+
+      &--call-to-action {
+        display: inline-flex;
+        align-items: center;
+        background-color: #1A3FDC;
+        border-radius: 7px;
+        margin-top: 16px;
+        padding: {
+          top: 16px;
+          right: 38px;
+          bottom: 16px;
+          left: 16px;
+        }
+      }
+
+      &--call-to-action svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      &--call-to-action a {
+        color: #fff;
+        display: inline-block;
+        margin-left: 16px;
+        text-decoration: underline;
+      }
+    }
+
+    &__save {
+      flex: 1 1 auto;
+      padding: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      @include mq($from: tablet) {
+        padding: 0;
+      }
+    }
+  }
+
+  &__saveContainer {
+    background-color: #0028D7;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    min-height: 265px;
+    max-width: 375px;
+    flex: 1;
+    padding-bottom: 16px;
+
+    @include mq($from: tablet) {
+      max-width: none;
+      min-height: 315px;
+    }
+
+    @include mq($from: large-mobile, $until: tablet) {
+      min-height: 350px;
+    }
+
+    &__inner1 {
+      flex: 1 0 auto;
+      width: 100%;
+      border-radius: 8px 8px 0 0;
+      background: {
+        image: url("../../images/meerkatmoverschecklist/sergei_clipboard_desktop.png");
+        size: 40%;
+        position: {
+          x: center;
+          y: 50px;
+        }
+        repeat: no-repeat;
+        color: #fff;
+      }
+      mask: {
+        image: url("../../images/meerkatmoverschecklist/fur_mask.svg");
+        size: 100%;
+        repeat: no-repeat;
+        position: {
+          y: -15px;
+        }
+      }
+
+      h3 {
+        margin-top: 18px;
+        color: #0028D7;
+        font-size: 22px;
+      }
+    }
+
+    &__inner2 {
+      flex: 0 1 auto;
+    }
+
+    &__inner3 {
+      color: #FFF;
+      font-size: 22px;
+    }
+  }
+
+  &__fur {
+    height: 42px;
+    position: relative;
+    width: 100%;
+    
+    @include mq($from: tablet) {
+      height: 79px;
+    }
+  
+    svg {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 760px;
+      height: 44px;
+  
+      @include mq($from: tablet) {
+        width: 1500px;
+        height: 79px;
+      }
+    }
+  }
+
+  &__saveLightbox {
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--button {
+      align-self: center;
+    }
+
+    > div {
+      background-color: #fff;
+      padding: 0 16px 16px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      margin: 0 16px;
+    }
+
+    h3 {
+      margin-top: 18px;
+      color: #0028D7;
+      font-size: px2rem(18px);
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 21px;
+    }
+  }
+
+  &__button {
+    background-color: #00D76E;
+    border: none;
+    padding: 17px 44px;
+    border-radius: 24px;
+    font: {
+      size: 17px;
+      weight: 700;
+    }
+  }
+
+  .mm-chklst__stages--mortgage-in-principle-buying {
+    .mm-chklst__stages--mortgage-in-principle-buying-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--home-hunting-buying {
+    .mm-chklst__stages--home-hunting-buying-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--mortgage-application-buying {
+    .mm-chklst__stages--mortgage-application-buying-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--contracts-buying {
+    .mm-chklst__stages--contracts-buying-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--preparing-for-the-move-buying {
+    .mm-chklst__stages--preparing-for-the-move-buying-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--moving-day-buying {
+    .mm-chklst__stages--moving-day-buying-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--home-hunting-renting {
+    .mm-chklst__stages--home-hunting-renting-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--tenancy-application-renting {
+    .mm-chklst__stages--tenancy-application-renting-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--tenancy-agreement-renting {
+    .mm-chklst__stages--tenancy-agreement-renting-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--preparing-for-the-move-renting {
+    .mm-chklst__stages--preparing-for-the-move-renting-content {
+      display: block;
+    }
+  }
+
+  .mm-chklst__stages--moving-day-renting {
+    .mm-chklst__stages--moving-day-renting-content {
+      display: block;
+    }
+  }
+}
