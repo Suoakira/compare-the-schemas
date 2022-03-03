@@ -9,7 +9,7 @@
     </div>
 
     <div id="cts__nav">
-        <ul>
+        <ul class="cts__nav-ul">
             <li>
                 <a href="https://schema.org/docs/documents.html">Documentation</a>
             </li>   
@@ -40,8 +40,10 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    &__nav ul {
-        padding-right: 20px;
+    &__nav {
+		&-ul {
+			padding-right: 20px;
+		}
     }
 
     &__heading {

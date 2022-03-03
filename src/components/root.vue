@@ -42,7 +42,6 @@ export default {
 			}
 
 			if ( evt.comparisonSiteOne === "https://www.gocompare.com/car-insurance/") {
-				console.log(goData)
 				this.comparisonSiteSchema = goData
 			}
 		},

@@ -2,11 +2,11 @@
     <div>
     <div class="mb-3 cts__form">
         <div class="cts__form-i">
-            <label for="exampleFormControlInput1" class="form-label">Page url of which you wish to compare</label>
+            <label for="exampleFormControlInput1" class="form-label">Page url</label>
             <input type="text" class="form-control" v-model="rootSiteInput" >
         </div>
         <div class="cts__form-i"> 
-            <label class="form-label cts__form-2">Page's you wish to compare to</label>
+            <label class="form-label cts__form-2">Comparison page url</label>
             <input type="text" class="form-control cts__form-input" v-model="comparisonSiteOne">
         </div>
     </div>
@@ -15,13 +15,12 @@
 </template>
 
 <script>
-
 export default {
     name: 'Form',
     data() {
         return {
-            rootSiteInput: "url of site you wish to compare",
-            comparisonSiteOne: "url of site you want to compare to",
+            rootSiteInput: "",
+            comparisonSiteOne: "",
         };
     },
     methods: {
