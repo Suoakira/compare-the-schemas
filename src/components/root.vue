@@ -15,6 +15,7 @@ import Form from './Form'
 import SchemaContainer from './SchemaContainer'
 import ctmData  from "../assets/data-ctm"
 import msmData  from "../assets/data-msm"
+import goData  from "../assets/data-go"
 
 export default {
 	name: 'rppt',
@@ -34,12 +35,16 @@ export default {
 		fetchSiteData (evt){
 			if ( evt.rootSiteInput === "https://www.comparethemarket.com/car-insurance/") {
 				this.rootSiteSchema = ctmData
-				}
+			}
 
 			if ( evt.comparisonSiteOne === "https://www.moneysupermarket.com/car-insurance/") {
 				this.comparisonSiteSchema = msmData
-				}
-			console.log(this.rootSiteSchema, this.comparisonSiteSchema)
+			}
+
+			if ( evt.comparisonSiteOne === "https://www.gocompare.com/car-insurance/") {
+				console.log(goData)
+				this.comparisonSiteSchema = goData
+			}
 		},
 	}
 }
