@@ -24,7 +24,7 @@
 <script>
 
 export default {
-  name: 'HelloWorld',
+  name: 'Meganav',
   props: {
     msg: String
   }
